@@ -120,6 +120,26 @@ function Index() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-6 pt-20">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">El edificio</p>
+          <h2 className="mt-4 font-display text-4xl">Calle Tórtola 10, Granada</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo y a dos
+            minutos a pie de la estación de ferrocarril.
+          </p>
+        </div>
+        <figure className="mt-10">
+          <img
+            src={edificioAsset.url}
+            alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada"
+            className="w-full rounded-3xl object-cover"
+            style={{ boxShadow: "var(--shadow-soft)" }}
+          />
+        </figure>
+      </section>
+
+
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
