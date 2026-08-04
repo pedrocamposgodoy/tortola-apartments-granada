@@ -202,7 +202,20 @@ function Index() {
               Calle Tórtola 10, Granada. Junto a la estación de ferrocarril y bien conectado
               con el centro histórico, la Alhambra y Sierra Nevada.
             </p>
+            <figure className="mt-8">
+              <img
+                src={fachadaAsset.url}
+                alt="Fachada del edificio de los apartamentos Tórtola 10 en Granada"
+                loading="lazy"
+                className="w-full rounded-2xl object-cover"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              />
+              <figcaption className="mt-3 text-xs text-muted-foreground">
+                Entrada del edificio en Calle Tórtola 10
+              </figcaption>
+            </figure>
           </div>
+
           <ul className="space-y-4">
             {ubicacion.map(([t, l]) => (
               <li
