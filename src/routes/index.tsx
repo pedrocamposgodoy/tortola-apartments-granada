@@ -3,7 +3,8 @@ import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
-import fachadaAsset from "@/assets/fachada-tortola10.jpg.asset.json";
+import edificioAsset from "@/assets/edificio-tortola10.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -120,6 +121,26 @@ function Index() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-6 pt-20">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">El edificio</p>
+          <h2 className="mt-4 font-display text-4xl">Calle Tórtola 10, Granada</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo y a dos
+            minutos a pie de la estación de ferrocarril.
+          </p>
+        </div>
+        <figure className="mt-10">
+          <img
+            src={edificioAsset.url}
+            alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada"
+            className="w-full rounded-3xl object-cover"
+            style={{ boxShadow: "var(--shadow-soft)" }}
+          />
+        </figure>
+      </section>
+
+
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
@@ -202,18 +223,6 @@ function Index() {
               Calle Tórtola 10, Granada. Junto a la estación de ferrocarril y bien conectado
               con el centro histórico, la Alhambra y Sierra Nevada.
             </p>
-            <figure className="mt-8">
-              <img
-                src={fachadaAsset.url}
-                alt="Fachada del edificio de los apartamentos Tórtola 10 en Granada"
-                loading="lazy"
-                className="w-full rounded-2xl object-cover"
-                style={{ boxShadow: "var(--shadow-soft)" }}
-              />
-              <figcaption className="mt-3 text-xs text-muted-foreground">
-                Entrada del edificio en Calle Tórtola 10
-              </figcaption>
-            </figure>
           </div>
 
           <ul className="space-y-4">
