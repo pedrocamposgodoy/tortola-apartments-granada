@@ -4,6 +4,8 @@ import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
 import fachadaAsset from "@/assets/fachada-tortola10.jpg.asset.json";
+import edificioAsset from "@/assets/edificio-tortola10.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
