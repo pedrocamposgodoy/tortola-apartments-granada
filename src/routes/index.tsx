@@ -3,7 +3,9 @@ import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
-import fachada from "@/assets/fachada-tortola.png";
+import fachadaAsset from "@/assets/fachada-tortola10.webp.asset.json";
+const fachada = fachadaAsset.url;
+
 
 
 
