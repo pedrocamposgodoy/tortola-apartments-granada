@@ -65,7 +65,7 @@ const servicios = [
 
 const ubicacion = [
   ["5 min", "Hospital Virgen de las Nieves"],
-  ["5 min", "Hospital de Traumatología"],
+  ["33 km", "Sierra Nevada"],
   ["10 min", "Estación de tren de Granada"],
   ["15 min", "Catedral y centro histórico"],
   ["20 min", "Alhambra"],
