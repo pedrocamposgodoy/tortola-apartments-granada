@@ -65,10 +65,11 @@ const servicios = [
 
 const ubicacion = [
   ["5 min", "Hospital Virgen de las Nieves"],
-  ["33 km", "Sierra Nevada"],
-  ["10 min", "Estación de tren de Granada"],
+  ["2 min", "Estación de tren de Granada"],
+  ["30 min", "Sierra Nevada"],
   ["15 min", "Catedral y centro histórico"],
   ["20 min", "Alhambra"],
+  ["60 min", "Playa"],
 ];
 
 function Index() {
