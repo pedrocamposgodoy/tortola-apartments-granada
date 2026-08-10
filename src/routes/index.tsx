@@ -37,19 +37,19 @@ const apartamentos = [
     nombre: "Apartamento Alhambra",
     img: salon,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
-    detalles: ["40 m²", "2 huéspedes", "1 dormitorio", "1 baño"],
+    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
   },
   {
     nombre: "Apartamento Albaicín",
     img: dormitorio,
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
-    detalles: ["40 m²", "2 huéspedes", "1 dormitorio", "1 baño"],
+    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
   },
   {
     nombre: "Apartamento Realejo",
     img: cocina,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
-    detalles: ["40 m²", "2 huéspedes", "1 dormitorio", "1 baño"],
+    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
   },
 ];
 
@@ -65,10 +65,10 @@ const servicios = [
 
 const ubicacion = [
   ["2 min", "Estación de tren de Granada"],
-  ["10 min", "Hospitales"],
   ["15 min", "Centro histórico y Catedral"],
   ["20 min", "Alhambra"],
   ["1 h en coche", "Costa Tropical"],
+  ["10 min", "Hospitales"],
 ];
 
 function Index() {
