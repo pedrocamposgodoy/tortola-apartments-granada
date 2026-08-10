@@ -54,22 +54,21 @@ const apartamentos = [
 ];
 
 const servicios = [
-  { t: "Garaje privado incluido", d: "Plaza de garaje en el propio edificio. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche — aquí está incluido en el precio." },
-  { t: "Wi-Fi de fibra", d: "Conexión rápida para teletrabajo o streaming." },
-  { t: "Aire acondicionado", d: "Frío y calor en todas las estancias." },
-  { t: "Cocina equipada", d: "Vitrocerámica, microondas, nevera y menaje." },
-  { t: "Lavadora", d: "Ideal para estancias largas." },
-  { t: "Check-in autónomo", d: "Acceso con llave digital 24 h, sin esperas." },
-  { t: "Ropa y toallas", d: "Juego completo incluido en cada estancia." },
+  { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje en el propio edificio, sujeta a disponibilidad. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
+  { t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
+  { t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
+  { t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar." },
+  { t: "Check-in autónomo 24 h", d: "Acceso con llave digital, sin horarios ni esperas. Llegas cuando quieres." },
+  { t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia." },
+  { t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas." },
 ];
 
 const ubicacion = [
-  ["5 min", "Hospital Virgen de las Nieves"],
   ["2 min", "Estación de tren de Granada"],
-  ["30 min", "Sierra Nevada"],
-  ["15 min", "Catedral y centro histórico"],
+  ["10 min", "Hospitales"],
+  ["15 min", "Centro histórico y Catedral"],
   ["20 min", "Alhambra"],
-  ["60 min", "Playa"],
+  ["1 h en coche", "Costa Tropical"],
 ];
 
 function Index() {
