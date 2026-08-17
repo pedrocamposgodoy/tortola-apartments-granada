@@ -345,9 +345,11 @@ function Index() {
           <div>
             <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
             <p className="mt-4 text-muted-foreground">
-              Beiro, Granada. A cinco minutos de los hospitales Virgen de las Nieves y Traumatología,
-              y bien conectado con el centro histórico, la Alhambra y la estación de tren.
+              Beiro, Granada. A solo 2 min a pie de Metro y Renfe, 10 min en
+              Metro hasta el centro histórico, y bien conectado con la Alhambra,
+              los hospitales y el aeropuerto.
             </p>
+
           </div>
 
           <ul className="space-y-4">
