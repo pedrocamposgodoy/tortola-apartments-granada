@@ -40,33 +40,34 @@ export const Route = createFileRoute("/")({
 
 const apartamentos = [
   {
-    id: "alhambra",
-    nombre: "Apartamento Alhambra",
+    id: "ambar",
+    nombre: "Apartamento Ámbar",
     img: salon,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: salon, alt: "Salón del Apartamento Alhambra" }],
+    fotos: [{ src: salon, alt: "Salón del Apartamento Ámbar" }],
   },
   {
-    id: "albaicin",
-    nombre: "Apartamento Albaicín",
+    id: "coral",
+    nombre: "Apartamento Coral",
     img: dormitorio,
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [
-      { src: dormitorio, alt: "Dormitorio del Apartamento Albaicín" },
-      { src: albaicinCocina, alt: "Cocina del Apartamento Albaicín" },
+      { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
+      { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
     ],
   },
   {
-    id: "realejo",
-    nombre: "Apartamento Realejo",
+    id: "perla",
+    nombre: "Apartamento Perla",
     img: cocina,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: cocina, alt: "Cocina del Apartamento Realejo" }],
+    fotos: [{ src: cocina, alt: "Cocina del Apartamento Perla" }],
   },
 ];
+
 
 const servicios = [
   { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje en el propio edificio, sujeta a disponibilidad. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
