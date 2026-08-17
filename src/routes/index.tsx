@@ -38,7 +38,6 @@ export const Route = createFileRoute("/")({
 });
 
 const apartamentos = [
-
   {
     id: "ambar",
     nombre: "Apartamento Ámbar",
@@ -69,7 +68,6 @@ const apartamentos = [
 ];
 
 const servicios = [
-
   { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje en el propio edificio, sujeta a disponibilidad. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
   { t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
   { t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
@@ -87,7 +85,6 @@ const ubicacion = [
   ["25 min en coche", "Aeropuerto Federico García Lorca"],
   ["10 min", "Hospitales"],
 ];
-
 
 function GaleriaLightbox({
   fotos,
@@ -349,7 +346,6 @@ function Index() {
               Metro hasta el centro histórico, y bien conectado con la Alhambra,
               los hospitales y el aeropuerto.
             </p>
-
           </div>
 
           <ul className="space-y-4">
