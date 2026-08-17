@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
+import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
 import fachadaAsset from "@/assets/fachada-tortola10.webp.asset.json";
 const fachada = fachadaAsset.url;
 
-
-
+const albaicinCocina = albaicinCocinaAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,22 +35,31 @@ export const Route = createFileRoute("/")({
 
 const apartamentos = [
   {
+    id: "alhambra",
     nombre: "Apartamento Alhambra",
     img: salon,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    fotos: [{ src: salon, alt: "Salón del Apartamento Alhambra" }],
   },
   {
+    id: "albaicin",
     nombre: "Apartamento Albaicín",
     img: dormitorio,
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    fotos: [
+      { src: dormitorio, alt: "Dormitorio del Apartamento Albaicín" },
+      { src: albaicinCocina, alt: "Cocina del Apartamento Albaicín" },
+    ],
   },
   {
+    id: "realejo",
     nombre: "Apartamento Realejo",
     img: cocina,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    fotos: [{ src: cocina, alt: "Cocina del Apartamento Realejo" }],
   },
 ];
 
@@ -71,7 +81,96 @@ const ubicacion = [
   ["10 min", "Hospitales"],
 ];
 
+function GaleriaLightbox({
+  fotos,
+  titulo,
+  inicial,
+  onClose,
+}: {
+  fotos: { src: string; alt: string }[];
+  titulo: string;
+  inicial: number;
+  onClose: () => void;
+}) {
+  const [index, setIndex] = useState(inicial);
+  const actual = fotos[index];
+
+  const anterior = () => setIndex((i) => (i === 0 ? fotos.length - 1 : i - 1));
+  const siguiente = () => setIndex((i) => (i === fotos.length - 1 ? 0 : i + 1));
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Galería de ${titulo}`}
+    >
+      <button
+        onClick={onClose}
+        className="absolute right-4 top-4 rounded-full p-2 text-white/80 hover:bg-white/10 hover:text-white"
+        aria-label="Cerrar galería"
+      >
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      {fotos.length > 1 && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            anterior();
+          }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+          aria-label="Foto anterior"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+      )}
+
+      {fotos.length > 1 && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            siguiente();
+          }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+          aria-label="Foto siguiente"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      )}
+
+      <div className="max-h-full max-w-full" onClick={(e) => e.stopPropagation()}>
+        {actual && (
+          <img
+            src={actual.src}
+            alt={actual.alt}
+            className="max-h-[80vh] max-w-full rounded-lg object-contain"
+          />
+        )}
+        <div className="mt-3 text-center text-sm text-white/80">
+          {titulo} · {index + 1} / {fotos.length}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Index() {
+  const [galeria, setGaleria] = useState<{
+    id: string;
+    nombre: string;
+    fotos: { src: string; alt: string }[];
+    index: number;
+  } | null>(null);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="absolute inset-x-0 top-0 z-10">
@@ -144,7 +243,6 @@ function Index() {
         </figure>
       </section>
 
-
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
@@ -176,17 +274,32 @@ function Index() {
             {apartamentos.map((a) => (
               <article
                 key={a.nombre}
-                className="overflow-hidden rounded-2xl bg-card"
+                className="group cursor-pointer overflow-hidden rounded-2xl bg-card transition-transform hover:scale-[1.02]"
                 style={{ boxShadow: "var(--shadow-soft)" }}
+                onClick={() =>
+                  setGaleria({
+                    id: a.id,
+                    nombre: a.nombre,
+                    fotos: a.fotos,
+                    index: 0,
+                  })
+                }
               >
-                <img
-                  src={a.img}
-                  alt={a.nombre}
-                  loading="lazy"
-                  width={1600}
-                  height={1072}
-                  className="h-56 w-full object-cover"
-                />
+                <div className="relative overflow-hidden">
+                  <img
+                    src={a.img}
+                    alt={a.nombre}
+                    loading="lazy"
+                    width={1600}
+                    height={1072}
+                    className="h-56 w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
+                    <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black opacity-0 transition-opacity group-hover:opacity-100">
+                      Ver fotos
+                    </span>
+                  </div>
+                </div>
                 <div className="p-6">
                   <h3 className="font-display text-2xl">{a.nombre}</h3>
                   <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
@@ -268,6 +381,15 @@ function Index() {
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} Tórtola 10 · Apartamentos turísticos · Granada
       </footer>
+
+      {galeria && (
+        <GaleriaLightbox
+          fotos={galeria.fotos}
+          titulo={galeria.nombre}
+          inicial={galeria.index}
+          onClose={() => setGaleria(null)}
+        />
+      )}
     </div>
   );
 }
