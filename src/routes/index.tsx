@@ -13,25 +13,30 @@ const albaicinCocina = albaicinCocinaAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tórtola 10 · Apartamentos turísticos en Granada con garaje incluido" },
+      {
+        title:
+          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos turísticos en Granada con garaje",
+      },
       {
         name: "description",
         content:
-          "3 apartamentos turísticos de 40 m² con garaje privado incluido, cerca de la estación de tren y los hospitales Virgen de las Nieves y Traumatología. Reserva directa en Granada.",
+          "Tres apartamentos turísticos de 40 m² en Tórtola 10, Granada: Ámbar, Coral y Perla. Garaje privado incluido, a 2 min a pie de Metro y Renfe. Reserva directa.",
       },
       {
         property: "og:title",
-        content: "Tórtola 10 · Apartamentos turísticos en Granada",
+        content:
+          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos en Granada",
       },
       {
         property: "og:description",
         content:
-          "3 apartamentos de 40 m² con garaje incluido, cerca de la estación de tren de Granada. Ideal para turismo y estancias médicas. Reserva directa.",
+          "Apartamentos turísticos de 40 m² con garaje incluido en Granada. Ámbar, Coral y Perla, a 2 min a pie de Metro y Renfe. Reserva directa.",
       },
     ],
   }),
   component: Index,
 });
+
 
 const apartamentos = [
   {
