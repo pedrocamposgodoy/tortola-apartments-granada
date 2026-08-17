@@ -13,20 +13,24 @@ const albaicinCocina = albaicinCocinaAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tórtola 10 · Apartamentos turísticos en Granada con garaje incluido" },
+      {
+        title:
+          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos turísticos en Granada con garaje",
+      },
       {
         name: "description",
         content:
-          "3 apartamentos turísticos de 40 m² con garaje privado incluido, cerca de la estación de tren y los hospitales Virgen de las Nieves y Traumatología. Reserva directa en Granada.",
+          "Tres apartamentos turísticos de 40 m² en Tórtola 10, Granada: Ámbar, Coral y Perla. Garaje privado incluido, a 2 min a pie de Metro y Renfe. Reserva directa.",
       },
       {
         property: "og:title",
-        content: "Tórtola 10 · Apartamentos turísticos en Granada",
+        content:
+          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos en Granada",
       },
       {
         property: "og:description",
         content:
-          "3 apartamentos de 40 m² con garaje incluido, cerca de la estación de tren de Granada. Ideal para turismo y estancias médicas. Reserva directa.",
+          "Apartamentos turísticos de 40 m² con garaje incluido en Granada. Ámbar, Coral y Perla, a 2 min a pie de Metro y Renfe. Reserva directa.",
       },
     ],
   }),
@@ -35,31 +39,31 @@ export const Route = createFileRoute("/")({
 
 const apartamentos = [
   {
-    id: "alhambra",
-    nombre: "Apartamento Alhambra",
+    id: "ambar",
+    nombre: "Apartamento Ámbar",
     img: salon,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: salon, alt: "Salón del Apartamento Alhambra" }],
+    fotos: [{ src: salon, alt: "Salón del Apartamento Ámbar" }],
   },
   {
-    id: "albaicin",
-    nombre: "Apartamento Albaicín",
+    id: "coral",
+    nombre: "Apartamento Coral",
     img: dormitorio,
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [
-      { src: dormitorio, alt: "Dormitorio del Apartamento Albaicín" },
-      { src: albaicinCocina, alt: "Cocina del Apartamento Albaicín" },
+      { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
+      { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
     ],
   },
   {
-    id: "realejo",
-    nombre: "Apartamento Realejo",
+    id: "perla",
+    nombre: "Apartamento Perla",
     img: cocina,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: cocina, alt: "Cocina del Apartamento Realejo" }],
+    fotos: [{ src: cocina, alt: "Cocina del Apartamento Perla" }],
   },
 ];
 
@@ -74,10 +78,11 @@ const servicios = [
 ];
 
 const ubicacion = [
-  ["2 min", "Estación de tren de Granada"],
-  ["15 min", "Centro histórico y Catedral"],
-  ["20 min", "Alhambra"],
-  ["1 h en coche", "Costa Tropical"],
+  ["2 min a pie", "Metro de Granada"],
+  ["2 min a pie", "Estación de Renfe"],
+  ["10 min en Metro / 20 min a pie", "Centro histórico y Catedral"],
+  ["35 min", "Alhambra"],
+  ["25 min en coche", "Aeropuerto Federico García Lorca"],
   ["10 min", "Hospitales"],
 ];
 
@@ -337,8 +342,9 @@ function Index() {
           <div>
             <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
             <p className="mt-4 text-muted-foreground">
-              Beiro, Granada. A cinco minutos de los hospitales Virgen de las Nieves y Traumatología,
-              y bien conectado con el centro histórico, la Alhambra y la estación de tren.
+              Beiro, Granada. A solo 2 min a pie de Metro y Renfe, 10 min en
+              Metro hasta el centro histórico, y bien conectado con la Alhambra,
+              los hospitales y el aeropuerto.
             </p>
           </div>
 
