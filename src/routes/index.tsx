@@ -37,8 +37,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-
 const apartamentos = [
+
   {
     id: "ambar",
     nombre: "Apartamento Ámbar",
