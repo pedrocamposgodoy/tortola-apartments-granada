@@ -148,11 +148,13 @@ function GaleriaLightbox({
       )}
 
       <div className="max-h-full max-w-full" onClick={(e) => e.stopPropagation()}>
-        <img
-          src={actual.src}
-          alt={actual.alt}
-          className="max-h-[80vh] max-w-full rounded-lg object-contain"
-        />
+        {actual && (
+          <img
+            src={actual.src}
+            alt={actual.alt}
+            className="max-h-[80vh] max-w-full rounded-lg object-contain"
+          />
+        )}
         <div className="mt-3 text-center text-sm text-white/80">
           {titulo} · {index + 1} / {fotos.length}
         </div>
