@@ -80,12 +80,14 @@ const servicios = [
 ];
 
 const ubicacion = [
-  ["2 min", "Estación de tren de Granada"],
-  ["15 min", "Centro histórico y Catedral"],
-  ["20 min", "Alhambra"],
-  ["1 h en coche", "Costa Tropical"],
+  ["2 min a pie", "Metro de Granada"],
+  ["2 min a pie", "Estación de Renfe"],
+  ["10 min en Metro / 20 min a pie", "Centro histórico y Catedral"],
+  ["35 min", "Alhambra"],
+  ["25 min en coche", "Aeropuerto Federico García Lorca"],
   ["10 min", "Hospitales"],
 ];
+
 
 function GaleriaLightbox({
   fotos,
