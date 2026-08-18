@@ -48,6 +48,7 @@ const apartamentos = [
     id: "ambar",
     nombre: "Apartamento Ámbar",
     img: salon,
+    colorFondo: "bg-amber-50",
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: salon, alt: "Salón del Apartamento Ámbar" }],
@@ -56,6 +57,7 @@ const apartamentos = [
     id: "coral",
     nombre: "Apartamento Coral",
     img: dormitorio,
+    colorFondo: "bg-rose-50",
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [
@@ -67,6 +69,7 @@ const apartamentos = [
     id: "perla",
     nombre: "Apartamento Perla",
     img: cocina,
+    colorFondo: "bg-slate-50",
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: cocina, alt: "Cocina del Apartamento Perla" }],
@@ -323,7 +326,7 @@ function Index() {
           {[
             ["3", "Apartamentos"],
             ["40 m²", "Superficie"],
-            ["2", "Huéspedes"],
+            ["4", "Huéspedes"],
             ["24 h", "Check-in"],
           ].map(([n, l]) => (
             <div key={l} className="rounded-xl border border-border bg-card p-6">
@@ -343,7 +346,7 @@ function Index() {
             {apartamentos.map((a) => (
               <article
                 key={a.nombre}
-                className="group cursor-pointer overflow-hidden rounded-2xl bg-card transition-transform hover:scale-[1.02]"
+                className={`group cursor-pointer overflow-hidden rounded-2xl ${a.colorFondo} transition-transform hover:scale-[1.02]`}
                 style={{ boxShadow: "var(--shadow-soft)" }}
                 onClick={() =>
                   setGaleria({
