@@ -430,27 +430,41 @@ function Index() {
       </section>
 
       <section className="bg-secondary/50 py-20">
-        <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
-          <div>
-            <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
-            <p className="mt-4 text-muted-foreground">
-              Beiro, Granada. A solo 2 min a pie de Metro y Renfe, 10 min en
-              Metro hasta el centro histórico, y bien conectado con la Alhambra,
-              los hospitales y el aeropuerto.
-            </p>
-          </div>
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Beiro, Granada. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
+            10 min en Metro hasta el centro histórico (o 20 min a pie), 10 min en transporte público
+            hasta la Alhambra (35 min a pie), y 25 min en taxi o bus hasta el aeropuerto Federico García Lorca.
+            Hospitales a 10 min.
+          </p>
 
-          <ul className="space-y-4">
-            {ubicacion.map(([t, l]) => (
-              <li
-                key={l}
-                className="flex items-baseline justify-between border-b border-border pb-3"
-              >
-                <span className="text-sm">{l}</span>
-                <span className="font-display text-lg text-primary">{t}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <ul className="space-y-4">
+              {ubicacion.map(([t, l]) => (
+                <li
+                  key={l}
+                  className="flex items-baseline justify-between border-b border-border pb-3"
+                >
+                  <span className="text-sm">{l}</span>
+                  <span className="font-display text-lg text-primary">{t}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="overflow-hidden rounded-3xl border border-border" style={{ boxShadow: "var(--shadow-soft)" }}>
+              <iframe
+                title="Ubicación de Calle Ruiseñor 7, Granada"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.0!2d-3.6067!3d37.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fca3e4b4f7a9%3A0x5e3a2b4c6d7e8f90!2sCalle%20Ruise%C3%B1or%207%2C%20Granada%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1"
+                width="100%"
+                height="400"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block h-[400px] w-full border-0"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
