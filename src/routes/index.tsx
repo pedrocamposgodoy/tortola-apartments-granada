@@ -468,6 +468,18 @@ function Index() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-3xl px-6 py-24">
+        <h2 className="text-center font-display text-4xl">Preguntas frecuentes</h2>
+        <Accordion type="single" collapsible className="mt-12">
+          {faqs.map((f) => (
+            <AccordionItem key={f.pregunta} value={f.pregunta}>
+              <AccordionTrigger>{f.pregunta}</AccordionTrigger>
+              <AccordionContent>{f.respuesta}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+
       <section id="contacto" className="mx-auto max-w-3xl px-6 py-24 text-center">
         <h2 className="font-display text-4xl">Reserva directa</h2>
         <p className="mt-4 text-muted-foreground">
