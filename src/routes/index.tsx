@@ -323,7 +323,7 @@ function Index() {
           {[
             ["3", "Apartamentos"],
             ["40 m²", "Superficie"],
-            ["2", "Huéspedes"],
+            ["4", "Huéspedes"],
             ["24 h", "Check-in"],
           ].map(([n, l]) => (
             <div key={l} className="rounded-xl border border-border bg-card p-6">
