@@ -1,4 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useState } from "react";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
@@ -78,12 +84,63 @@ const servicios = [
 ];
 
 const ubicacion = [
-  ["2 min a pie", "Metro de Granada"],
-  ["2 min a pie", "Estación de Renfe"],
-  ["10 min en Metro / 20 min a pie", "Centro histórico y Catedral"],
-  ["35 min", "Alhambra"],
-  ["25 min en coche", "Aeropuerto Federico García Lorca"],
+  ["2 min", "Parada de Metro"],
+  ["2 min", "Estación de Renfe"],
+  ["10 min", "Centro histórico en Metro"],
+  ["20 min", "Centro histórico a pie"],
+  ["10 min", "Alhambra en transporte público"],
+  ["35 min", "Alhambra a pie"],
+  ["25 min", "Aeropuerto Federico García Lorca en taxi o bus"],
   ["10 min", "Hospitales"],
+];
+
+const faqs = [
+  {
+    pregunta: "¿Cuál es el horario de check-in y check-out?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cómo funciona el acceso al apartamento?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Se admiten mascotas?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Hay fianza? ¿Cómo se gestiona?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cuál es la política de cancelación?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Qué métodos de pago se aceptan?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cuántas personas caben en cada apartamento?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Está incluida la ropa de cama y las toallas?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cómo se llega desde el aeropuerto?",
+    respuesta: "[PENDIENTE]",
+  },
+];
+
+const testimonios = [
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
 ];
 
 function GaleriaLightbox({
@@ -248,6 +305,13 @@ function Index() {
         </figure>
       </section>
 
+      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+        <h2 className="font-display text-4xl">Quiénes somos</h2>
+        <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+          [TEXTO PENDIENTE - gestión familiar]
+        </p>
+      </section>
+
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
@@ -325,6 +389,34 @@ function Index() {
         </div>
       </section>
 
+      <section className="hidden mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-center font-display text-4xl">Lo que dicen nuestros huéspedes</h2>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {testimonios.map((t, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-border bg-card p-6"
+              style={{ boxShadow: "var(--shadow-soft)" }}
+            >
+              <div className="flex gap-1">
+                {Array.from({ length: t.estrellas }).map((_, j) => (
+                  <svg
+                    key={j}
+                    className="h-5 w-5 fill-primary text-primary"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">{t.texto}</p>
+              <p className="mt-4 text-sm font-medium">{t.nombre}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-center font-display text-4xl">Todo incluido</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -338,28 +430,54 @@ function Index() {
       </section>
 
       <section className="bg-secondary/50 py-20">
-        <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
-          <div>
-            <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
-            <p className="mt-4 text-muted-foreground">
-              Beiro, Granada. A solo 2 min a pie de Metro y Renfe, 10 min en
-              Metro hasta el centro histórico, y bien conectado con la Alhambra,
-              los hospitales y el aeropuerto.
-            </p>
-          </div>
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Beiro, Granada. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
+            10 min en Metro hasta el centro histórico (o 20 min a pie), 10 min en transporte público
+            hasta la Alhambra (35 min a pie), y 25 min en taxi o bus hasta el aeropuerto Federico García Lorca.
+            Hospitales a 10 min.
+          </p>
 
-          <ul className="space-y-4">
-            {ubicacion.map(([t, l]) => (
-              <li
-                key={l}
-                className="flex items-baseline justify-between border-b border-border pb-3"
-              >
-                <span className="text-sm">{l}</span>
-                <span className="font-display text-lg text-primary">{t}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <ul className="space-y-4">
+              {ubicacion.map(([t, l]) => (
+                <li
+                  key={l}
+                  className="flex items-baseline justify-between border-b border-border pb-3"
+                >
+                  <span className="text-sm">{l}</span>
+                  <span className="font-display text-lg text-primary">{t}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="overflow-hidden rounded-3xl border border-border" style={{ boxShadow: "var(--shadow-soft)" }}>
+              <iframe
+                title="Ubicación de Calle Ruiseñor 7, Granada"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.0!2d-3.6067!3d37.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fca3e4b4f7a9%3A0x5e3a2b4c6d7e8f90!2sCalle%20Ruise%C3%B1or%207%2C%20Granada%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1"
+                width="100%"
+                height="400"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block h-[400px] w-full border-0"
+              />
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-24">
+        <h2 className="text-center font-display text-4xl">Preguntas frecuentes</h2>
+        <Accordion type="single" collapsible className="mt-12">
+          {faqs.map((f) => (
+            <AccordionItem key={f.pregunta} value={f.pregunta}>
+              <AccordionTrigger>{f.pregunta}</AccordionTrigger>
+              <AccordionContent>{f.respuesta}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
 
       <section id="contacto" className="mx-auto max-w-3xl px-6 py-24 text-center">
