@@ -100,43 +100,53 @@ const ubicacion = [
 const faqs = [
   {
     pregunta: "¿Cuál es el horario de check-in y check-out?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "El check-in es autónomo mediante llave digital, disponible las 24 horas: llegas cuando quieras. El check-out es flexible, coordínalo con nosotros antes de tu llegada.",
   },
   {
     pregunta: "¿Cómo funciona el acceso al apartamento?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "El acceso es totalmente autónomo mediante cerradura inteligente. Recibirás el código de acceso antes de tu llegada, sin necesidad de recoger llaves ni esperar a nadie.",
   },
   {
     pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "La plaza de garaje está sujeta a disponibilidad. Te recomendamos confirmarla al hacer tu reserva.",
   },
   {
     pregunta: "¿Se admiten mascotas?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "Sí, se admiten mascotas con un suplemento adicional. Contáctanos antes de reservar para confirmar condiciones.",
   },
   {
     pregunta: "¿Hay fianza? ¿Cómo se gestiona?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "La fianza depende del canal de reserva utilizado. Te informaremos de las condiciones exactas al confirmar tu reserva.",
   },
   {
     pregunta: "¿Cuál es la política de cancelación?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "Las condiciones de cancelación dependen de la plataforma de reserva utilizada. Consulta las condiciones específicas en el momento de reservar.",
   },
   {
     pregunta: "¿Qué métodos de pago se aceptan?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "Aceptamos los métodos de pago habituales de cada plataforma de reserva (tarjeta de crédito/débito). Para reservas directas, contáctanos para más detalles.",
   },
   {
     pregunta: "¿Cuántas personas caben en cada apartamento?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "Cada apartamento tiene capacidad para 4 personas, con un dormitorio independiente y salón con sofá cama.",
   },
   {
     pregunta: "¿Está incluida la ropa de cama y las toallas?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "Sí, la ropa de cama y las toallas están incluidas y se renuevan en cada estancia.",
   },
   {
     pregunta: "¿Cómo se llega desde el aeropuerto?",
-    respuesta: "[PENDIENTE]",
+    respuesta:
+      "El aeropuerto Federico García Lorca está a unos 25 minutos en taxi o autobús. También puedes llegar cómodamente en transporte público hasta el centro y después caminar o coger el Metro hasta el apartamento.",
   },
 ];
 
@@ -311,7 +321,7 @@ function Index() {
       <section className="mx-auto max-w-3xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Quiénes somos</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-          [TEXTO PENDIENTE - gestión familiar]
+          Somos una empresa familiar especializada en el alquiler de apartamentos en Granada desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
         </p>
       </section>
 
@@ -457,8 +467,8 @@ function Index() {
 
             <div className="overflow-hidden rounded-3xl border border-border" style={{ boxShadow: "var(--shadow-soft)" }}>
               <iframe
-                title="Ubicación de Calle Ruiseñor 7, Granada"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.0!2d-3.6067!3d37.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fca3e4b4f7a9%3A0x5e3a2b4c6d7e8f90!2sCalle%20Ruise%C3%B1or%207%2C%20Granada%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1"
+                title="Ubicación de Calle Tórtola nº 10, Granada"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.0!2d-3.6067!3d37.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fca3e4b4f7a9%3A0x5e3a2b4c6d7e8f90!2sCalle%20T%C3%B3rtola%2010%2C%20Granada%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1"
                 width="100%"
                 height="400"
                 allowFullScreen
