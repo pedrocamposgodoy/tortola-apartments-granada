@@ -48,6 +48,7 @@ const apartamentos = [
     id: "ambar",
     nombre: "Apartamento Ámbar",
     img: salon,
+    colorFondo: "bg-amber-50",
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: salon, alt: "Salón del Apartamento Ámbar" }],
@@ -56,6 +57,7 @@ const apartamentos = [
     id: "coral",
     nombre: "Apartamento Coral",
     img: dormitorio,
+    colorFondo: "bg-rose-50",
     desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [
@@ -67,6 +69,7 @@ const apartamentos = [
     id: "perla",
     nombre: "Apartamento Perla",
     img: cocina,
+    colorFondo: "bg-slate-50",
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: cocina, alt: "Cocina del Apartamento Perla" }],
