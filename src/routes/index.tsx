@@ -305,6 +305,13 @@ function Index() {
         </figure>
       </section>
 
+      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+        <h2 className="font-display text-4xl">Quiénes somos</h2>
+        <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+          [TEXTO PENDIENTE - gestión familiar]
+        </p>
+      </section>
+
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
