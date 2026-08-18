@@ -84,12 +84,63 @@ const servicios = [
 ];
 
 const ubicacion = [
-  ["2 min a pie", "Metro de Granada"],
-  ["2 min a pie", "Estación de Renfe"],
-  ["10 min en Metro / 20 min a pie", "Centro histórico y Catedral"],
-  ["35 min", "Alhambra"],
-  ["25 min en coche", "Aeropuerto Federico García Lorca"],
+  ["2 min", "Parada de Metro"],
+  ["2 min", "Estación de Renfe"],
+  ["10 min", "Centro histórico en Metro"],
+  ["20 min", "Centro histórico a pie"],
+  ["10 min", "Alhambra en transporte público"],
+  ["35 min", "Alhambra a pie"],
+  ["25 min", "Aeropuerto Federico García Lorca en taxi o bus"],
   ["10 min", "Hospitales"],
+];
+
+const faqs = [
+  {
+    pregunta: "¿Cuál es el horario de check-in y check-out?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cómo funciona el acceso al apartamento?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Se admiten mascotas?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Hay fianza? ¿Cómo se gestiona?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cuál es la política de cancelación?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Qué métodos de pago se aceptan?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cuántas personas caben en cada apartamento?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Está incluida la ropa de cama y las toallas?",
+    respuesta: "[PENDIENTE]",
+  },
+  {
+    pregunta: "¿Cómo se llega desde el aeropuerto?",
+    respuesta: "[PENDIENTE]",
+  },
+];
+
+const testimonios = [
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
+  { nombre: "[PENDIENTE]", texto: "[PENDIENTE]", estrellas: 5 },
 ];
 
 function GaleriaLightbox({
