@@ -346,7 +346,7 @@ function Index() {
             {apartamentos.map((a) => (
               <article
                 key={a.nombre}
-                className="group cursor-pointer overflow-hidden rounded-2xl bg-card transition-transform hover:scale-[1.02]"
+                className={`group cursor-pointer overflow-hidden rounded-2xl ${a.colorFondo} transition-transform hover:scale-[1.02]`}
                 style={{ boxShadow: "var(--shadow-soft)" }}
                 onClick={() =>
                   setGaleria({
