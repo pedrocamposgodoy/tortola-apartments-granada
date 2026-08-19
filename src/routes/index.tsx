@@ -11,7 +11,7 @@ import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
 import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
-import fachadaAsset from "@/assets/fachada-tortola10.webp.asset.json";
+import fachadaAsset from "@/assets/fachada-tortola.jpg.asset.json";
 const fachada = fachadaAsset.url;
 
 const albaicinCocina = albaicinCocinaAsset.url;
