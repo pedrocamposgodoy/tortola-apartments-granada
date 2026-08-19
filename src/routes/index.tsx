@@ -318,14 +318,14 @@ function Index() {
         </figure>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-3xl px-6 py-14 text-center">
         <h2 className="font-display text-4xl">Quiénes somos</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
           Somos una empresa familiar especializada en el alquiler de apartamentos en Granada desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
         </p>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-5xl px-6 py-14 text-center">
         <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
           En Calle Tórtola encontrarás tres apartamentos independientes pensados para
@@ -349,7 +349,7 @@ function Index() {
         </dl>
       </section>
 
-      <section id="apartamentos" className="bg-secondary/50 py-20">
+      <section id="apartamentos" className="bg-secondary/50 py-14">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center font-display text-4xl">Los apartamentos</h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -402,7 +402,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="hidden mx-auto max-w-6xl px-6 py-20">
+      <section className="hidden mx-auto max-w-6xl px-6 py-14">
         <h2 className="text-center font-display text-4xl">Lo que dicen nuestros huéspedes</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {testimonios.map((t, i) => (
@@ -430,7 +430,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-14">
         <h2 className="text-center font-display text-4xl">Todo incluido</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {servicios.map((s) => (
@@ -442,7 +442,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-20">
+      <section className="bg-secondary/50 py-14">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -481,7 +481,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-24">
+      <section className="mx-auto max-w-3xl px-6 py-18">
         <h2 className="text-center font-display text-4xl">Preguntas frecuentes</h2>
         <Accordion type="single" collapsible className="mt-12">
           {faqs.map((f) => (
@@ -493,7 +493,7 @@ function Index() {
         </Accordion>
       </section>
 
-      <section id="contacto" className="mx-auto max-w-3xl px-6 py-24 text-center">
+      <section id="contacto" className="mx-auto max-w-3xl px-6 py-18 text-center">
         <h2 className="font-display text-4xl">Reserva directa</h2>
         <p className="mt-4 text-muted-foreground">
           Escríbenos para consultar disponibilidad y precios. Respondemos en menos de 24
