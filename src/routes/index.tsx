@@ -280,10 +280,10 @@ function Index() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <p className="text-xs uppercase tracking-[0.35em] text-primary-foreground/80">
-            Granada · Beiro · Con garaje privado incluido
+            <span translate="no" className="notranslate">Granada</span> · Beiro · Con garaje privado incluido
           </p>
           <h1 className="mt-6 font-display text-5xl leading-tight text-primary-foreground sm:text-7xl">
-            Tres apartamentos para descubrir Granada
+            Tres apartamentos para descubrir <span translate="no" className="notranslate">Granada</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
             Apartamentos turísticos de 40 m² con dormitorio independiente, reformados y
@@ -313,7 +313,7 @@ function Index() {
             <span translate="no" className="notranslate">
               Calle Tórtola 10
             </span>
-            , Granada
+            , <span translate="no" className="notranslate">Granada</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo,
@@ -333,12 +333,12 @@ function Index() {
       <section className="mx-auto max-w-3xl px-6 py-14 text-center">
         <h2 className="font-display text-4xl">Quiénes somos</h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-          Somos una empresa familiar especializada en el alquiler de apartamentos en Granada desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
+          Somos una empresa familiar especializada en el alquiler de apartamentos en <span translate="no" className="notranslate">Granada</span> desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
         </p>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-14 text-center">
-        <h2 className="font-display text-4xl">Tu base perfecta en Granada</h2>
+        <h2 className="font-display text-4xl">Tu base perfecta en <span translate="no" className="notranslate">Granada</span></h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
           En Calle Tórtola encontrarás tres apartamentos independientes pensados para
           parejas, viajeros de negocios y estancias médicas. Garaje privado incluido en el precio,
@@ -460,7 +460,7 @@ function Index() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Beiro, Granada. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
+            Beiro, <span translate="no" className="notranslate">Granada</span>. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
             10 min en Metro hasta el centro histórico (o 20 min a pie), 10 min en transporte público
             hasta la Alhambra (35 min a pie), y 25 min en taxi o bus hasta el aeropuerto Federico García Lorca.
             Hospitales a 10 min.
@@ -534,7 +534,7 @@ function Index() {
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10
         </span>{" "}
-        · Apartamentos turísticos · Granada
+        · Apartamentos turísticos · <span translate="no" className="notranslate">Granada</span>
       </footer>
 
       {galeria && (
