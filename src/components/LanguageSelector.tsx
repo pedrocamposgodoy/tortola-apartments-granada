@@ -21,6 +21,39 @@ declare global {
   }
 }
 
+
+const dominios = () => {
+  const host = window.location.hostname;
+  const partes = host.split(".");
+  const lista = [host, "." + host];
+  if (partes.length > 2) lista.push("." + partes.slice(-2).join("."));
+  return lista;
+};
+
+function leerCookieIdioma() {
+  const m = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+  if (!m) return null;
+  const valor = decodeURIComponent(m[1] ?? "");
+  const code = valor.split("/")[2];
+  return code || null;
+}
+
+function escribirCookieIdioma(code: string) {
+  const valor = "/es/" + code;
+  document.cookie = `googtrans=${valor};path=/`;
+  for (const d of dominios()) {
+    document.cookie = `googtrans=${valor};path=/;domain=${d}`;
+  }
+}
+
+function borrarCookieIdioma() {
+  const exp = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  document.cookie = `googtrans=;path=/;${exp}`;
+  for (const d of dominios()) {
+    document.cookie = `googtrans=;path=/;domain=${d};${exp}`;
+  }
+}
+
 export function LanguageSelector() {
   const [abierto, setAbierto] = useState(false);
   const [activo, setActivo] = useState("es");
@@ -57,13 +90,28 @@ export function LanguageSelector() {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
+  useEffect(() => {
+    const actual = leerCookieIdioma();
+    if (actual) setActivo(actual);
+  }, []);
+
   const cambiarIdioma = (code: string) => {
     setActivo(code);
     setAbierto(false);
+
+    if (code === "es") {
+      borrarCookieIdioma();
+      window.location.reload();
+      return;
+    }
+
+    escribirCookieIdioma(code);
     const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
     if (combo) {
-      combo.value = code === "es" ? "" : code;
+      combo.value = code;
       combo.dispatchEvent(new Event("change"));
+    } else {
+      window.location.reload();
     }
   };
 
