@@ -253,9 +253,9 @@ function Index() {
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
           <span
             translate="no"
-            className="notranslate font-display text-xl tracking-[0.2em] text-primary-foreground sm:text-2xl"
+            className="notranslate font-display text-base tracking-[0.2em] text-primary-foreground sm:text-xl"
           >
-            TÓRTOLA 10
+            APARTAMENTOS TÓRTOLA 10
           </span>
           <div className="flex items-center gap-3">
             <a
