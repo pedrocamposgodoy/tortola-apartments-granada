@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
@@ -249,16 +250,22 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="absolute inset-x-0 top-0 z-10">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <span className="font-display text-2xl tracking-[0.2em] text-primary-foreground">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
+          <span
+            translate="no"
+            className="notranslate font-display text-xl tracking-[0.2em] text-primary-foreground sm:text-2xl"
+          >
             TÓRTOLA 10
           </span>
-          <a
-            href="#contacto"
-            className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-          >
-            Reservar
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contacto"
+              className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+            >
+              Reservar
+            </a>
+            <LanguageSelector />
+          </div>
         </nav>
       </header>
 
