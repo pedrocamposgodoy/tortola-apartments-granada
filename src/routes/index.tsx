@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
@@ -249,16 +250,22 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="absolute inset-x-0 top-0 z-10">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <span className="font-display text-2xl tracking-[0.2em] text-primary-foreground">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
+          <span
+            translate="no"
+            className="notranslate font-display text-xl tracking-[0.2em] text-primary-foreground sm:text-2xl"
+          >
             TÓRTOLA 10
           </span>
-          <a
-            href="#contacto"
-            className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-          >
-            Reservar
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contacto"
+              className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+            >
+              Reservar
+            </a>
+            <LanguageSelector />
+          </div>
         </nav>
       </header>
 
@@ -302,7 +309,12 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 pt-20">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">El edificio</p>
-          <h2 className="mt-4 font-display text-4xl">Calle Tórtola 10, Granada</h2>
+          <h2 className="mt-4 font-display text-4xl">
+            <span translate="no" className="notranslate">
+              Calle Tórtola 10
+            </span>
+            , Granada
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo,
             con garaje propio y muy bien comunicado con la ciudad.
@@ -383,7 +395,9 @@ function Index() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-2xl">{a.nombre}</h3>
+                  <h3 translate="no" className="notranslate font-display text-2xl">
+                    {a.nombre}
+                  </h3>
                   <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {a.detalles.map((d) => (
@@ -516,7 +530,11 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Tórtola 10 · Apartamentos turísticos · Granada
+        © {new Date().getFullYear()}{" "}
+        <span translate="no" className="notranslate">
+          Apartamentos Tórtola 10
+        </span>{" "}
+        · Apartamentos turísticos · Granada
       </footer>
 
       {galeria && (
