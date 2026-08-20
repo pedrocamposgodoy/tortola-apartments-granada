@@ -309,7 +309,12 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 pt-20">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">El edificio</p>
-          <h2 className="mt-4 font-display text-4xl">Calle Tórtola 10, Granada</h2>
+          <h2 className="mt-4 font-display text-4xl">
+            <span translate="no" className="notranslate">
+              Calle Tórtola 10
+            </span>
+            , Granada
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo,
             con garaje propio y muy bien comunicado con la ciudad.
@@ -390,7 +395,9 @@ function Index() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-2xl">{a.nombre}</h3>
+                  <h3 translate="no" className="notranslate font-display text-2xl">
+                    {a.nombre}
+                  </h3>
                   <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {a.detalles.map((d) => (
@@ -523,7 +530,11 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Tórtola 10 · Apartamentos turísticos · Granada
+        © {new Date().getFullYear()}{" "}
+        <span translate="no" className="notranslate">
+          Apartamentos Tórtola 10
+        </span>{" "}
+        · Apartamentos turísticos · Granada
       </footer>
 
       {galeria && (
