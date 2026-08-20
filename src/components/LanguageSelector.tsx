@@ -33,7 +33,7 @@ const dominios = () => {
 function leerCookieIdioma() {
   const m = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
   if (!m) return null;
-  const valor = decodeURIComponent(m[1]);
+  const valor = decodeURIComponent(m[1] ?? "");
   const code = valor.split("/")[2];
   return code || null;
 }
