@@ -126,9 +126,14 @@ export function LanguageSelector() {
         aria-label="Seleccionar idioma"
         aria-haspopup="menu"
         aria-expanded={abierto}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-base leading-none text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
       >
-        <span aria-hidden="true">{IDIOMAS.find((i) => i.code === activo)?.bandera ?? "🌐"}</span>
+        <img
+          src={urlBandera(IDIOMAS.find((i) => i.code === activo)?.bandera ?? "es")}
+          alt=""
+          aria-hidden="true"
+          className="h-5 w-5 rounded-full object-cover"
+        />
       </button>
 
       {abierto && (
@@ -146,7 +151,12 @@ export function LanguageSelector() {
                   activo === i.code ? "font-medium text-primary" : ""
                 }`}
               >
-                <span className="text-base leading-none" aria-hidden="true">{i.bandera}</span>
+                <img
+                  src={urlBandera(i.bandera)}
+                  alt=""
+                  className="h-4 w-4 flex-shrink-0 rounded-full object-cover"
+                  aria-hidden="true"
+                />
                 <span>{i.label}</span>
               </button>
             </li>
