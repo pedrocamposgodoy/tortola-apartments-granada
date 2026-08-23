@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
 const IDIOMAS = [
-  { code: "es", label: "Español", bandera: "🇪🇸" },
-  { code: "en", label: "English", bandera: "🇬🇧" },
-  { code: "fr", label: "Français", bandera: "🇫🇷" },
-  { code: "de", label: "Deutsch", bandera: "🇩🇪" },
-  { code: "it", label: "Italiano", bandera: "🇮🇹" },
-  { code: "zh-CN", label: "中文 (简体)", bandera: "🇨🇳" },
-  { code: "ko", label: "한국어", bandera: "🇰🇷" },
-  { code: "ja", label: "日本語", bandera: "🇯🇵" },
+  { code: "es", label: "Español", bandera: "es" },
+  { code: "en", label: "English", bandera: "gb" },
+  { code: "fr", label: "Français", bandera: "fr" },
+  { code: "de", label: "Deutsch", bandera: "de" },
+  { code: "it", label: "Italiano", bandera: "it" },
+  { code: "zh-CN", label: "中文 (简体)", bandera: "cn" },
+  { code: "ko", label: "한국어", bandera: "kr" },
+  { code: "ja", label: "日本語", bandera: "jp" },
 ];
+
+const urlBandera = (cc: string) =>
+  `https://flagcdn.com/${cc}.svg`;
 
 const INCLUDED = IDIOMAS.map((i) => i.code).join(",");
 
@@ -123,9 +126,14 @@ export function LanguageSelector() {
         aria-label="Seleccionar idioma"
         aria-haspopup="menu"
         aria-expanded={abierto}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-base leading-none text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
       >
-        <span aria-hidden="true">{IDIOMAS.find((i) => i.code === activo)?.bandera ?? "🌐"}</span>
+        <img
+          src={urlBandera(IDIOMAS.find((i) => i.code === activo)?.bandera ?? "es")}
+          alt=""
+          aria-hidden="true"
+          className="h-5 w-5 rounded-full object-cover"
+        />
       </button>
 
       {abierto && (
@@ -143,7 +151,12 @@ export function LanguageSelector() {
                   activo === i.code ? "font-medium text-primary" : ""
                 }`}
               >
-                <span className="text-base leading-none" aria-hidden="true">{i.bandera}</span>
+                <img
+                  src={urlBandera(i.bandera)}
+                  alt=""
+                  className="h-4 w-4 flex-shrink-0 rounded-full object-cover"
+                  aria-hidden="true"
+                />
                 <span>{i.label}</span>
               </button>
             </li>
