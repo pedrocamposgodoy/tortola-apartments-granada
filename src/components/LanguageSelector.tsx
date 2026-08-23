@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
 const IDIOMAS = [
-  { code: "es", label: "Español", bandera: "🇪🇸" },
-  { code: "en", label: "English", bandera: "🇬🇧" },
-  { code: "fr", label: "Français", bandera: "🇫🇷" },
-  { code: "de", label: "Deutsch", bandera: "🇩🇪" },
-  { code: "it", label: "Italiano", bandera: "🇮🇹" },
-  { code: "zh-CN", label: "中文 (简体)", bandera: "🇨🇳" },
-  { code: "ko", label: "한국어", bandera: "🇰🇷" },
-  { code: "ja", label: "日本語", bandera: "🇯🇵" },
+  { code: "es", label: "Español", bandera: "es" },
+  { code: "en", label: "English", bandera: "gb" },
+  { code: "fr", label: "Français", bandera: "fr" },
+  { code: "de", label: "Deutsch", bandera: "de" },
+  { code: "it", label: "Italiano", bandera: "it" },
+  { code: "zh-CN", label: "中文 (简体)", bandera: "cn" },
+  { code: "ko", label: "한국어", bandera: "kr" },
+  { code: "ja", label: "日本語", bandera: "jp" },
 ];
+
+const urlBandera = (cc: string) =>
+  `https://flagcdn.com/${cc}.svg`;
 
 const INCLUDED = IDIOMAS.map((i) => i.code).join(",");
 
