@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Globe } from "lucide-react";
 
 const IDIOMAS = [
-  { code: "es", label: "Español" },
-  { code: "en", label: "English" },
-  { code: "fr", label: "Français" },
-  { code: "de", label: "Deutsch" },
-  { code: "it", label: "Italiano" },
-  { code: "zh-CN", label: "中文 (简体)" },
-  { code: "ko", label: "한국어" },
-  { code: "ja", label: "日本語" },
+  { code: "es", label: "Español", bandera: "🇪🇸" },
+  { code: "en", label: "English", bandera: "🇬🇧" },
+  { code: "fr", label: "Français", bandera: "🇫🇷" },
+  { code: "de", label: "Deutsch", bandera: "🇩🇪" },
+  { code: "it", label: "Italiano", bandera: "🇮🇹" },
+  { code: "zh-CN", label: "中文 (简体)", bandera: "🇨🇳" },
+  { code: "ko", label: "한국어", bandera: "🇰🇷" },
+  { code: "ja", label: "日本語", bandera: "🇯🇵" },
 ];
 
 const INCLUDED = IDIOMAS.map((i) => i.code).join(",");
