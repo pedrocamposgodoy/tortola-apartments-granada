@@ -123,15 +123,15 @@ export function LanguageSelector() {
         aria-label="Seleccionar idioma"
         aria-haspopup="menu"
         aria-expanded={abierto}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-base leading-none text-primary-foreground transition-colors hover:bg-primary-foreground/10"
       >
-        <Globe className="h-4 w-4" aria-hidden="true" />
+        <span aria-hidden="true">{IDIOMAS.find((i) => i.code === activo)?.bandera ?? "🌐"}</span>
       </button>
 
       {abierto && (
         <ul
           role="menu"
-          className="absolute right-0 top-11 z-50 max-h-[70vh] w-40 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg"
+          className="absolute right-0 top-11 z-50 max-h-[70vh] w-44 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg"
         >
           {IDIOMAS.map((i) => (
             <li key={i.code}>
@@ -139,11 +139,12 @@ export function LanguageSelector() {
                 type="button"
                 role="menuitem"
                 onClick={() => cambiarIdioma(i.code)}
-                className={`block w-full px-4 py-2 text-left text-foreground transition-colors hover:bg-muted ${
+                className={`flex w-full items-center gap-3 px-4 py-2 text-left text-foreground transition-colors hover:bg-muted ${
                   activo === i.code ? "font-medium text-primary" : ""
                 }`}
               >
-                {i.label}
+                <span className="text-base leading-none" aria-hidden="true">{i.bandera}</span>
+                <span>{i.label}</span>
               </button>
             </li>
           ))}
