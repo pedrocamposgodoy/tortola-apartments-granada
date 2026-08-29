@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://granada-train-stays.lovable.app/sitemap.xml
