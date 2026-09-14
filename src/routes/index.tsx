@@ -22,22 +22,22 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos turísticos en Granada con garaje",
+          "Apartamentos Tórtola 10 | Junto a la Estación de Tren (AVE) de Granada",
       },
       {
         name: "description",
         content:
-          "Tres apartamentos turísticos de 40 m² en Tórtola 10, Granada: Ámbar, Coral y Perla. Garaje privado incluido, a 2 min a pie de Metro y Renfe. Reserva directa.",
+          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma situados junto a la Estación de Ferrocarril / AVE de Granada.",
       },
       {
         property: "og:title",
         content:
-          "Tórtola 10 · Ámbar, Coral y Perla · Apartamentos en Granada",
+          "Apartamentos Tórtola 10 | Junto a la Estación de Tren (AVE) de Granada",
       },
       {
         property: "og:description",
         content:
-          "Apartamentos turísticos de 40 m² con garaje incluido en Granada. Ámbar, Coral y Perla, a 2 min a pie de Metro y Renfe. Reserva directa.",
+          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma situados junto a la Estación de Ferrocarril / AVE de Granada.",
       },
     ],
   }),
@@ -282,12 +282,11 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.35em] text-primary-foreground/80">
             <span translate="no" className="notranslate">Granada</span> · Beiro · Con garaje privado incluido
           </p>
-          <h1 className="mt-6 font-display text-5xl leading-tight text-primary-foreground sm:text-7xl">
-            Tres apartamentos para descubrir <span translate="no" className="notranslate">Granada</span>
+          <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
+            <span translate="no" className="notranslate">Apartamentos Tórtola 10</span> – Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Apartamentos turísticos de 40 m² con dormitorio independiente, reformados y
-            totalmente equipados. Garaje privado incluido, cerca de los hospitales y de la estación de tren.
+            Alojamientos modernos con entrada autónoma y máxima comodidad, a solo unos pasos de la estación de tren y perfectamente conectados con el centro.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
