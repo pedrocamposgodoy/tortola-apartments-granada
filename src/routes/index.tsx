@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma situados junto a la Estación de Ferrocarril / AVE de Granada.",
+          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma junto a la Estación de Ferrocarril (AVE) de Granada.",
       },
       {
         property: "og:title",
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma situados junto a la Estación de Ferrocarril / AVE de Granada.",
+          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma junto a la Estación de Ferrocarril (AVE) de Granada.",
       },
     ],
   }),
@@ -283,23 +283,23 @@ function Index() {
             <span translate="no" className="notranslate">Granada</span> · Beiro · Con garaje privado incluido
           </p>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
-            <span translate="no" className="notranslate">Apartamentos Tórtola 10</span> – Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
+            Descubre <span translate="no" className="notranslate">Granada</span> desde <span translate="no" className="notranslate">Apartamentos Tórtola 10</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Alojamientos modernos con entrada autónoma y máxima comodidad, a solo unos pasos de la estación de tren y perfectamente conectados con el centro.
-          </p>
+          <h2 className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
+            🚆 Alojamientos modernos con entrada autónoma, a solo 3 minutos de la Estación de Ferrocarril (AVE).
+          </h2>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
-              href="#apartamentos"
+              href="#contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
-              Ver apartamentos
+              Ver disponibilidad y reservar directo (-10%)
             </a>
             <a
-              href="#contacto"
+              href="#apartamentos"
               className="rounded-full border border-primary-foreground/50 px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Consultar disponibilidad
+              Ver apartamentos
             </a>
           </div>
         </div>
