@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
+import { Train } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
@@ -27,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma junto a la Estación de Ferrocarril (AVE) de Granada.",
+          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma a pocos pasos de la Estación de Ferrocarril (AVE) de Granada.",
       },
       {
         property: "og:title",
@@ -279,14 +280,17 @@ function Index() {
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.35em] text-primary-foreground/80">
-            <span translate="no" className="notranslate">Granada</span> · Beiro · Con garaje privado incluido
-          </p>
+          <div className="inline-flex items-center rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 backdrop-blur-sm">
+            <Train className="mr-2 h-5 w-5 text-primary-foreground" />
+            <span className="text-sm font-medium text-primary-foreground">
+              Junto a la Estación de Tren (AVE) de <span translate="no" className="notranslate">Granada</span>
+            </span>
+          </div>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
             Descubre <span translate="no" className="notranslate">Granada</span> desde <span translate="no" className="notranslate">Apartamentos Tórtola 10</span>
           </h1>
           <h2 className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            🚆 Alojamientos modernos con entrada autónoma, a solo 3 minutos de la Estación de Ferrocarril (AVE).
+            Alojamientos modernos con entrada autónoma y máxima comodidad a un paso de la estación.
           </h2>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
