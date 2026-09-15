@@ -534,6 +534,11 @@ function Index() {
           Escríbenos para consultar disponibilidad y precios. Respondemos en menos de 24
           horas.
         </p>
+        {extraNombre && (
+          <p className="mt-5 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
+            Experiencia seleccionada: {extraNombre}
+          </p>
+        )}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
             href="mailto:reservas@apartamentostortola.com"
@@ -551,6 +556,11 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        <div className="mb-3 flex flex-wrap justify-center gap-4">
+          <Link to="/" className="hover:text-primary">Inicio</Link>
+          <Link to="/experiencias" className="hover:text-primary">Experiencias</Link>
+          <a href="#contacto" className="hover:text-primary">Reservar</a>
+        </div>
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10
