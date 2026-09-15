@@ -281,9 +281,9 @@ function Index() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <div className="inline-flex items-center rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 backdrop-blur-sm">
-            <Train className="mr-2 h-5 w-5 text-primary-foreground" />
+            <Train className="mr-2 h-6 w-6 text-primary" />
             <span className="text-sm font-medium text-primary-foreground">
-              Junto a la Estación de Tren (AVE) de <span translate="no" className="notranslate">Granada</span>
+              Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
             </span>
           </div>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
