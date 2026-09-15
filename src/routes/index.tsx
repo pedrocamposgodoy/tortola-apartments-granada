@@ -273,7 +273,7 @@ function Index() {
           <div className="flex items-center gap-3">
             <Link
               to="/experiencias"
-              className="hidden rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:inline-block"
+              className="rounded-full border border-primary-foreground/40 px-3 py-2 text-xs text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:text-sm"
             >
               Experiencias
             </Link>
