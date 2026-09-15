@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { Train } from "lucide-react";
+import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
@@ -240,6 +241,13 @@ function GaleriaLightbox({
   );
 }
 
+const extrasMap: Record<string, string> = {
+  alhambra: "Entradas y visita guiada a la Alhambra",
+  hammam: "Sesión de Baños Árabes (Hammam)",
+  bienvenida: "Pack de Bienvenida",
+  parking: "Plaza de Parking Privado (Cochera Tórtola 8)",
+};
+
 function Index() {
   const [galeria, setGaleria] = useState<{
     id: string;
@@ -248,17 +256,27 @@ function Index() {
     index: number;
   } | null>(null);
 
+  const search = useSearch({ strict: false }) as { extra?: string };
+  const extraNombre = search?.extra ? extrasMap[search.extra] : undefined;
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="absolute inset-x-0 top-0 z-10">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
-          <span
+          <Link
+            to="/"
             translate="no"
             className="notranslate font-display text-base tracking-[0.2em] text-primary-foreground sm:text-xl"
           >
             APARTAMENTOS TÓRTOLA 10
-          </span>
+          </Link>
           <div className="flex items-center gap-3">
+            <Link
+              to="/experiencias"
+              className="hidden rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:inline-block"
+            >
+              Experiencias
+            </Link>
             <a
               href="#contacto"
               className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
@@ -516,6 +534,11 @@ function Index() {
           Escríbenos para consultar disponibilidad y precios. Respondemos en menos de 24
           horas.
         </p>
+        {extraNombre && (
+          <p className="mt-5 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
+            Experiencia seleccionada: {extraNombre}
+          </p>
+        )}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
             href="mailto:reservas@apartamentostortola.com"
@@ -533,6 +556,11 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        <div className="mb-3 flex flex-wrap justify-center gap-4">
+          <Link to="/" className="hover:text-primary">Inicio</Link>
+          <Link to="/experiencias" className="hover:text-primary">Experiencias</Link>
+          <a href="#contacto" className="hover:text-primary">Reservar</a>
+        </div>
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10
