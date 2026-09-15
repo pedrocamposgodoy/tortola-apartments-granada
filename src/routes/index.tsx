@@ -280,9 +280,9 @@ function Index() {
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <div className="inline-flex items-center rounded-2xl border border-white/40 bg-white/20 px-6 py-3 shadow-lg backdrop-blur-md">
-            <Train className="mr-3 inline-block h-8 w-8 align-middle text-primary md:h-10 md:w-10" />
-            <span className="text-lg font-bold text-primary-foreground md:text-xl">
+          <div className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-5 py-2 backdrop-blur-md">
+            <Train className="mr-2 inline h-5 w-5 text-primary" />
+            <span className="text-sm font-bold text-primary-foreground">
               Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
             </span>
           </div>
