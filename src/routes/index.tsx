@@ -48,13 +48,13 @@ export const Route = createFileRoute("/")({
 
 const apartamentos = [
   {
-    id: "ambar",
-    nombre: "Apartamento Ámbar",
+    id: "perla",
+    nombre: "Apartamento Perla",
     img: salon,
-    colorFondo: "bg-amber-50",
+    colorFondo: "bg-slate-50",
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: salon, alt: "Salón del Apartamento Ámbar" }],
+    fotos: [{ src: salon, alt: "Salón del Apartamento Perla" }],
   },
   {
     id: "coral",
@@ -69,13 +69,13 @@ const apartamentos = [
     ],
   },
   {
-    id: "perla",
-    nombre: "Apartamento Perla",
+    id: "jade",
+    nombre: "Apartamento Jade",
     img: cocina,
-    colorFondo: "bg-slate-50",
+    colorFondo: "bg-emerald-50",
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [{ src: cocina, alt: "Cocina del Apartamento Perla" }],
+    fotos: [{ src: cocina, alt: "Cocina del Apartamento Jade" }],
   },
 ];
 
