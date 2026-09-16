@@ -261,25 +261,26 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="absolute inset-x-0 top-0 z-10">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
+      <header className="absolute inset-x-0 top-0 z-20">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 sm:gap-3 sm:px-6 sm:py-6">
           <Link
             to="/"
             translate="no"
-            className="notranslate font-display text-base tracking-[0.2em] text-primary-foreground sm:text-xl"
+            className="notranslate font-display tracking-[0.15em] text-primary-foreground sm:tracking-[0.2em] sm:text-xl"
           >
-            APARTAMENTOS TÓRTOLA 10
+            <span className="text-sm sm:hidden">TÓRTOLA 10</span>
+            <span className="hidden text-base sm:inline">APARTAMENTOS TÓRTOLA 10</span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <Link
               to="/experiencias"
-              className="rounded-full border border-primary-foreground/40 px-3 py-2 text-xs text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:text-sm"
+              className="rounded-full border border-primary-foreground/40 px-3 py-1.5 text-[11px] text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:py-2 sm:text-sm"
             >
               Experiencias
             </Link>
             <a
               href="#contacto"
-              className="rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              className="rounded-full border border-primary-foreground/40 px-3 py-1.5 text-[11px] text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:py-2 sm:text-sm"
             >
               Reservar
             </a>
@@ -288,7 +289,7 @@ function Index() {
         </nav>
       </header>
 
-      <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[88vh] items-start justify-center overflow-hidden pt-24 sm:items-center sm:pt-0">
         <img
           src={granada}
           alt="Vista de la Alhambra de Granada con Sierra Nevada al fondo"
@@ -297,7 +298,7 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="relative mx-auto max-w-3xl self-center px-6 text-center">
           <div className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-5 py-2 backdrop-blur-md">
             <Train className="mr-2 inline h-5 w-5 text-primary" />
             <span className="text-sm font-bold text-primary-foreground">
