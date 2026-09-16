@@ -289,7 +289,7 @@ function Index() {
         </nav>
       </header>
 
-      <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[88vh] items-start justify-center overflow-hidden pt-24 sm:items-center sm:pt-0">
         <img
           src={granada}
           alt="Vista de la Alhambra de Granada con Sierra Nevada al fondo"
@@ -298,7 +298,7 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="relative mx-auto max-w-3xl self-center px-6 text-center">
           <div className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-5 py-2 backdrop-blur-md">
             <Train className="mr-2 inline h-5 w-5 text-primary" />
             <span className="text-sm font-bold text-primary-foreground">
