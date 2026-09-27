@@ -103,7 +103,7 @@ function DiaBloque({ titulo, plan }: { titulo: string; plan: Plan }) {
 }
 
 export function Granada48h() {
-  const [activo, setActivo] = useState(perfiles[0].id);
+  const [activo, setActivo] = useState("senior");
   const p = perfiles.find((x) => x.id === activo)!;
 
   return (
