@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { Granada48h } from "@/components/Granada48h";
 
 export const Route = createFileRoute("/experiencias")({
   head: () => ({
@@ -266,6 +267,8 @@ function Experiencias() {
           </div>
         </section>
       ))}
+
+      <Granada48h />
 
       <section className="bg-secondary/50 py-14">
         <div className="mx-auto max-w-3xl px-6 text-center">
