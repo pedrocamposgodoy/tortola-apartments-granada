@@ -503,7 +503,7 @@ function Index() {
             <div className="overflow-hidden rounded-3xl border border-border" style={{ boxShadow: "var(--shadow-soft)" }}>
               <iframe
                 title="Ubicación de Calle Tórtola nº 10, Granada"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.0!2d-3.6067!3d37.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fca3e4b4f7a9%3A0x5e3a2b4c6d7e8f90!2sCalle%20T%C3%B3rtola%2010%2C%20Granada%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1"
+                src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
                 width="100%"
                 height="400"
                 allowFullScreen
@@ -513,7 +513,7 @@ function Index() {
               />
             </div>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Calle+T%C3%B3rtola+10%2C+Granada%2C+Espa%C3%B1a"
+              href="https://www.google.com/maps/search/?api=1&query=37.185439,-3.609873"
               target="_blank"
               rel="noopener noreferrer"
               className="md:col-start-2 -mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
