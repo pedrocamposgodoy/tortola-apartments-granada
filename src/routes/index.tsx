@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
-import { Train } from "lucide-react";
+import { Train, MapPin } from "lucide-react";
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
@@ -518,7 +518,7 @@ function Index() {
               rel="noopener noreferrer"
               className="md:col-start-2 -mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
-              📍 Abrir en Google Maps / Cómo llegar
+              <MapPin className="h-4 w-4 shrink-0" /> Abrir en Google Maps / Cómo llegar
             </a>
           </div>
         </div>
