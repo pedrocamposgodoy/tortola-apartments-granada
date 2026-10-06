@@ -512,6 +512,14 @@ function Index() {
                 className="block h-[400px] w-full border-0"
               />
             </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Calle+T%C3%B3rtola+10%2C+Granada%2C+Espa%C3%B1a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:col-start-2 -mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+            >
+              📍 Abrir en Google Maps / Cómo llegar
+            </a>
           </div>
         </div>
       </section>
