@@ -114,6 +114,17 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google tag (gtag.js) — GA4 measurement ID G-RQL1K67M37 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-RQL1K67M37"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-RQL1K67M37');",
+          }}
+        />
       </head>
       <body>
         {children}
