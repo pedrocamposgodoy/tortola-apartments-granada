@@ -40,6 +40,8 @@ export const Route = createFileRoute("/")({
         content:
           "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma junto a la Estación de Ferrocarril (AVE) de Granada.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -304,6 +306,9 @@ function Index() {
               Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
             </span>
           </div>
+          <p className="mt-5 text-base font-semibold text-primary-foreground sm:text-lg">
+            Grand Opening · Apertura Noviembre 2026
+          </p>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
             Descubre <span translate="no" className="notranslate">Granada</span> desde <span translate="no" className="notranslate">Apartamentos Tórtola 10</span>
           </h1>
@@ -315,7 +320,7 @@ function Index() {
               href="#contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
-              Ver disponibilidad y reservar directo (-10%)
+              Ver disponibilidad y reservar directo
             </a>
             <a
               href="#apartamentos"
