@@ -294,7 +294,7 @@ function Experiencias() {
               hash="contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
-              Reservar directo (-10%)
+              Reservar directo
             </Link>
             <Link
               to="/"
