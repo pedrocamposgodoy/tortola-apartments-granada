@@ -131,15 +131,48 @@ const servicios = [
 ];
 
 const ubicacion = [
-  ["2 min", "Parada de Metro"],
-  ["2 min", "Estación de Renfe"],
-  ["10 min", "Centro histórico en Metro"],
-  ["20 min", "Centro histórico a pie"],
-  ["10 min", "Alhambra en transporte público"],
-  ["35 min", "Alhambra a pie"],
-  ["25 min", "Aeropuerto Federico García Lorca en taxi o bus"],
-  ["10 min", "Hospitales"],
+  ["2 min", "Estación de Renfe (AVE) y parada de Metro"],
+  ["2 min", "Parada de taxis 24 h"],
+  ["5 min", "Centro histórico en taxi"],
+  ["10 min", "Alhambra en taxi"],
+  ["5 min", "Hospitales y campus universitario"],
+  ["20 min", "Aeropuerto Federico García Lorca en bus directo"],
+  ["5 min", "Acceso directo a la circunvalación"],
 ];
+
+const hubConexiones = [
+  {
+    icon: Train,
+    t: "Llegada sin estrés",
+    d: [
+      "Estación de Renfe (AVE) a 2 min a pie",
+      "Parada de Metro a 2 min a pie",
+      "Parada de taxis 24 h a 2 min",
+      "Bus directo al aeropuerto a 20 min",
+    ],
+  },
+  {
+    icon: MapPin,
+    t: "Granada a tu alcance",
+    d: [
+      "5 min en taxi al centro histórico",
+      "10 min en taxi a la Alhambra y Generalife",
+      "5 min a hospitales y campus universitario",
+      "10 min en Metro al centro",
+    ],
+  },
+  {
+    icon: Car,
+    t: "Ventaja si vienes en coche",
+    d: [
+      "Acceso directo a la circunvalación en 5 min",
+      "Evitas las zonas de tráfico restringido del centro",
+      "Garaje privado en el propio edificio (sujeto a disponibilidad)",
+      "Punto de carga normal para coches eléctricos",
+    ],
+  },
+];
+
 
 const faqs = [
   {
@@ -190,7 +223,8 @@ const faqs = [
   {
     pregunta: "¿Cómo se llega desde el aeropuerto?",
     respuesta:
-      "El aeropuerto Federico García Lorca está a unos 25 minutos en taxi o autobús. También puedes llegar cómodamente en transporte público hasta el centro y después caminar o coger el Metro hasta el apartamento.",
+      "El aeropuerto Federico García Lorca está a unos 20 minutos. Hay bus directo con parada junto a la estación de tren, a 2 minutos a pie del apartamento, y también taxi. Si vienes en coche, la circunvalación queda a 5 minutos.",
+
   },
 ];
 
@@ -353,7 +387,7 @@ function Index() {
             Tu apartamento en <span translate="no" className="notranslate">Granada</span> con Check-in 24/7 y Garaje Privado
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Llega a la hora que quieras sin estrés ni comisiones. A solo 2 minutos a pie de la Estación de AVE y Metro.
+            Llega a la hora que quieras sin estrés ni comisiones. A 2 minutos a pie de la Estación de AVE y Metro, y a solo 5 min en taxi del centro histórico.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
@@ -437,9 +471,10 @@ function Index() {
         <h2 className="font-display text-4xl">Tu base perfecta en <span translate="no" className="notranslate">Granada</span></h2>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
           En Calle Tórtola encontrarás tres apartamentos independientes pensados para
-          parejas, viajeros de negocios y estancias médicas. Garaje privado incluido en el precio,
-          sin sorpresas.
+          parejas, viajeros de negocios y estancias médicas. Garaje privado en el propio edificio
+          (sujeto a disponibilidad previa).
         </p>
+
         <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {[
             ["3", "Apartamentos"],
@@ -553,16 +588,37 @@ function Index() {
       </section>
 
       <section id="ubicacion" className="bg-secondary/50 py-14">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Beiro, <span translate="no" className="notranslate">Granada</span>. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
-            10 min en Metro hasta el centro histórico (o 20 min a pie), 10 min en transporte público
-            hasta la Alhambra (35 min a pie), y 25 min en taxi o bus hasta el aeropuerto Federico García Lorca.
-            Hospitales a 10 min.
+            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas. Y desde ahí lo tienes todo cerca: 5 min en taxi al centro histórico, 10 min a la Alhambra, 5 min a los hospitales y al campus, y salida directa a la circunvalación en 5 min.
           </p>
 
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {hubConexiones.map(({ icon: Icon, t, d }) => (
+              <div
+                key={t}
+                className="rounded-2xl border border-border bg-card p-6"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              >
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <Icon className="h-6 w-6 text-primary" />
+                </span>
+                <h3 className="mt-4 font-display text-2xl">{t}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {d.map((linea) => (
+                    <li key={linea} className="flex gap-2">
+                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      <span>{linea}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-10 grid gap-10 md:grid-cols-2">
+
             <ul className="space-y-4">
               {ubicacion.map(([t, l]) => (
                 <li
@@ -570,7 +626,7 @@ function Index() {
                   className="flex items-baseline justify-between border-b border-border pb-3"
                 >
                   <span className="text-sm">{l}</span>
-                  <span className="font-display text-lg text-primary">{t}</span>
+                  <span className="font-display text-lg whitespace-nowrap text-primary">{t}</span>
                 </li>
               ))}
             </ul>
