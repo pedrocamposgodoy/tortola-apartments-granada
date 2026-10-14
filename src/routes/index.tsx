@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Train, MapPin, KeyRound, Car, Wifi, Snowflake, Smartphone, Clock, ListChecks, Landmark } from "lucide-react";
 
 const SEO_DESC =
-  "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado gratis e incluido y check-in digital autónomo 24/7.";
+  "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
@@ -24,9 +24,9 @@ const albaicinCocina = albaicinCocinaAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Gratis AVE" },
+      { title: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Privado junto al AVE" },
       { name: "description", content: SEO_DESC },
-      { property: "og:title", content: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Gratis AVE" },
+      { property: "og:title", content: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Privado junto al AVE" },
       { property: "og:description", content: SEO_DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -350,7 +350,7 @@ function Index() {
             Grand Opening · Apertura Noviembre 2026
           </p>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
-            Tu apartamento en <span translate="no" className="notranslate">Granada</span> con Check-in 24/7 y Garaje Privado Gratis
+            Tu apartamento en <span translate="no" className="notranslate">Granada</span> con Check-in 24/7 y Garaje Privado
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
             Llega a la hora que quieras sin estrés ni comisiones. A solo 2 minutos a pie de la Estación de AVE y Metro.
