@@ -626,7 +626,7 @@ function Index() {
                   className="flex items-baseline justify-between border-b border-border pb-3"
                 >
                   <span className="text-sm">{l}</span>
-                  <span className="font-display text-lg text-primary">{t}</span>
+                  <span className="font-display text-lg whitespace-nowrap text-primary">{t}</span>
                 </li>
               ))}
             </ul>
