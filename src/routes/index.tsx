@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "ES",
           },
           geo: { "@type": "GeoCoordinates", latitude: 37.185439, longitude: -3.609873 },
-          amenityFeature: ["Check-in autónomo 24/7", "Garaje privado gratuito"].map((n) => ({
+          amenityFeature: ["Check-in autónomo 24/7", "Garaje privado con punto de carga eléctrica (sujeto a disponibilidad)"].map((n) => ({
             "@type": "LocationFeatureSpecification",
             name: n,
             value: true,
@@ -62,7 +62,7 @@ export const Route = createFileRoute("/")({
 
 const badges = [
   { icon: KeyRound, t: "Check-in digital 24/7 sin llaves ni esperas" },
-  { icon: Car, t: "Parking privado gratuito en el propio edificio" },
+  { icon: Car, t: "Parking privado con carga eléctrica normal (sujeto a disponibilidad)" },
   { icon: Train, t: "A 2 minutos caminando del AVE y Estación de Metro" },
   { icon: Wifi, t: "Wi-Fi de alta velocidad por fibra óptica" },
   { icon: Snowflake, t: "Climatización por aerotermia (frío/calor centralizado)" },
@@ -81,7 +81,7 @@ const bloquesDestacados = [
     titulo: "Ahorra en parking y muévete fácil por Granada",
     tarjetas: [
       { icon: Train, t: "A 2 minutos del AVE y Metro", d: "Olvídate del coche o de arrastrar maletas por el centro." },
-      { icon: Car, t: "Garaje Privado Gratis", d: "En el propio edificio. Ahorra entre 15 € y 20 € al día en parking céntrico." },
+      { icon: Car, t: "Garaje Privado", d: "Plaza cubierta y segura, sujeta a disponibilidad previa. Con punto de carga normal (no rápida) para coches eléctricos." },
       { icon: Landmark, t: "Alhambra y centro histórico", d: "Conexión rápida con la Alhambra y el centro histórico en transporte público." },
     ],
   },
@@ -121,7 +121,7 @@ const apartamentos = [
 ];
 
 const servicios = [
-  { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje en el propio edificio, sujeta a disponibilidad. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
+  { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje privada, sujeta a disponibilidad, con punto de carga normal (no rápida) para vehículos eléctricos. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
   { t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
   { t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
   { t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar." },
@@ -155,7 +155,7 @@ const faqs = [
   {
     pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
     respuesta:
-      "La plaza de garaje está sujeta a disponibilidad. Te recomendamos confirmarla al hacer tu reserva.",
+      "El garaje es privado, tiene un coste adicional y está sujeto a disponibilidad. Dispone de punto de carga normal (no rápida) para coches eléctricos. Te recomendamos reservarlo con antelación.",
   },
   {
     pregunta: "¿Se admiten mascotas?",

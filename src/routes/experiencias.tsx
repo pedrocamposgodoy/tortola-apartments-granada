@@ -72,7 +72,7 @@ const bloques: {
         icon: Car,
         titulo: "Plaza de Parking Privado (Cochera Tórtola 8)",
         desc: "Aparca con total tranquilidad en nuestra cochera privada, ubicada en el edificio anexo (Tórtola 8). Plaza cubierta, segura y a 30 segundos de tu apartamento.",
-        detalle: "Plaza cubierta y cerrada · Acceso con mando · Sujeto a disponibilidad",
+        detalle: "Plaza cubierta y cerrada · Acceso con mando · Carga eléctrica normal (no rápida) · Sujeto a disponibilidad",
         color: "bg-secondary/50",
       },
       {
