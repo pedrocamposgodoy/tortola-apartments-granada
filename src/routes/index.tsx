@@ -588,16 +588,37 @@ function Index() {
       </section>
 
       <section id="ubicacion" className="bg-secondary/50 py-14">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Beiro, <span translate="no" className="notranslate">Granada</span>. A solo 2 min a pie de la parada de Metro y de la estación de Renfe,
-            10 min en Metro hasta el centro histórico (o 20 min a pie), 10 min en transporte público
-            hasta la Alhambra (35 min a pie), y 25 min en taxi o bus hasta el aeropuerto Federico García Lorca.
-            Hospitales a 10 min.
+            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas. Y desde ahí lo tienes todo cerca: 5 min en taxi al centro histórico, 10 min a la Alhambra, 5 min a los hospitales y al campus, y salida directa a la circunvalación en 5 min.
           </p>
 
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {hubConexiones.map(({ icon: Icon, t, d }) => (
+              <div
+                key={t}
+                className="rounded-2xl border border-border bg-card p-6"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              >
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <Icon className="h-6 w-6 text-primary" />
+                </span>
+                <h3 className="mt-4 font-display text-2xl">{t}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {d.map((linea) => (
+                    <li key={linea} className="flex gap-2">
+                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      <span>{linea}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-10 grid gap-10 md:grid-cols-2">
+
             <ul className="space-y-4">
               {ubicacion.map(([t, l]) => (
                 <li
