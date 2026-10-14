@@ -6,7 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
-import { Train, MapPin } from "lucide-react";
+import { Train, MapPin, KeyRound, Car, Wifi, Snowflake, Smartphone, Clock, ListChecks, Landmark } from "lucide-react";
+
+const SEO_DESC =
+  "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado gratis e incluido y check-in digital autónomo 24/7.";
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import granada from "@/assets/granada.jpg";
@@ -21,31 +24,68 @@ const albaicinCocina = albaicinCocinaAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      {
-        title:
-          "Apartamentos Tórtola 10 | Junto a la Estación de Tren (AVE) de Granada",
-      },
-      {
-        name: "description",
-        content:
-          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma a pocos pasos de la Estación de Ferrocarril (AVE) de Granada.",
-      },
-      {
-        property: "og:title",
-        content:
-          "Apartamentos Tórtola 10 | Junto a la Estación de Tren (AVE) de Granada",
-      },
-      {
-        property: "og:description",
-        content:
-          "Reserva directamente en Apartamentos Tórtola 10. Alojamientos turísticos modernos con entrada autónoma junto a la Estación de Ferrocarril (AVE) de Granada.",
-      },
+      { title: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Gratis AVE" },
+      { name: "description", content: SEO_DESC },
+      { property: "og:title", content: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Gratis AVE" },
+      { property: "og:description", content: SEO_DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          name: "Apartamentos Tórtola 10",
+          url: "https://www.apartamentostortola.com/",
+          telephone: "+34630991021",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "C. Tórtola, 10",
+            postalCode: "18014",
+            addressLocality: "Granada",
+            addressCountry: "ES",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: 37.185439, longitude: -3.609873 },
+          amenityFeature: ["Check-in autónomo 24/7", "Garaje privado gratuito"].map((n) => ({
+            "@type": "LocationFeatureSpecification",
+            name: n,
+            value: true,
+          })),
+        }),
+      },
     ],
   }),
   component: Index,
 });
+
+const badges = [
+  { icon: KeyRound, t: "Check-in digital 24/7 sin llaves ni esperas" },
+  { icon: Car, t: "Parking privado gratuito en el propio edificio" },
+  { icon: Train, t: "A 2 minutos caminando del AVE y Estación de Metro" },
+  { icon: Wifi, t: "Wi-Fi de alta velocidad por fibra óptica" },
+  { icon: Snowflake, t: "Climatización por aerotermia (frío/calor centralizado)" },
+];
+
+const bloquesDestacados = [
+  {
+    titulo: "Llega a cualquier hora sin preocupaciones",
+    tarjetas: [
+      { icon: Smartphone, t: "Acceso Digital Autónomo", d: "Apertura mediante código o cerradura inteligente desde tu móvil." },
+      { icon: Clock, t: "Sin penalizaciones por late check-in", d: "Si tu tren se retrasa o viajas de madrugada, tu apartamento te estará esperando sin recargos." },
+      { icon: ListChecks, t: "Guía paso a paso", d: "Instrucciones claras con fotos y vídeo enviadas a tu móvil antes del viaje." },
+    ],
+  },
+  {
+    titulo: "Ahorra en parking y muévete fácil por Granada",
+    tarjetas: [
+      { icon: Train, t: "A 2 minutos del AVE y Metro", d: "Olvídate del coche o de arrastrar maletas por el centro." },
+      { icon: Car, t: "Garaje Privado Gratis", d: "En el propio edificio. Ahorra entre 15 € y 20 € al día en parking céntrico." },
+      { icon: Landmark, t: "Alhambra y centro histórico", d: "Conexión rápida con la Alhambra y el centro histórico en transporte público." },
+    ],
+  },
+];
 
 const apartamentos = [
   {
@@ -310,27 +350,57 @@ function Index() {
             Grand Opening · Apertura Noviembre 2026
           </p>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
-            Descubre <span translate="no" className="notranslate">Granada</span> desde <span translate="no" className="notranslate">Apartamentos Tórtola 10</span>
+            Tu apartamento en <span translate="no" className="notranslate">Granada</span> con Check-in 24/7 y Garaje Privado Gratis
           </h1>
-          <h2 className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Alojamientos modernos con entrada autónoma y máxima comodidad a un paso de la estación.
-          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
+            Llega a la hora que quieras sin estrés ni comisiones. A solo 2 minutos a pie de la Estación de AVE y Metro.
+          </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#contacto"
-              className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
             >
-              Ver disponibilidad y reservar directo
+              Reservar Directamente al Mejor Precio
             </a>
             <a
-              href="#apartamentos"
+              href="#ubicacion"
               className="rounded-full border border-primary-foreground/50 px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Ver apartamentos
+              Ver Ubicación y Check-in 24h
             </a>
           </div>
         </div>
       </section>
+
+      <section className="border-b border-border bg-card">
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-6 text-sm sm:grid-cols-3 lg:grid-cols-5">
+          {badges.map(({ icon: Icon, t }) => (
+            <li key={t} className="flex items-center gap-3">
+              <Icon className="h-6 w-6 shrink-0 text-primary" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {bloquesDestacados.map((b, i) => (
+        <section key={b.titulo} className={i === 1 ? "bg-secondary/50 py-14" : "py-14"}>
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="text-center font-display text-4xl">{b.titulo}</h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {b.tarjetas.map(({ icon: Icon, t, d }) => (
+                <div key={t} className="rounded-2xl border border-border bg-card p-6" style={{ boxShadow: "var(--shadow-soft)" }}>
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </span>
+                  <h3 className="mt-4 font-display text-2xl">{t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
 
       <section className="mx-auto max-w-6xl px-6 pt-20">
         <div className="text-center">
@@ -482,7 +552,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-14">
+      <section id="ubicacion" className="bg-secondary/50 py-14">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -564,6 +634,20 @@ function Index() {
             className="rounded-full border border-border px-7 py-3 text-sm font-medium transition-colors hover:bg-muted"
           >
             +34 630 991 021
+          </a>
+        </div>
+      </section>
+
+      <section className="bg-primary py-14 text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="font-display text-3xl leading-snug sm:text-4xl">
+            ¿Viajas tarde o vienes en tren? Garantiza tu plaza de parking y tu llegada autónoma sin horarios al reservar directo.
+          </p>
+          <a
+            href="#contacto"
+            className="mt-8 inline-block rounded-full bg-primary-foreground px-8 py-3 text-sm font-semibold text-primary transition-transform hover:scale-105"
+          >
+            Comprobar Disponibilidad
           </a>
         </div>
       </section>
