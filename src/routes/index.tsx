@@ -552,7 +552,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-14">
+      <section id="ubicacion" className="bg-secondary/50 py-14">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
