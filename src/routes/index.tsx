@@ -6,7 +6,26 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
-import { Train, MapPin, KeyRound, Car, Wifi, Snowflake, Smartphone, Clock, ListChecks, Landmark } from "lucide-react";
+import {
+  Train,
+  MapPin,
+  KeyRound,
+  Car,
+  Wifi,
+  Snowflake,
+  Smartphone,
+  Clock,
+  ListChecks,
+  Landmark,
+  CarTaxiFront,
+  Plane,
+  Building2,
+  GraduationCap,
+  Navigation,
+  Zap,
+  Ban,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const SEO_DESC =
   "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
@@ -130,45 +149,38 @@ const servicios = [
   { t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas." },
 ];
 
-const ubicacion = [
-  ["2 min", "Estación de Renfe (AVE) y parada de Metro"],
-  ["2 min", "Parada de taxis 24 h"],
-  ["5 min", "Centro histórico en taxi"],
-  ["10 min", "Alhambra en taxi"],
-  ["5 min", "Hospitales y campus universitario"],
-  ["20 min", "Aeropuerto Federico García Lorca en bus directo"],
-  ["5 min", "Acceso directo a la circunvalación"],
-];
+type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
+type BloqueConexion = { icon: LucideIcon; t: string; d: Trayecto[] };
 
-const hubConexiones = [
+const hubConexiones: BloqueConexion[] = [
   {
     icon: Train,
     t: "Llegada sin estrés",
     d: [
-      "Estación de Renfe (AVE) a 2 min a pie",
-      "Parada de Metro a 2 min a pie",
-      "Parada de taxis 24 h a 2 min",
-      "Bus directo al aeropuerto a 20 min",
+      { icon: Train, tiempo: "2 min", l: "Estación de Renfe (AVE) a pie" },
+      { icon: MapPin, tiempo: "2 min", l: "Parada de Metro a pie" },
+      { icon: CarTaxiFront, tiempo: "2 min", l: "Parada de taxis 24 h" },
+      { icon: Plane, tiempo: "20 min", l: "Aeropuerto en bus directo" },
     ],
   },
   {
-    icon: MapPin,
+    icon: Landmark,
     t: "Granada a tu alcance",
     d: [
-      "5 min en taxi al centro histórico",
-      "10 min en taxi a la Alhambra y Generalife",
-      "5 min a hospitales y campus universitario",
-      "10 min en Metro al centro",
+      { icon: Building2, tiempo: "5 min", l: "Centro histórico en taxi" },
+      { icon: Landmark, tiempo: "10 min", l: "Alhambra y Generalife en taxi" },
+      { icon: GraduationCap, tiempo: "5 min", l: "Hospitales y campus universitario" },
+      { icon: Train, tiempo: "10 min", l: "Centro histórico en Metro" },
     ],
   },
   {
     icon: Car,
     t: "Ventaja si vienes en coche",
     d: [
-      "Acceso directo a la circunvalación en 5 min",
-      "Evitas las zonas de tráfico restringido del centro",
-      "Garaje privado en el propio edificio (sujeto a disponibilidad)",
-      "Punto de carga normal para coches eléctricos",
+      { icon: Navigation, tiempo: "5 min", l: "Acceso directo a la circunvalación" },
+      { icon: Ban, l: "Evitas las zonas de tráfico restringido" },
+      { icon: Car, l: "Garaje privado en el propio edificio" },
+      { icon: Zap, l: "Punto de carga normal para eléctricos" },
     ],
   },
 ];
@@ -591,7 +603,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas. Y desde ahí lo tienes todo cerca: 5 min en taxi al centro histórico, 10 min a la Alhambra, 5 min a los hospitales y al campus, y salida directa a la circunvalación en 5 min.
+            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -605,11 +617,18 @@ function Index() {
                   <Icon className="h-6 w-6 text-primary" />
                 </span>
                 <h3 className="mt-4 font-display text-2xl">{t}</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  {d.map((linea) => (
-                    <li key={linea} className="flex gap-2">
-                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-primary" />
-                      <span>{linea}</span>
+                <ul className="mt-4 space-y-3">
+                  {d.map(({ icon: TrayIcon, tiempo, l }) => (
+                    <li key={l} className="flex items-center gap-3">
+                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary">
+                        <TrayIcon className="h-4 w-4 text-primary" />
+                      </span>
+                      {tiempo && (
+                        <span className="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 font-display text-sm whitespace-nowrap text-primary">
+                          {tiempo}
+                        </span>
+                      )}
+                      <span className="text-sm text-muted-foreground">{l}</span>
                     </li>
                   ))}
                 </ul>
@@ -617,37 +636,27 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-10 md:grid-cols-2">
-
-            <ul className="space-y-4">
-              {ubicacion.map(([t, l]) => (
-                <li
-                  key={l}
-                  className="flex items-baseline justify-between border-b border-border pb-3"
-                >
-                  <span className="text-sm">{l}</span>
-                  <span className="font-display text-lg whitespace-nowrap text-primary">{t}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="overflow-hidden rounded-3xl border border-border" style={{ boxShadow: "var(--shadow-soft)" }}>
-              <iframe
-                title="Ubicación de Calle Tórtola nº 10, Granada"
-                src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
-                width="100%"
-                height="400"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block h-[400px] w-full border-0"
-              />
-            </div>
+          <div
+            className="mt-10 overflow-hidden rounded-3xl border border-border"
+            style={{ boxShadow: "var(--shadow-soft)" }}
+          >
+            <iframe
+              title="Ubicación de Calle Tórtola nº 10, Granada"
+              src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
+              width="100%"
+              height="400"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block h-[400px] w-full border-0"
+            />
+          </div>
+          <div className="mt-6 flex justify-center">
             <a
               href="https://www.google.com/maps/search/?api=1&query=37.185439,-3.609873"
               target="_blank"
               rel="noopener noreferrer"
-              className="md:col-start-2 -mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
               <MapPin className="h-4 w-4 shrink-0" /> Abrir en Google Maps / Cómo llegar
             </a>
