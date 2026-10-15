@@ -17,7 +17,7 @@ import {
   Clock,
   ListChecks,
   Landmark,
-  Taxi,
+  CarTaxiFront,
   Plane,
   Building2,
   GraduationCap,
@@ -159,7 +159,7 @@ const hubConexiones: BloqueConexion[] = [
     d: [
       { icon: Train, tiempo: "2 min", l: "Estación de Renfe (AVE) a pie" },
       { icon: MapPin, tiempo: "2 min", l: "Parada de Metro a pie" },
-      { icon: Taxi, tiempo: "2 min", l: "Parada de taxis 24 h" },
+      { icon: CarTaxiFront, tiempo: "2 min", l: "Parada de taxis 24 h" },
       { icon: Plane, tiempo: "20 min", l: "Aeropuerto en bus directo" },
     ],
   },
