@@ -7,11 +7,13 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import {
+  Sparkles,
   Train,
   MapPin,
   KeyRound,
   Car,
-  Wifi,
+  DoorOpen,
+  UtensilsCrossed,
   Snowflake,
   Smartphone,
   Clock,
@@ -80,11 +82,11 @@ export const Route = createFileRoute("/")({
 });
 
 const badges = [
-  { icon: KeyRound, t: "Check-in digital 24/7 sin llaves ni esperas" },
-  { icon: Car, t: "Parking privado con carga eléctrica normal (sujeto a disponibilidad)" },
-  { icon: Train, t: "A 2 minutos caminando del AVE y Estación de Metro" },
-  { icon: Wifi, t: "Wi-Fi de alta velocidad por fibra óptica" },
-  { icon: Snowflake, t: "Climatización por aerotermia (frío/calor centralizado)" },
+  { icon: DoorOpen, t: "Acceso a cota cero: entrada directa a pie de calle, sin barreras ni escalones" },
+  { icon: Snowflake, t: "Climatización por aerotermia: silenciosa, frío y calor todo el año" },
+  { icon: UtensilsCrossed, t: "Cocina totalmente equipada: menaje completo y electrodomésticos" },
+  { icon: Car, t: "Garaje privado en el edificio con punto de carga eléctrica (bajo petición)" },
+  { icon: KeyRound, t: "Check-in digital 24/7: apertura autónoma, sin llaves ni esperas" },
 ];
 
 const bloquesDestacados = [
@@ -387,32 +389,29 @@ function Index() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="relative mx-auto max-w-3xl self-center px-6 text-center">
           <div className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-5 py-2 backdrop-blur-md">
-            <Train className="mr-2 inline h-5 w-5 text-primary" />
+            <Sparkles className="mr-2 inline h-5 w-5 text-primary" />
             <span className="text-sm font-bold text-primary-foreground">
-              Junto a la Estación de Ferrocarril (AVE) de <span translate="no" className="notranslate">Granada</span>
+              Grand Opening · Apertura Noviembre 2026
             </span>
           </div>
-          <p className="mt-5 text-base font-semibold text-primary-foreground sm:text-lg">
-            Grand Opening · Apertura Noviembre 2026
-          </p>
           <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
-            Tu apartamento en <span translate="no" className="notranslate">Granada</span> con Check-in 24/7 y Garaje Privado
+            Disfruta de <span translate="no" className="notranslate">Granada</span> desde una excelente ubicación con todo el confort
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Llega a la hora que quieras sin estrés ni comisiones. A 2 minutos a pie de la Estación de AVE y Metro, y a solo 5 min en taxi del centro histórico.
+            Apartamentos luminosos con techos altos, climatización por aerotermia, cocina totalmente equipada y acceso directo a cota cero a pie de calle, pensados para tu máxima comodidad. Tu hogar en <span translate="no" className="notranslate">Granada</span> con garaje privado y llegada autónoma 24/7.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
             >
-              Reservar Directamente al Mejor Precio
+              Consultar fechas y reservar
             </a>
             <a
-              href="#ubicacion"
+              href="#apartamentos"
               className="rounded-full border border-primary-foreground/50 px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Ver Ubicación y Check-in 24h
+              Ver apartamentos y calidades
             </a>
           </div>
         </div>
