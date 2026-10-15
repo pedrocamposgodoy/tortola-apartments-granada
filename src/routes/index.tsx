@@ -6,7 +6,26 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useState } from "react";
-import { Train, MapPin, KeyRound, Car, Wifi, Snowflake, Smartphone, Clock, ListChecks, Landmark } from "lucide-react";
+import {
+  Train,
+  MapPin,
+  KeyRound,
+  Car,
+  Wifi,
+  Snowflake,
+  Smartphone,
+  Clock,
+  ListChecks,
+  Landmark,
+  Taxi,
+  Plane,
+  Building2,
+  GraduationCap,
+  Navigation,
+  Zap,
+  Ban,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const SEO_DESC =
   "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
@@ -130,45 +149,38 @@ const servicios = [
   { t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas." },
 ];
 
-const ubicacion = [
-  ["2 min", "Estación de Renfe (AVE) y parada de Metro"],
-  ["2 min", "Parada de taxis 24 h"],
-  ["5 min", "Centro histórico en taxi"],
-  ["10 min", "Alhambra en taxi"],
-  ["5 min", "Hospitales y campus universitario"],
-  ["20 min", "Aeropuerto Federico García Lorca en bus directo"],
-  ["5 min", "Acceso directo a la circunvalación"],
-];
+type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
+type BloqueConexion = { icon: LucideIcon; t: string; d: Trayecto[] };
 
-const hubConexiones = [
+const hubConexiones: BloqueConexion[] = [
   {
     icon: Train,
     t: "Llegada sin estrés",
     d: [
-      "Estación de Renfe (AVE) a 2 min a pie",
-      "Parada de Metro a 2 min a pie",
-      "Parada de taxis 24 h a 2 min",
-      "Bus directo al aeropuerto a 20 min",
+      { icon: Train, tiempo: "2 min", l: "Estación de Renfe (AVE) a pie" },
+      { icon: MapPin, tiempo: "2 min", l: "Parada de Metro a pie" },
+      { icon: Taxi, tiempo: "2 min", l: "Parada de taxis 24 h" },
+      { icon: Plane, tiempo: "20 min", l: "Aeropuerto en bus directo" },
     ],
   },
   {
-    icon: MapPin,
+    icon: Landmark,
     t: "Granada a tu alcance",
     d: [
-      "5 min en taxi al centro histórico",
-      "10 min en taxi a la Alhambra y Generalife",
-      "5 min a hospitales y campus universitario",
-      "10 min en Metro al centro",
+      { icon: Building2, tiempo: "5 min", l: "Centro histórico en taxi" },
+      { icon: Landmark, tiempo: "10 min", l: "Alhambra y Generalife en taxi" },
+      { icon: GraduationCap, tiempo: "5 min", l: "Hospitales y campus universitario" },
+      { icon: Train, tiempo: "10 min", l: "Centro histórico en Metro" },
     ],
   },
   {
     icon: Car,
     t: "Ventaja si vienes en coche",
     d: [
-      "Acceso directo a la circunvalación en 5 min",
-      "Evitas las zonas de tráfico restringido del centro",
-      "Garaje privado en el propio edificio (sujeto a disponibilidad)",
-      "Punto de carga normal para coches eléctricos",
+      { icon: Navigation, tiempo: "5 min", l: "Acceso directo a la circunvalación" },
+      { icon: Ban, l: "Evitas las zonas de tráfico restringido" },
+      { icon: Car, l: "Garaje privado en el propio edificio" },
+      { icon: Zap, l: "Punto de carga normal para eléctricos" },
     ],
   },
 ];
