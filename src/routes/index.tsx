@@ -25,7 +25,7 @@ import {
   GraduationCap,
   Navigation,
   Zap,
-  Ban,
+  Ban, Accessibility,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -114,30 +114,33 @@ const apartamentos = [
     nombre: "Apartamento Perla",
     img: salon,
     colorFondo: "bg-slate-50",
+    accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: salon, alt: "Salón del Apartamento Perla" }],
-  },
-  {
-    id: "coral",
-    nombre: "Apartamento Coral",
-    img: dormitorio,
-    colorFondo: "bg-rose-50",
-    desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV.",
-    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
-    fotos: [
-      { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
-      { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
-    ],
   },
   {
     id: "jade",
     nombre: "Apartamento Jade",
     img: cocina,
     colorFondo: "bg-emerald-50",
+    accesible: false,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
     fotos: [{ src: cocina, alt: "Cocina del Apartamento Jade" }],
+  },
+  {
+    id: "coral",
+    nombre: "Apartamento Coral",
+    img: dormitorio,
+    colorFondo: "bg-rose-50",
+    accesible: true,
+    desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV. Apartamento adaptado para personas con movilidad reducida.",
+    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    fotos: [
+      { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
+      { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
+    ],
   },
 ];
 
@@ -530,6 +533,12 @@ function Index() {
                     height={1072}
                     className="h-56 w-full object-cover transition-transform group-hover:scale-105"
                   />
+                  {a.accesible && (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
+                      <Accessibility className="h-3.5 w-3.5" />
+                      Adaptado para personas con movilidad reducida
+                    </span>
+                  )}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
                     <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black opacity-0 transition-opacity group-hover:opacity-100">
                       Ver fotos
