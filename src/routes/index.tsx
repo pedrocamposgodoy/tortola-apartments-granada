@@ -26,6 +26,9 @@ import {
   Navigation,
   Zap,
   Ban, Accessibility,
+  Wifi,
+  BedDouble,
+  Tv,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -201,14 +204,14 @@ const apartamentos = [
   },
 ];
 
-const servicios = [
-  { t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje privada, sujeta a disponibilidad, con punto de carga normal (no rápida) para vehículos eléctricos. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche." },
-  { t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
-  { t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
-  { t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar." },
-  { t: "Check-in autónomo 24 h", d: "Acceso con llave digital, sin horarios ni esperas. Llegas cuando quieres." },
-  { t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia." },
-  { t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas." },
+const servicios: { icon: LucideIcon; t: string; d: string; clase?: string; destacado?: boolean }[] = [
+  { icon: Car, t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje privada, sujeta a disponibilidad, con punto de carga normal (no rápida) para vehículos eléctricos. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche.", clase: "sm:col-span-2", destacado: true },
+  { icon: Snowflake, t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
+  { icon: Wifi, t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
+  { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar." },
+  { icon: KeyRound, t: "Check-in autónomo 24 h", d: "Acceso con llave digital, sin horarios ni esperas. Llegas cuando quieres." },
+  { icon: BedDouble, t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia." },
+  { icon: Tv, t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas.", clase: "lg:col-span-2" },
 ];
 
 type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
@@ -444,10 +447,11 @@ function Index() {
       </header>
 
       <section
-        className="relative flex min-h-[84vh] items-center justify-center overflow-hidden pb-56 pt-32 sm:pb-32 sm:pt-36"
+        className="relative flex min-h-[86vh] items-center justify-center overflow-hidden pb-72 pt-32 sm:pb-40 sm:pt-36"
         style={{ background: "var(--gradient-hero)" }}
       >
         <TravelMap />
+        <div aria-hidden="true" className="hero-halo absolute inset-0" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-secondary px-4 py-1.5 text-sm font-semibold text-secondary-foreground">
@@ -460,10 +464,10 @@ function Index() {
             </span>
           </div>
           <h1 className="mt-6 font-display text-4xl leading-tight text-foreground sm:text-6xl">
-            Llegas en tren y en 2 minutos estás dentro
+            Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Tres apartamentos a pie de calle en <span translate="no" className="notranslate">Granada</span>, junto a la estación de AVE, el metro y el bus del aeropuerto. Check-in digital 24 h, sin escaleras y sin esperas.
+            Tres apartamentos a pie de calle, junto a la estación de AVE, el metro y el bus del aeropuerto. Check-in digital 24 h, sin escaleras y sin esperas.
           </h2>
           <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
@@ -728,10 +732,27 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 py-14">
         <h2 className="text-center font-display text-4xl">Todo incluido</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {servicios.map((s) => (
-            <div key={s.t} className="rounded-xl border border-border p-6">
-              <h3 className="font-medium">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+          {servicios.map(({ icon: Icon, t, d, clase, destacado }) => (
+            <div
+              key={t}
+              className={`flex gap-4 rounded-2xl border p-6 transition-colors ${
+                destacado
+                  ? "border-primary/30 bg-secondary/70"
+                  : "border-border bg-card hover:border-primary/30"
+              } ${clase ?? ""}`}
+              style={{ boxShadow: "var(--shadow-soft)" }}
+            >
+              <span
+                className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
+                  destacado ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                }`}
+              >
+                <Icon className="h-6 w-6" />
+              </span>
+              <div>
+                <h3 className="font-display text-2xl leading-tight">{t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
             </div>
           ))}
         </div>
