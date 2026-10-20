@@ -95,3 +95,13 @@
     radial-gradient(ellipse at 0% 100%, color-mix(in oklab, var(--accent) 34%, transparent) 0%, transparent 55%),
     color-mix(in oklab, var(--warm) 45%, var(--background));
 }
+
+/* Halo suave detrás del texto del hero: mantiene legible el titular sobre el mapa */
+.hero-halo {
+  background: radial-gradient(ellipse 36% 46% at 50% 46%, color-mix(in oklab, var(--background) 78%, transparent) 0%, transparent 100%);
+}
+@media (max-width: 767px) {
+  .hero-halo {
+    background: radial-gradient(ellipse 95% 42% at 50% 45%, color-mix(in oklab, var(--background) 75%, transparent) 0%, transparent 100%);
+  }
+}
