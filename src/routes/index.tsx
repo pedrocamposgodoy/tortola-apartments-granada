@@ -33,11 +33,11 @@ const SEO_DESC =
   "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { TravelMap } from "@/components/TravelMap";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
 import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
-import granada from "@/assets/granada.jpg";
 const fachada = "/images/fachada.jpg";
 
 /** Vía de tren decorativa entre secciones */
@@ -45,7 +45,7 @@ function TrackDivider() {
   return (
     <div aria-hidden="true" className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-6">
       <div className="track-line flex-1" />
-      <Train className="h-5 w-5 text-terracota" />
+      <Train className="h-5 w-5 text-primary" />
       <div className="track-line flex-1" />
     </div>
   );
@@ -125,7 +125,7 @@ const apartamentos = [
     nombre: "Apartamento Perla",
     img: salon,
     colorFondo: "bg-slate-50",
-    borde: "border-t-stone-400",
+    borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
@@ -136,7 +136,7 @@ const apartamentos = [
     nombre: "Apartamento Jade",
     img: cocina,
     colorFondo: "bg-emerald-50",
-    borde: "border-t-emerald-600",
+    borde: "border-t-emerald-500",
     accesible: false,
     desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
     detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
@@ -372,7 +372,7 @@ function Index() {
           <Link
             to="/"
             translate="no"
-            className="notranslate inline-flex items-center rounded-2xl bg-background/85 px-2 py-1 backdrop-blur"
+            className="notranslate inline-flex items-center"
           >
             <img
               src="/images/logo-tortola.png"
@@ -385,13 +385,13 @@ function Index() {
           <div className="flex items-center gap-1.5 sm:gap-3">
             <Link
               to="/experiencias"
-              className="rounded-full border border-border bg-background/85 backdrop-blur px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Experiencias
             </Link>
             <a
               href="#contacto"
-              className="rounded-full border border-border bg-background/85 backdrop-blur px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Reservar
             </a>
@@ -400,49 +400,38 @@ function Index() {
         </nav>
       </header>
 
-      <section className="relative flex min-h-[82vh] items-center justify-center overflow-hidden pb-24 pt-28 sm:pt-24">
-        <img
-          src={granada}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, oklch(0.28 0.03 200 / 0.70) 0%, oklch(0.28 0.03 200 / 0.40) 45%, oklch(0.28 0.03 200 / 0.80) 100%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
-          <div className="rise-in flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur">
-              <Train className="h-4 w-4 text-warm" />
+      <section
+        className="relative flex min-h-[84vh] items-center justify-center overflow-hidden pb-44 pt-28 sm:pb-32 sm:pt-24"
+        style={{ background: "var(--gradient-hero)" }}
+      >
+        <TravelMap />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-secondary px-4 py-1.5 text-sm font-semibold text-secondary-foreground">
+              <Train className="h-4 w-4 text-primary" />
               A 2 minutos a pie de la Estación de AVE · Acceso cota cero
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-warm/60 bg-warm/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur">
-              <Sparkles className="h-4 w-4 text-warm" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">
+              <Sparkles className="h-4 w-4 text-accent" />
               Grand Opening · Apertura Noviembre 2026
             </span>
           </div>
-          <h1 className="rise-in-2 mt-6 font-display text-4xl leading-tight text-white drop-shadow-md sm:text-6xl">
+          <h1 className="mt-6 font-display text-4xl leading-tight text-foreground sm:text-6xl">
             Tu refugio moderno y confortable en <span translate="no" className="notranslate">Granada</span>
           </h1>
-          <h2 className="rise-in-3 mx-auto mt-6 max-w-xl text-base text-white/90 drop-shadow sm:text-lg">
+          <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
             Apartamentos turísticos a pie de calle (<span translate="no" className="notranslate">Perla</span>, <span translate="no" className="notranslate">Jade</span> y <span translate="no" className="notranslate">Coral</span>) equipados con climatización por aerotermia, entrada autónoma 24/7 y la mejor comunicación.
           </h2>
-          <div className="rise-in-3 mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#contacto"
-              className="rounded-full bg-warm px-7 py-3 text-sm font-semibold text-warm-foreground shadow-lg transition-transform hover:scale-105"
+              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
             >
               Ver disponibilidad y reservar directo
             </a>
             <a
               href="#apartamentos"
-              className="rounded-full border border-white/60 bg-white/10 px-7 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/25"
+              className="rounded-full border border-primary/40 px-7 py-3 text-sm font-medium text-primary transition-colors hover:bg-secondary"
             >
               Ver apartamentos y calidades
             </a>
@@ -539,7 +528,7 @@ function Index() {
             ["24 h", "Check-in"],
           ].map(([n, l]) => (
             <div key={l} className="rounded-xl border border-border bg-card p-6">
-              <dt className="font-display text-3xl text-terracota">{n}</dt>
+              <dt className="font-display text-3xl text-primary">{n}</dt>
               <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
                 {l}
               </dd>
