@@ -40,6 +40,49 @@ import cocina from "@/assets/cocina.jpg";
 import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
 const fachada = "/images/fachada.jpg";
 
+/** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
+function RouteStrip() {
+  const nodos = [
+    { icon: Plane, t: "Aeropuerto", d: "Bus directo" },
+    { icon: Train, t: "Estación de AVE, Metro y bus", d: "Llegas aquí" },
+    { icon: Building2, t: "Tórtola 10", d: "Tu apartamento", destacado: true },
+  ];
+  const tramos = ["20 min en bus", "2 min a pie"];
+  return (
+    <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center md:flex-row md:items-start md:justify-between md:pb-16">
+      {nodos.map((n, i) => (
+        <div key={n.t} className="contents">
+          <div className="relative z-10 flex w-48 flex-col items-center text-center md:w-16 md:overflow-visible">
+            <span
+              className={`inline-flex h-16 w-16 items-center justify-center rounded-full border-2 ${
+                n.destacado ? "border-primary bg-primary text-primary-foreground" : "border-primary/40 bg-card text-primary"
+              }`}
+              style={{ boxShadow: "var(--shadow-soft)" }}
+            >
+              <n.icon className="h-7 w-7" />
+            </span>
+            <span className="mt-3 font-display text-xl leading-tight md:w-48">
+              <span translate="no" className="notranslate">{n.t}</span>
+            </span>
+            <span className="text-xs text-muted-foreground md:w-48">{n.d}</span>
+          </div>
+          {i < tramos.length && (
+            <div className="relative flex h-16 w-full items-center justify-center md:mt-0 md:h-16 md:flex-1">
+              <span
+                aria-hidden="true"
+                className="absolute left-1/2 top-0 h-full border-l-2 border-dashed border-primary/40 md:left-0 md:top-1/2 md:h-0 md:w-full md:border-l-0 md:border-t-2"
+              />
+              <span className="relative rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-primary">
+                {tramos[i]}
+              </span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /** Vía de tren decorativa entre secciones */
 function TrackDivider() {
   return (
@@ -112,8 +155,8 @@ const bloquesDestacados = [
   {
     titulo: "Ahorra en parking y muévete fácil por Granada",
     tarjetas: [
-      { icon: Train, t: "A 2 minutos del AVE y Metro", d: "Olvídate del coche o de arrastrar maletas por el centro." },
-      { icon: Car, t: "Garaje Privado", d: "Plaza cubierta y segura, sujeta a disponibilidad previa. Con punto de carga normal (no rápida) para coches eléctricos." },
+      { icon: Car, t: "Garaje privado", d: "Plaza cubierta y segura, pendiente de disponibilidad en tus fechas. Con punto de carga normal (no rápida) para coches eléctricos." },
+      { icon: MapPin, t: "Aparcamiento público cerca", d: "Si no hay plaza en nuestro garaje, tienes un aparcamiento público junto a la estación de Renfe, a unos 5 minutos." },
       { icon: Landmark, t: "Alhambra y centro histórico", d: "Conexión rápida con la Alhambra y el centro histórico en transporte público." },
     ],
   },
@@ -198,8 +241,8 @@ const hubConexiones: BloqueConexion[] = [
     d: [
       { icon: Navigation, tiempo: "5 min", l: "Acceso directo a la circunvalación" },
       { icon: Ban, l: "Evitas las zonas de tráfico restringido" },
-      { icon: Car, l: "Garaje privado en el propio edificio" },
-      { icon: Zap, l: "Punto de carga normal para eléctricos" },
+      { icon: Car, l: "Garaje privado con punto de carga normal (pendiente de disponibilidad)" },
+      { icon: Car, tiempo: "5 min", l: "Aparcamiento público junto a la estación de Renfe" },
     ],
   },
 ];
@@ -379,7 +422,7 @@ function Index() {
               alt="Apartamentos Tórtola 10 · Granada"
               width={640}
               height={640}
-              className="h-12 w-auto sm:h-16"
+              className="h-20 w-auto rounded-full bg-background/90 shadow-sm sm:h-28"
             />
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-3">
@@ -401,7 +444,7 @@ function Index() {
       </header>
 
       <section
-        className="relative flex min-h-[84vh] items-center justify-center overflow-hidden pb-44 pt-28 sm:pb-32 sm:pt-24"
+        className="relative flex min-h-[84vh] items-center justify-center overflow-hidden pb-56 pt-32 sm:pb-32 sm:pt-36"
         style={{ background: "var(--gradient-hero)" }}
       >
         <TravelMap />
@@ -417,12 +460,16 @@ function Index() {
             </span>
           </div>
           <h1 className="mt-6 font-display text-4xl leading-tight text-foreground sm:text-6xl">
-            Tu refugio moderno y confortable en <span translate="no" className="notranslate">Granada</span>
+            Llegas en tren y en 2 minutos estás dentro
           </h1>
           <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Apartamentos turísticos a pie de calle (<span translate="no" className="notranslate">Perla</span>, <span translate="no" className="notranslate">Jade</span> y <span translate="no" className="notranslate">Coral</span>) equipados con climatización por aerotermia, entrada autónoma 24/7 y la mejor comunicación.
+            Tres apartamentos a pie de calle en <span translate="no" className="notranslate">Granada</span>, junto a la estación de AVE, el metro y el bus del aeropuerto. Check-in digital 24 h, sin escaleras y sin esperas.
           </h2>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground sm:text-base">
+            <MapPin className="h-4 w-4 shrink-0 text-primary" />
+            <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
@@ -462,8 +509,76 @@ function Index() {
         </ul>
       </section>
 
+      <section id="ubicacion" className="relative overflow-hidden bg-pastel py-16">
+        <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <h2 className="text-center font-display text-4xl">Estación, metro y bus del aeropuerto, a 2 minutos a pie</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas.
+          </p>
+
+          <RouteStrip />
+
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {hubConexiones.map(({ icon: Icon, t, d }) => (
+              <div
+                key={t}
+                className="rounded-2xl border border-border bg-card p-6"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              >
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <Icon className="h-6 w-6 text-primary" />
+                </span>
+                <h3 className="mt-4 font-display text-2xl">{t}</h3>
+                <ul className="mt-4 space-y-3">
+                  {d.map(({ icon: TrayIcon, tiempo, l }) => (
+                    <li key={l} className="flex items-center gap-3">
+                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary">
+                        <TrayIcon className="h-4 w-4 text-primary" />
+                      </span>
+                      {tiempo && (
+                        <span className="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 font-display text-sm whitespace-nowrap text-primary">
+                          {tiempo}
+                        </span>
+                      )}
+                      <span className="text-sm text-muted-foreground">{l}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="mt-10 overflow-hidden rounded-3xl border border-border"
+            style={{ boxShadow: "var(--shadow-soft)" }}
+          >
+            <iframe
+              title="Ubicación de Calle Tórtola nº 10, Granada"
+              src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
+              width="100%"
+              height="400"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block h-[400px] w-full border-0"
+            />
+          </div>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=37.185439,-3.609873"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+            >
+              <MapPin className="h-4 w-4 shrink-0" /> Abrir en Google Maps / Cómo llegar
+            </a>
+          </div>
+        </div>
+      </section>
+
       {bloquesDestacados.map((b, i) => (
-        <section key={b.titulo} className={i === 1 ? "bg-secondary/50 bg-lattice py-14" : "py-14"}>
+        <section key={b.titulo} className={i === 1 ? "bg-secondary/50 py-14" : "py-14"}>
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="text-center font-display text-4xl">{b.titulo}</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -481,60 +596,42 @@ function Index() {
         </section>
       ))}
 
-      <section className="mx-auto max-w-6xl px-6 pt-20">
-        <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary">El edificio</p>
-          <h2 className="mt-4 font-display text-4xl">
-            <span translate="no" className="notranslate">
-              Calle Tórtola 10
-            </span>
-            , <span translate="no" className="notranslate">Granada</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Así es la entrada real de tu alojamiento: un edificio reformado, tranquilo,
-            con garaje propio y muy bien comunicado con la ciudad.
-          </p>
+      <section className="relative overflow-hidden bg-pastel py-20">
+        <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
+          <figure>
+            <img
+              src={fachada}
+              alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada"
+              className="w-full rounded-2xl border-8 border-white object-cover shadow-xl lg:-rotate-2"
+            />
+            <figcaption className="mt-4 text-center text-sm text-muted-foreground">
+              La entrada real: a pie de calle, sin escaleras.
+            </figcaption>
+          </figure>
+          <div>
+            <h2 className="font-display text-4xl">
+              <span translate="no" className="notranslate">Calle Tórtola 10</span>
+              , <span translate="no" className="notranslate">Granada</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Un edificio reformado y tranquilo, con tres apartamentos independientes pensados para parejas, viajeros de negocios y estancias médicas. Entras directamente desde la calle y llegas a tu apartamento sin esperas.
+            </p>
+            <dl className="mt-8 grid grid-cols-2 gap-4">
+              {[
+                ["3", "Apartamentos"],
+                ["40 m²", "Superficie"],
+                ["4", "Huéspedes"],
+                ["24 h", "Check-in"],
+              ].map(([n, l]) => (
+                <div key={l} className="rounded-xl border border-border bg-card/90 p-5">
+                  <dt className="font-display text-3xl text-primary">{n}</dt>
+                  <dd className="mt-1 text-sm text-muted-foreground">{l}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
-        <figure className="mt-10">
-          <img
-            src={fachada}
-            alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada"
-            className="w-full rounded-3xl object-cover"
-            style={{ boxShadow: "var(--shadow-soft)" }}
-          />
-        </figure>
-      </section>
-
-      <section className="mx-auto max-w-3xl px-6 py-14 text-center">
-        <h2 className="font-display text-4xl">Quiénes somos</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-          Somos una empresa familiar especializada en el alquiler de apartamentos en <span translate="no" className="notranslate">Granada</span> desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
-        </p>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 py-14 text-center">
-        <h2 className="font-display text-4xl">Tu base perfecta en <span translate="no" className="notranslate">Granada</span></h2>
-        <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-          En Calle Tórtola encontrarás tres apartamentos independientes pensados para
-          parejas, viajeros de negocios y estancias médicas. Garaje privado en el propio edificio
-          (sujeto a disponibilidad previa).
-        </p>
-
-        <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {[
-            ["3", "Apartamentos"],
-            ["40 m²", "Superficie"],
-            ["4", "Huéspedes"],
-            ["24 h", "Check-in"],
-          ].map(([n, l]) => (
-            <div key={l} className="rounded-xl border border-border bg-card p-6">
-              <dt className="font-display text-3xl text-primary">{n}</dt>
-              <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
-                {l}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </section>
 
       <TrackDivider />
@@ -642,68 +739,12 @@ function Index() {
 
       <TrackDivider />
 
-      <section id="ubicacion" className="bg-secondary/50 bg-lattice py-14">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="font-display text-4xl">Ubicación inmejorable</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas.
+      <section className="bg-secondary/50 bg-lattice py-16">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h2 className="font-display text-4xl">Quiénes somos</h2>
+          <p className="mt-5 text-muted-foreground">
+            Somos una empresa familiar especializada en el alquiler de apartamentos en <span translate="no" className="notranslate">Granada</span> desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
           </p>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {hubConexiones.map(({ icon: Icon, t, d }) => (
-              <div
-                key={t}
-                className="rounded-2xl border border-border bg-card p-6"
-                style={{ boxShadow: "var(--shadow-soft)" }}
-              >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                  <Icon className="h-6 w-6 text-primary" />
-                </span>
-                <h3 className="mt-4 font-display text-2xl">{t}</h3>
-                <ul className="mt-4 space-y-3">
-                  {d.map(({ icon: TrayIcon, tiempo, l }) => (
-                    <li key={l} className="flex items-center gap-3">
-                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary">
-                        <TrayIcon className="h-4 w-4 text-primary" />
-                      </span>
-                      {tiempo && (
-                        <span className="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 font-display text-sm whitespace-nowrap text-primary">
-                          {tiempo}
-                        </span>
-                      )}
-                      <span className="text-sm text-muted-foreground">{l}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div
-            className="mt-10 overflow-hidden rounded-3xl border border-border"
-            style={{ boxShadow: "var(--shadow-soft)" }}
-          >
-            <iframe
-              title="Ubicación de Calle Tórtola nº 10, Granada"
-              src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
-              width="100%"
-              height="400"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="block h-[400px] w-full border-0"
-            />
-          </div>
-          <div className="mt-6 flex justify-center">
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=37.185439,-3.609873"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
-            >
-              <MapPin className="h-4 w-4 shrink-0" /> Abrir en Google Maps / Cómo llegar
-            </a>
-          </div>
         </div>
       </section>
 
@@ -724,6 +765,10 @@ function Index() {
         <p className="mt-4 text-muted-foreground">
           Escríbenos para consultar disponibilidad y precios. Respondemos en menos de 24
           horas.
+        </p>
+        <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium">
+          <MapPin className="h-4 w-4 text-primary" />
+          <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
         </p>
         {extraNombre && (
           <p className="mt-5 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
@@ -766,13 +811,16 @@ function Index() {
           alt="Apartamentos Tórtola 10 · Granada"
           width={640}
           height={640}
-          className="mx-auto mb-4 h-16 w-auto opacity-90"
+          className="mx-auto mb-4 h-32 w-auto"
         />
         <div className="mb-3 flex flex-wrap justify-center gap-4">
           <Link to="/" className="hover:text-primary">Inicio</Link>
           <Link to="/experiencias" className="hover:text-primary">Experiencias</Link>
           <a href="#contacto" className="hover:text-primary">Reservar</a>
         </div>
+        <p className="mb-2 text-sm text-foreground">
+          <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
+        </p>
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10
