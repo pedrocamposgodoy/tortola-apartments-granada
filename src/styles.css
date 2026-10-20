@@ -62,26 +62,29 @@
 }
 
 :root {
+  /* Paleta de marca unificada (extraída del logotipo oficial):
+     petróleo #435857 · jade/salvia #8EA692 · azul brisa #B0C8D3 · perla #F8FAFC */
   --radius: 0.5rem;
-  --background: oklch(0.989 0.006 85);
-  --foreground: oklch(0.279 0.041 260);
-  --card: oklch(0.995 0.004 85);
-  --card-foreground: oklch(0.279 0.041 260);
-  --popover: oklch(0.97 0.009 85);
-  --popover-foreground: oklch(0.279 0.041 260);
-  --primary: oklch(0.585 0.14 38);
-  --primary-foreground: oklch(0.985 0.008 85);
-  --secondary: oklch(0.91 0.018 80);
-  --secondary-foreground: oklch(0.3 0.03 45);
-  --muted: oklch(0.925 0.016 82);
-  --muted-foreground: oklch(0.5 0.02 60);
-  --accent: oklch(0.62 0.09 145);
-  --accent-foreground: oklch(0.985 0.008 85);
+  --background: oklch(0.985 0.004 200);
+  --foreground: oklch(0.28 0.025 230);
+  --card: oklch(0.995 0.003 200);
+  --card-foreground: oklch(0.28 0.025 230);
+  --popover: oklch(0.99 0.004 200);
+  --popover-foreground: oklch(0.28 0.025 230);
+  --primary: oklch(0.43 0.03 190);
+  --primary-foreground: oklch(0.985 0.004 200);
+  --secondary: oklch(0.95 0.014 160);
+  --secondary-foreground: oklch(0.32 0.03 190);
+  --muted: oklch(0.955 0.008 210);
+  --muted-foreground: oklch(0.5 0.02 220);
+  --accent: oklch(0.7 0.04 150);
+  --accent-foreground: oklch(0.985 0.004 200);
+  --brand-sky: oklch(0.81 0.03 225);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.015 80);
-  --input: oklch(0.9 0.015 80);
-  --ring: oklch(0.585 0.14 38);
+  --border: oklch(0.91 0.012 200);
+  --input: oklch(0.91 0.012 200);
+  --ring: oklch(0.43 0.03 190);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -96,12 +99,18 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
-  --gradient-hero: linear-gradient(
-    180deg,
-    color-mix(in oklab, oklch(0.24 0.02 45) 20%, transparent) 0%,
-    color-mix(in oklab, oklch(0.2 0.02 45) 78%, transparent) 100%
-  );
-  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, oklch(0.24 0.02 45) 45%, transparent);
+  --gradient-hero: radial-gradient(
+      ellipse at 85% 10%,
+      color-mix(in oklab, var(--brand-sky) 35%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 10% 90%,
+      color-mix(in oklab, var(--accent) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    var(--background);
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, oklch(0.3 0.03 200) 40%, transparent);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Karla", system-ui, sans-serif;
 }
