@@ -353,7 +353,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="absolute inset-x-0 top-0 z-20 border-b border-border bg-background/90 shadow-sm backdrop-blur-md">
+      <header className="absolute inset-x-0 top-0 z-20 bg-transparent">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
           <Link
             to="/"
@@ -365,19 +365,19 @@ function Index() {
               alt="Apartamentos Tórtola 10 · Granada"
               width={640}
               height={640}
-              className="h-10 w-auto sm:h-12"
+              className="h-12 w-auto sm:h-16"
             />
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-3">
             <Link
               to="/experiencias"
-              className="rounded-full border border-border px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Experiencias
             </Link>
             <a
               href="#contacto"
-              className="rounded-full border border-border px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Reservar
             </a>
@@ -386,38 +386,37 @@ function Index() {
         </nav>
       </header>
 
-      <section className="relative flex min-h-[88vh] items-start justify-center overflow-hidden pt-24 sm:items-center sm:pt-0">
-        <img
-          src={granada}
-          alt="Vista de la Alhambra de Granada con Sierra Nevada al fondo"
-          width={1920}
-          height={1088}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="relative mx-auto max-w-3xl self-center px-6 text-center">
-          <div className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-5 py-2 backdrop-blur-md">
-            <Sparkles className="mr-2 inline h-5 w-5 text-primary" />
-            <span className="text-sm font-bold text-primary-foreground">
+      <section
+        className="relative flex min-h-[78vh] items-center justify-center overflow-hidden pb-14 pt-28 sm:pt-24"
+        style={{ background: "var(--gradient-hero)" }}
+      >
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-secondary px-4 py-1.5 text-sm font-semibold text-secondary-foreground">
+              <Train className="h-4 w-4 text-primary" />
+              A 2 minutos a pie de la Estación de AVE · Acceso cota cero
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">
+              <Sparkles className="h-4 w-4 text-accent" />
               Grand Opening · Apertura Noviembre 2026
             </span>
           </div>
-          <h1 className="mt-6 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
-            Disfruta de <span translate="no" className="notranslate">Granada</span> desde una excelente ubicación con todo el confort
+          <h1 className="mt-6 font-display text-4xl leading-tight text-foreground sm:text-6xl">
+            Tu refugio moderno y confortable en <span translate="no" className="notranslate">Granada</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base text-primary-foreground/85">
-            Apartamentos luminosos con techos altos, climatización por aerotermia, cocina totalmente equipada y acceso directo a cota cero a pie de calle, pensados para tu máxima comodidad. Tu hogar en <span translate="no" className="notranslate">Granada</span> con garaje privado y llegada autónoma 24/7.
-          </p>
+          <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+            Apartamentos turísticos a pie de calle (<span translate="no" className="notranslate">Perla</span>, <span translate="no" className="notranslate">Jade</span> y <span translate="no" className="notranslate">Coral</span>) equipados con climatización por aerotermia, entrada autónoma 24/7 y la mejor comunicación.
+          </h2>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#contacto"
               className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
             >
-              Consultar fechas y reservar
+              Ver disponibilidad y reservar directo
             </a>
             <a
               href="#apartamentos"
-              className="rounded-full border border-primary-foreground/50 px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              className="rounded-full border border-primary/40 px-7 py-3 text-sm font-medium text-primary transition-colors hover:bg-secondary"
             >
               Ver apartamentos y calidades
             </a>
