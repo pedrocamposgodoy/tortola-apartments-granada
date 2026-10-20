@@ -87,3 +87,11 @@
 @media (prefers-reduced-motion: reduce) {
   .travel-map { animation: none; }
 }
+
+/* Fondo pastel de secciones destacadas (mismo aire que el hero) */
+.bg-pastel {
+  background:
+    radial-gradient(ellipse at 100% 0%, color-mix(in oklab, var(--brand-sky) 50%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse at 0% 100%, color-mix(in oklab, var(--accent) 34%, transparent) 0%, transparent 55%),
+    color-mix(in oklab, var(--warm) 45%, var(--background));
+}
