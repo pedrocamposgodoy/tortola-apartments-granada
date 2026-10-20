@@ -40,6 +40,9 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-warm: var(--warm);
+  --color-warm-foreground: var(--warm-foreground);
+  --color-terracota: var(--terracota);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -80,6 +83,10 @@
   --accent: oklch(0.7 0.04 150);
   --accent-foreground: oklch(0.985 0.004 200);
   --brand-sky: oklch(0.81 0.03 225);
+  /* Acentos cálidos "Alhambra al atardecer" (complementan la paleta fría del logo) */
+  --warm: oklch(0.78 0.125 78);
+  --warm-foreground: oklch(0.25 0.04 60);
+  --terracota: oklch(0.62 0.13 40);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.91 0.012 200);
@@ -189,4 +196,38 @@ font[style],
 .goog-text-highlight {
   background: none !important;
   box-shadow: none !important;
+}
+
+/* ---------- Motivos de viaje / Granada ---------- */
+
+/* Lacería nazarí (estrella de 8 puntas) sobre fondos claros */
+.bg-lattice {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none' stroke='%23435857' stroke-opacity='0.10' stroke-width='1'%3E%3Cpolygon points='16,16 48,16 48,48 16,48'/%3E%3Cpolygon points='32,8.7 55.3,32 32,55.3 8.7,32'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3Cpath d='M0 0L8.7 8.7M64 0L55.3 8.7M0 64L8.7 55.3M64 64L55.3 55.3'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Misma lacería en blanco, para fondos oscuros */
+.bg-lattice-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='1'%3E%3Cpolygon points='16,16 48,16 48,48 16,48'/%3E%3Cpolygon points='32,8.7 55.3,32 32,55.3 8.7,32'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Vía de tren discontinua */
+.track-line {
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary) 55%, transparent) 0 14px, transparent 14px 28px) center 0 / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary) 55%, transparent) 0 14px, transparent 14px 28px) center 100% / 100% 2px no-repeat;
+}
+
+/* Entrada suave del hero */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.rise-in { animation: rise-in 0.8s ease-out both; }
+.rise-in-2 { animation: rise-in 0.8s 0.15s ease-out both; }
+.rise-in-3 { animation: rise-in 0.8s 0.3s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .rise-in, .rise-in-2, .rise-in-3 { animation: none; }
 }
