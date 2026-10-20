@@ -154,26 +154,32 @@ const bloques: {
 function Experiencias() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="absolute inset-x-0 top-0 z-20">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-6 sm:px-6">
+      <header className="absolute inset-x-0 top-0 z-20 border-b border-border bg-background/90 shadow-sm backdrop-blur-md">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link
             to="/"
             translate="no"
-            className="notranslate font-display text-sm tracking-[0.15em] text-primary-foreground sm:text-xl"
+            className="notranslate inline-flex items-center"
           >
-            APARTAMENTOS TÓRTOLA 10
+            <img
+              src="/images/logo-tortola.png"
+              alt="Apartamentos Tórtola 10 · Granada"
+              width={640}
+              height={640}
+              className="h-10 w-auto sm:h-12"
+            />
           </Link>
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               to="/"
-              className="hidden rounded-full border border-primary-foreground/40 px-5 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:inline-block"
+              className="hidden rounded-full border border-border px-5 py-2 text-sm text-foreground transition-colors hover:bg-muted sm:inline-block"
             >
               Inicio
             </Link>
             <Link
               to="/"
               hash="contacto"
-              className="rounded-full border border-primary-foreground/40 px-3 py-2 text-xs text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:text-sm"
+              className="rounded-full border border-border px-3 py-2 text-xs text-foreground transition-colors hover:bg-muted sm:px-5 sm:text-sm"
             >
               Reservar
             </Link>
@@ -307,7 +313,14 @@ function Experiencias() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
+        <img
+          src="/images/logo-tortola.png"
+          alt="Apartamentos Tórtola 10 · Granada"
+          width={640}
+          height={640}
+          className="mx-auto mb-4 h-16 w-auto opacity-90"
+        />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10

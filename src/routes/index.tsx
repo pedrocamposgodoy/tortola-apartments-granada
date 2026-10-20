@@ -353,26 +353,31 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="absolute inset-x-0 top-0 z-20">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 sm:gap-3 sm:px-6 sm:py-6">
+      <header className="absolute inset-x-0 top-0 z-20 border-b border-border bg-background/90 shadow-sm backdrop-blur-md">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
           <Link
             to="/"
             translate="no"
-            className="notranslate font-display tracking-[0.15em] text-primary-foreground sm:tracking-[0.2em] sm:text-xl"
+            className="notranslate inline-flex items-center"
           >
-            <span className="text-sm sm:hidden">TÓRTOLA 10</span>
-            <span className="hidden text-base sm:inline">APARTAMENTOS TÓRTOLA 10</span>
+            <img
+              src="/images/logo-tortola.png"
+              alt="Apartamentos Tórtola 10 · Granada"
+              width={640}
+              height={640}
+              className="h-10 w-auto sm:h-12"
+            />
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-3">
             <Link
               to="/experiencias"
-              className="rounded-full border border-primary-foreground/40 px-3 py-1.5 text-[11px] text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Experiencias
             </Link>
             <a
               href="#contacto"
-              className="rounded-full border border-primary-foreground/40 px-3 py-1.5 text-[11px] text-primary-foreground transition-colors hover:bg-primary-foreground/10 sm:px-5 sm:py-2 sm:text-sm"
+              className="rounded-full border border-border px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Reservar
             </a>
@@ -725,7 +730,14 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
+        <img
+          src="/images/logo-tortola.png"
+          alt="Apartamentos Tórtola 10 · Granada"
+          width={640}
+          height={640}
+          className="mx-auto mb-4 h-16 w-auto opacity-90"
+        />
         <div className="mb-3 flex flex-wrap justify-center gap-4">
           <Link to="/" className="hover:text-primary">Inicio</Link>
           <Link to="/experiencias" className="hover:text-primary">Experiencias</Link>
