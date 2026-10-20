@@ -126,7 +126,7 @@ export function LanguageSelector() {
         aria-label="Seleccionar idioma"
         aria-haspopup="menu"
         aria-expanded={abierto}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/40 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground transition-colors hover:bg-muted"
       >
         <img
           src={urlBandera(IDIOMAS.find((i) => i.code === activo)?.bandera ?? "es")}
