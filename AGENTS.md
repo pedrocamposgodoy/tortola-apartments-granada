@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Site chrome (navbar, footer) must use theme tokens (`bg-background/90`, `border-border`, `text-foreground`) instead of hardcoded color utilities, so the translucent header keeps working if the palette changes.
