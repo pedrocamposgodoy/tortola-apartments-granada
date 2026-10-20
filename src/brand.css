@@ -1,0 +1,89 @@
+/*
+ * MARCA · Apartamentos Tórtola 10
+ * ----------------------------------------------------------------
+ * ÚNICO sitio donde se define la identidad visual: colores, tipografías,
+ * degradados y motivos decorativos. Para cambiar el look de toda la web
+ * (por ejemplo, al adoptar un logo nuevo) se edita solo este archivo.
+ *
+ * Paleta actual (extraída del logo): petróleo #435857 · jade/salvia #8EA692
+ * · azul brisa #B0C8D3 · perla #F8FAFC · + arena suave como acento cálido.
+ * Todos los colores en oklch.
+ *
+ * Logo: /public/images/logo-tortola.png (se sustituye manteniendo el nombre).
+ * Mapa de viaje del hero: src/components/TravelMap.tsx
+ */
+
+:root {
+  --radius: 0.5rem;
+
+  /* Base */
+  --background: oklch(0.985 0.004 200);
+  --foreground: oklch(0.28 0.025 230);
+  --card: oklch(0.995 0.003 200);
+  --card-foreground: oklch(0.28 0.025 230);
+  --popover: oklch(0.99 0.004 200);
+  --popover-foreground: oklch(0.28 0.025 230);
+
+  /* Marca */
+  --primary: oklch(0.43 0.03 190);            /* petróleo */
+  --primary-foreground: oklch(0.985 0.004 200);
+  --secondary: oklch(0.95 0.014 160);         /* salvia muy claro */
+  --secondary-foreground: oklch(0.32 0.03 190);
+  --accent: oklch(0.7 0.04 150);              /* jade/salvia */
+  --accent-foreground: oklch(0.985 0.004 200);
+  --brand-sky: oklch(0.81 0.03 225);          /* azul brisa */
+  --warm: oklch(0.93 0.035 85);               /* arena suave */
+  --warm-foreground: oklch(0.32 0.03 190);
+
+  /* Neutros */
+  --muted: oklch(0.955 0.008 210);
+  --muted-foreground: oklch(0.5 0.02 220);
+  --border: oklch(0.91 0.012 200);
+  --input: oklch(0.91 0.012 200);
+  --ring: oklch(0.43 0.03 190);
+
+  /* Fondo pastel del hero: azul brisa arriba a la derecha, salvia abajo a la izquierda, arena al centro */
+  --gradient-hero:
+    radial-gradient(ellipse at 88% 6%, color-mix(in oklab, var(--brand-sky) 60%, transparent) 0%, transparent 58%),
+    radial-gradient(ellipse at 6% 94%, color-mix(in oklab, var(--accent) 42%, transparent) 0%, transparent 56%),
+    radial-gradient(ellipse at 50% 55%, color-mix(in oklab, var(--warm) 70%, transparent) 0%, transparent 65%),
+    linear-gradient(180deg, color-mix(in oklab, var(--brand-sky) 22%, var(--background)), var(--background));
+
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, oklch(0.3 0.03 200) 40%, transparent);
+
+  /* Tipografías (cargadas en src/routes/__root.tsx) */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Karla", system-ui, sans-serif;
+}
+
+/* ---------- Motivos de marca ---------- */
+
+/* Lacería nazarí (estrella de 8 puntas), sutil, sobre fondos claros */
+.bg-lattice {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none' stroke='%23435857' stroke-opacity='0.10' stroke-width='1'%3E%3Cpolygon points='16,16 48,16 48,48 16,48'/%3E%3Cpolygon points='32,8.7 55.3,32 32,55.3 8.7,32'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3Cpath d='M0 0L8.7 8.7M64 0L55.3 8.7M0 64L8.7 55.3M64 64L55.3 55.3'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* La misma lacería en blanco, para fondos oscuros */
+.bg-lattice-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='1'%3E%3Cpolygon points='16,16 48,16 48,48 16,48'/%3E%3Cpolygon points='32,8.7 55.3,32 32,55.3 8.7,32'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Vía de tren discontinua (separador entre secciones) */
+.track-line {
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary) 55%, transparent) 0 14px, transparent 14px 28px) center 0 / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary) 55%, transparent) 0 14px, transparent 14px 28px) center 100% / 100% 2px no-repeat;
+}
+
+/* Mapa de viaje del hero: aparece suavemente al cargar */
+@keyframes map-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.travel-map { animation: map-fade 1.4s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .travel-map { animation: none; }
+}
