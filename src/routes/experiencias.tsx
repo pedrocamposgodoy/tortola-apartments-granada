@@ -166,7 +166,7 @@ function Experiencias() {
               alt="Apartamentos Tórtola 10 · Granada"
               width={640}
               height={640}
-              className="h-10 w-auto sm:h-12"
+              className="h-16 w-auto rounded-full bg-background/90 shadow-sm sm:h-20"
             />
           </Link>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -193,11 +193,11 @@ function Experiencias() {
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero)" }}
         />
-        <div className="relative mx-auto max-w-3xl px-6 pt-24 text-center">
+        <div className="relative mx-auto max-w-3xl px-6 pt-32 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">
             Servicios adicionales
           </p>
-          <h1 className="mt-4 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl">
+          <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl">
             Personaliza tu estancia en{" "}
             <span translate="no" className="notranslate">
               Granada
@@ -319,7 +319,7 @@ function Experiencias() {
           alt="Apartamentos Tórtola 10 · Granada"
           width={640}
           height={640}
-          className="mx-auto mb-4 h-16 w-auto opacity-90"
+          className="mx-auto mb-4 h-32 w-auto"
         />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
