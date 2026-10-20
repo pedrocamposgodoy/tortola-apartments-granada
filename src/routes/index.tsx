@@ -33,7 +33,6 @@ const SEO_DESC =
   "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import granada from "@/assets/granada.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import cocina from "@/assets/cocina.jpg";
