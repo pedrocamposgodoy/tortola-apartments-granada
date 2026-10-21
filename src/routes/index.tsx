@@ -37,7 +37,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { TravelMap } from "@/components/TravelMap";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
-import cocina from "@/assets/cocina.jpg";
+import jadeCocina from "@/assets/jade-cocina.jpg";
 import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
 const fachada = "/images/fachada.jpg";
 
@@ -162,13 +162,13 @@ const apartamentos = [
   {
     id: "jade",
     nombre: "Apartamento Jade",
-    img: cocina,
+    img: jadeCocina,
     colorFondo: "bg-emerald-50",
     borde: "border-t-emerald-500",
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
-    fotos: [{ src: cocina, alt: "Cocina del Apartamento Jade" }],
+    fotos: [{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital" }],
   },
   {
     id: "coral",
@@ -584,6 +584,20 @@ function Index() {
                 </div>
               ))}
             </div>
+            <figure className="mx-auto mt-10 max-w-4xl">
+              <img
+                src={jadeCocina}
+                alt="Entrada de un apartamento con puerta de cerradura digital y cocina equipada"
+                loading="lazy"
+                width={1600}
+                height={747}
+                className="w-full rounded-2xl border-4 border-white object-cover"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              />
+              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                Así es la entrada: puerta con cerradura digital, a pie de calle y sin escaleras.
+              </figcaption>
+            </figure>
           </div>
         </section>
       ))}
