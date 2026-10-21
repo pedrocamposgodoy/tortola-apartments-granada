@@ -464,10 +464,10 @@ function Index() {
           <h1 className="mt-6 font-display text-4xl leading-tight text-foreground sm:text-6xl">
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
-          <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+          <h2 className="mx-auto mt-6 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">
             Tres apartamentos independientes de 35 a 43 m², reformados y listos para tu estancia.
           </h2>
-          <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground sm:text-base">
+          <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
             <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
           </p>
@@ -480,7 +480,7 @@ function Index() {
             </a>
             <a
               href="#apartamentos"
-              className="rounded-full border border-primary/40 px-7 py-3 text-sm font-medium text-primary transition-colors hover:bg-secondary"
+              className="rounded-full border border-primary/50 bg-background/90 px-7 py-3 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-secondary"
             >
               Ver apartamentos y calidades
             </a>
