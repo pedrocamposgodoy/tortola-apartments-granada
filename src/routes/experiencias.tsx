@@ -166,7 +166,7 @@ function Experiencias() {
               alt="Apartamentos Tórtola 10 · Granada"
               width={640}
               height={640}
-              className="h-16 w-auto rounded-full bg-background/90 shadow-sm sm:h-20"
+              className="h-20 w-auto rounded-full bg-background/90 shadow-sm sm:h-24"
             />
           </Link>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -319,7 +319,7 @@ function Experiencias() {
           alt="Apartamentos Tórtola 10 · Granada"
           width={640}
           height={640}
-          className="mx-auto mb-4 h-32 w-auto"
+          className="mx-auto mb-4 h-44 w-auto sm:h-52"
         />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">

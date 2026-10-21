@@ -416,7 +416,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="absolute inset-x-0 top-0 z-20 bg-transparent">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
+        <nav className="mx-auto flex max-w-[96rem] items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-8 sm:py-4">
           <Link
             to="/"
             translate="no"
@@ -427,7 +427,7 @@ function Index() {
               alt="Apartamentos Tórtola 10 · Granada"
               width={640}
               height={640}
-              className="h-20 w-auto rounded-full bg-background/90 shadow-sm sm:h-28"
+              className="h-24 w-auto rounded-full bg-background/90 shadow-md ring-4 ring-white/60 sm:h-36"
             />
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-3">
@@ -822,7 +822,7 @@ function Index() {
           alt="Apartamentos Tórtola 10 · Granada"
           width={640}
           height={640}
-          className="mx-auto mb-4 h-32 w-auto"
+          className="mx-auto mb-4 h-44 w-auto sm:h-52"
         />
         <div className="mb-3 flex flex-wrap justify-center gap-4">
           <Link to="/" className="hover:text-primary">Inicio</Link>
