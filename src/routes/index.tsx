@@ -396,10 +396,17 @@ function GaleriaLightbox({
 }
 
 const extrasMap: Record<string, string> = {
-  alhambra: "Entradas y visita guiada a la Alhambra",
-  hammam: "Sesión de Baños Árabes (Hammam)",
-  bienvenida: "Pack de Bienvenida",
-  parking: "Plaza de Parking Privado (Cochera Tórtola 8)",
+  "guia-alhambra": "La Alhambra con guía oficial (Alain)",
+  "guia-lorca": "Visita a la casa de García Lorca (Alain)",
+  "guia-albaicin": "Albaicín y cuevas del Sacromonte (Alain)",
+  "guia-medida": "Ruta privada a medida (Alain)",
+  parking: "Plaza de parking privado (Cochera Tórtola 8)",
+  consigna: "Consigna de equipaje",
+  flexibilidad: "Early check-in / Late check-out",
+  transfer: "Transfer privado",
+  cuna: "Cuna para bebés",
+  bienvenida: "Pack de bienvenida",
+  desayuno: "Desayuno de bienvenida",
 };
 
 function Index() {
@@ -802,7 +809,7 @@ function Index() {
         )}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
-            href="mailto:reservas@apartamentostortola.com"
+            href={`mailto:reservas@apartamentostortola.com${extraNombre ? `?subject=${encodeURIComponent("Consulta: " + extraNombre)}` : ""}`}
             className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
           >
             reservas@apartamentostortola.com

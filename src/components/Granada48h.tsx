@@ -17,7 +17,7 @@ const perfiles: Perfil[] = [
   {
     id: "senior",
     emoji: "🧘",
-    nombre: "Sénior / Calmado",
+    nombre: "Sin prisas",
     intro:
       "Un ritmo tranquilo, sin cuestas innecesarias y con tiempo para disfrutar de cada rincón.",
     dia1: {
