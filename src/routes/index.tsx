@@ -10,9 +10,7 @@ import {
   Sparkles,
   Train,
   MapPin,
-  KeyRound,
   Car,
-  DoorOpen,
   UtensilsCrossed,
   Snowflake,
   Smartphone,
@@ -138,14 +136,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const badges = [
-  { icon: DoorOpen, t: "Acceso a cota cero: entrada directa a pie de calle, sin barreras ni escalones" },
-  { icon: Snowflake, t: "Climatización por aerotermia: silenciosa, frío y calor todo el año" },
-  { icon: UtensilsCrossed, t: "Cocina totalmente equipada: menaje completo y electrodomésticos" },
-  { icon: Car, t: "Garaje privado en el edificio con punto de carga eléctrica (bajo petición)" },
-  { icon: KeyRound, t: "Check-in digital 24/7: apertura autónoma, sin llaves ni esperas" },
-];
-
 const bloquesDestacados = [
   {
     titulo: "Llega a cualquier hora sin preocupaciones",
@@ -153,14 +143,6 @@ const bloquesDestacados = [
       { icon: Smartphone, t: "Acceso Digital Autónomo", d: "Apertura mediante código o cerradura inteligente desde tu móvil." },
       { icon: Clock, t: "Sin penalizaciones por late check-in", d: "Si tu tren se retrasa o viajas de madrugada, tu apartamento te estará esperando sin recargos." },
       { icon: ListChecks, t: "Guía paso a paso", d: "Instrucciones claras con fotos y vídeo enviadas a tu móvil antes del viaje." },
-    ],
-  },
-  {
-    titulo: "Ahorra en parking y muévete fácil por Granada",
-    tarjetas: [
-      { icon: Car, t: "Garaje privado", d: "Plaza cubierta y segura, pendiente de disponibilidad en tus fechas. Con punto de carga normal (no rápida) para coches eléctricos." },
-      { icon: MapPin, t: "Aparcamiento público cerca", d: "Si no hay plaza en nuestro garaje, tienes un aparcamiento público junto a la estación de Renfe, a unos 5 minutos." },
-      { icon: Landmark, t: "Alhambra y centro histórico", d: "Conexión rápida con la Alhambra y el centro histórico en transporte público." },
     ],
   },
 ];
@@ -204,14 +186,12 @@ const apartamentos = [
   },
 ];
 
-const servicios: { icon: LucideIcon; t: string; d: string; clase?: string; destacado?: boolean }[] = [
-  { icon: Car, t: "Garaje privado (sujeto a disponibilidad)", d: "Plaza de garaje privada, sujeta a disponibilidad, con punto de carga normal (no rápida) para vehículos eléctricos. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche.", clase: "sm:col-span-2", destacado: true },
-  { icon: Snowflake, t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable." },
-  { icon: Wifi, t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones." },
-  { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar." },
-  { icon: KeyRound, t: "Check-in autónomo 24 h", d: "Acceso con llave digital, sin horarios ni esperas. Llegas cuando quieres." },
-  { icon: BedDouble, t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia." },
-  { icon: Tv, t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas.", clase: "lg:col-span-2" },
+const servicios: { icon: LucideIcon; t: string; d: string; clase?: string }[] = [
+  { icon: Snowflake, t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable.", clase: "lg:col-span-2" },
+  { icon: Wifi, t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones.", clase: "lg:col-span-2" },
+  { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar.", clase: "lg:col-span-2" },
+  { icon: BedDouble, t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia.", clase: "lg:col-span-3" },
+  { icon: Tv, t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas.", clase: "sm:col-span-2 lg:col-span-3" },
 ];
 
 type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
@@ -253,19 +233,14 @@ const hubConexiones: BloqueConexion[] = [
 
 const faqs = [
   {
-    pregunta: "¿Cuál es el horario de check-in y check-out?",
+    pregunta: "¿Cómo funcionan el check-in, el acceso y el check-out?",
     respuesta:
-      "El check-in es autónomo mediante llave digital, disponible las 24 horas: llegas cuando quieras. El check-out es flexible, coordínalo con nosotros antes de tu llegada.",
-  },
-  {
-    pregunta: "¿Cómo funciona el acceso al apartamento?",
-    respuesta:
-      "El acceso es totalmente autónomo mediante cerradura inteligente. Recibirás el código de acceso antes de tu llegada, sin necesidad de recoger llaves ni esperar a nadie.",
+      "El check-in es autónomo, las 24 horas, con cerradura inteligente: recibirás el código antes de tu llegada, sin recoger llaves ni esperar a nadie. El check-out es flexible, coordínalo con nosotros antes de tu llegada.",
   },
   {
     pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
     respuesta:
-      "El garaje es privado, tiene un coste adicional y está sujeto a disponibilidad. Dispone de punto de carga normal (no rápida) para coches eléctricos. Te recomendamos reservarlo con antelación.",
+      "El garaje es privado, tiene un coste adicional y está sujeto a disponibilidad. Dispone de punto de carga normal (no rápida) para coches eléctricos. Te recomendamos reservarlo con antelación. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche.",
   },
   {
     pregunta: "¿Se admiten mascotas?",
@@ -296,12 +271,6 @@ const faqs = [
     pregunta: "¿Está incluida la ropa de cama y las toallas?",
     respuesta:
       "Sí, la ropa de cama y las toallas están incluidas y se renuevan en cada estancia.",
-  },
-  {
-    pregunta: "¿Cómo se llega desde el aeropuerto?",
-    respuesta:
-      "El aeropuerto Federico García Lorca está a unos 20 minutos. Hay bus directo con parada junto a la estación de tren, a 2 minutos a pie del apartamento, y también taxi. Si vienes en coche, la circunvalación queda a 5 minutos.",
-
   },
 ];
 
@@ -454,10 +423,6 @@ function Index() {
         <div aria-hidden="true" className="hero-halo absolute inset-0" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <div className="flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-secondary px-4 py-1.5 text-sm font-semibold text-secondary-foreground">
-              <Train className="h-4 w-4 text-primary" />
-              A 2 minutos a pie de la Estación de AVE · Acceso cota cero
-            </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">
               <Sparkles className="h-4 w-4 text-accent" />
               Grand Opening · Apertura Noviembre 2026
@@ -467,7 +432,7 @@ function Index() {
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Tres apartamentos a pie de calle, junto a la estación de AVE, el metro y el bus del aeropuerto. Check-in digital 24 h, sin escaleras y sin esperas.
+            Tres apartamentos independientes de 40 m², reformados y listos para tu estancia.
           </h2>
           <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
@@ -502,23 +467,13 @@ function Index() {
         </svg>
       </section>
 
-      <section className="border-b border-border bg-card">
-        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-6 text-sm sm:grid-cols-3 lg:grid-cols-5">
-          {badges.map(({ icon: Icon, t }) => (
-            <li key={t} className="flex items-center gap-3">
-              <Icon className="h-6 w-6 shrink-0 text-primary" />
-              <span>{t}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section id="ubicacion" className="relative overflow-hidden bg-pastel py-16">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6">
           <h2 className="text-center font-display text-4xl">Estación, metro y bus del aeropuerto, a 2 minutos a pie</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Beiro, <span translate="no" className="notranslate">Granada</span>. Bajas del tren, del metro o del bus del aeropuerto y en 2 minutos estás dentro del apartamento con las maletas.
+            Barrio de Beiro, <span translate="no" className="notranslate">Granada</span>.
           </p>
 
           <RouteStrip />
@@ -619,14 +574,14 @@ function Index() {
               , <span translate="no" className="notranslate">Granada</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Un edificio reformado y tranquilo, con tres apartamentos independientes pensados para parejas, viajeros de negocios y estancias médicas. Entras directamente desde la calle y llegas a tu apartamento sin esperas.
+              Un edificio reformado y tranquilo, con tres apartamentos independientes pensados para parejas, viajeros de negocios y estancias médicas.
             </p>
             <dl className="mt-8 grid grid-cols-2 gap-4">
               {[
                 ["3", "Apartamentos"],
                 ["40 m²", "Superficie"],
                 ["4", "Huéspedes"],
-                ["24 h", "Check-in"],
+                ["1", "Dormitorio independiente"],
               ].map(([n, l]) => (
                 <div key={l} className="rounded-xl border border-border bg-card/90 p-5">
                   <dt className="font-display text-3xl text-primary">{n}</dt>
@@ -731,22 +686,14 @@ function Index() {
 
       <section className="mx-auto max-w-6xl px-6 py-14">
         <h2 className="text-center font-display text-4xl">Todo incluido</h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {servicios.map(({ icon: Icon, t, d, clase, destacado }) => (
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          {servicios.map(({ icon: Icon, t, d, clase }) => (
             <div
               key={t}
-              className={`flex gap-4 rounded-2xl border p-6 transition-colors ${
-                destacado
-                  ? "border-primary/30 bg-secondary/70"
-                  : "border-border bg-card hover:border-primary/30"
-              } ${clase ?? ""}`}
+              className={`flex gap-4 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/30 ${clase ?? ""}`}
               style={{ boxShadow: "var(--shadow-soft)" }}
             >
-              <span
-                className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
-                  destacado ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
-                }`}
-              >
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" />
               </span>
               <div>
