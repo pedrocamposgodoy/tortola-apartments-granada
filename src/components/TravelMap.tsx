@@ -44,8 +44,8 @@ function Drawing({ k }: { k: string }) {
       </g>
 
       {/* Carretera arriba a la derecha, con coche */}
-      <path d="M1190 124 C1280 84 1390 130 1490 98 C1550 80 1600 90 1670 72" strokeWidth="2" strokeDasharray="2 10" opacity="0.5" />
-      <g transform="translate(1335 112) rotate(-8)" fill="var(--background)" strokeWidth="2" opacity="0.85">
+      <path d="M1190 164 C1280 124 1390 170 1490 138 C1550 120 1600 130 1670 112" strokeWidth="2" strokeDasharray="2 10" opacity="0.5" />
+      <g transform="translate(1335 152) rotate(-8)" fill="var(--background)" strokeWidth="2" opacity="0.85">
         <path d="M-22 -4 v-6 q0-4 4-5 l8-1 l7-8 h13 l8 8 h8 q4 1 4 5 v7 z" />
         <path d="M-4 -23 v8 M8 -23 v8" strokeWidth="1.5" />
         <circle cx="-12" cy="-3" r="5" />
