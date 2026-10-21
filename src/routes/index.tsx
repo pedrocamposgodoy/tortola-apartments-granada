@@ -156,7 +156,7 @@ const apartamentos = [
     borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
-    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    detalles: ["37 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
     fotos: [{ src: salon, alt: "Salón del Apartamento Perla" }],
   },
   {
@@ -166,8 +166,8 @@ const apartamentos = [
     colorFondo: "bg-emerald-50",
     borde: "border-t-emerald-500",
     accesible: false,
-    desc: "Cocina completa con vitrocerámica, microondas y nevera, y baño con ducha de obra.",
-    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
+    detalles: ["35 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
     fotos: [{ src: cocina, alt: "Cocina del Apartamento Jade" }],
   },
   {
@@ -177,8 +177,8 @@ const apartamentos = [
     colorFondo: "bg-rose-50",
     borde: "border-t-rose-400",
     accesible: true,
-    desc: "Dormitorio con cama de matrimonio, ropa de cama premium, aire acondicionado y Smart TV. Apartamento adaptado para personas con movilidad reducida.",
-    detalles: ["40 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño"],
+    desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
+    detalles: ["43 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
     fotos: [
       { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
       { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
@@ -189,7 +189,7 @@ const apartamentos = [
 const servicios: { icon: LucideIcon; t: string; d: string; clase?: string }[] = [
   { icon: Snowflake, t: "Aerotermia", d: "Frío en verano y calor en invierno en todas las estancias, con temperatura siempre agradable.", clase: "lg:col-span-2" },
   { icon: Wifi, t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones.", clase: "lg:col-span-2" },
-  { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, microondas, nevera, menaje completo y todo lo necesario para cocinar.", clase: "lg:col-span-2" },
+  { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, horno, microondas, nevera, menaje completo y todo lo necesario para cocinar.", clase: "lg:col-span-2" },
   { icon: BedDouble, t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia.", clase: "lg:col-span-3" },
   { icon: Tv, t: "Smart TV", d: "Televisión inteligente en todas las estancias con acceso a tus plataformas favoritas.", clase: "sm:col-span-2 lg:col-span-3" },
 ];
@@ -231,11 +231,54 @@ const hubConexiones: BloqueConexion[] = [
 ];
 
 
-const faqs = [
+const faqsAlojamiento = [
+  {
+    pregunta: "¿En qué se diferencian Perla, Jade y Coral?",
+    respuesta:
+      "Tienen la misma distribución y el mismo equipamiento. Coral es el más amplio y luminoso, y además está adaptado para personas con movilidad reducida; Perla también es muy luminoso; Jade, en el centro, es el más compacto y acogedor.",
+  },
+  {
+    pregunta: "¿Qué espacio tienen los apartamentos?",
+    respuesta:
+      "Entre 35 y 43 m² útiles: Jade 35 m², Perla 37 m² y Coral 43 m². Todos con techos de 3 metros de altura, que les dan una gran sensación de amplitud: salón-comedor con cocina, dormitorio independiente y baño.",
+  },
+  {
+    pregunta: "¿Cuántas personas caben en cada apartamento?",
+    respuesta:
+      "Hasta 4 personas: dormitorio independiente con cama de matrimonio y salón con sofá cama.",
+  },
+  {
+    pregunta: "¿Cómo es la cocina y qué climatización tienen?",
+    respuesta:
+      "Cocina totalmente equipada: placa vitrocerámica, horno, microondas, nevera y menaje completo. La climatización es por aerotermia: frío en verano y calor en invierno, en todas las estancias.",
+  },
+  {
+    pregunta: "¿Está incluida la ropa de cama y las toallas?",
+    respuesta:
+      "Sí, la ropa de cama y las toallas están incluidas y se renuevan en cada estancia.",
+  },
+  {
+    pregunta: "¿Hay un apartamento adaptado para movilidad reducida?",
+    respuesta:
+      "Sí, el Apartamento Coral está adaptado. Además, el acceso a los tres apartamentos es a pie de calle, sin escaleras. Si tienes necesidades concretas, cuéntanoslas antes de reservar y lo preparamos contigo.",
+  },
+  {
+    pregunta: "¿Tenéis cuna para bebés?",
+    respuesta:
+      "Disponemos de cuna bajo petición y sujeta a disponibilidad. Pídela al hacer tu reserva.",
+  },
+];
+
+const faqsLlegada = [
   {
     pregunta: "¿Cómo funcionan el check-in, el acceso y el check-out?",
     respuesta:
       "El check-in es autónomo, las 24 horas, con cerradura inteligente: recibirás el código antes de tu llegada, sin recoger llaves ni esperar a nadie. El check-out es flexible, coordínalo con nosotros antes de tu llegada.",
+  },
+  {
+    pregunta: "¿Puedo dejar las maletas antes o después de mi estancia?",
+    respuesta:
+      "Sí, ofrecemos consigna de equipaje en nuestra cochera, con un coste adicional: antes del check-in o después del check-out. Consúltanos al reservar.",
   },
   {
     pregunta: "¿El garaje está garantizado o sujeto a disponibilidad?",
@@ -248,29 +291,19 @@ const faqs = [
       "Sí, se admiten mascotas con un suplemento adicional. Contáctanos antes de reservar para confirmar condiciones.",
   },
   {
-    pregunta: "¿Hay fianza? ¿Cómo se gestiona?",
+    pregunta: "¿Se puede alquilar por estancias largas?",
     respuesta:
-      "La fianza depende del canal de reserva utilizado. Te informaremos de las condiciones exactas al confirmar tu reserva.",
+      "Sí. Además del turismo, atendemos estancias de media y larga duración: opositores, estudiantes de MIR y acompañantes de pacientes de los hospitales cercanos. Escríbenos y te preparamos una propuesta.",
   },
   {
-    pregunta: "¿Cuál es la política de cancelación?",
+    pregunta: "¿Hay fianza?",
     respuesta:
-      "Las condiciones de cancelación dependen de la plataforma de reserva utilizada. Consulta las condiciones específicas en el momento de reservar.",
+      "En estancias cortas, como un fin de semana o unos pocos días, no pedimos fianza. En estancias largas, por ejemplo de un mes, podrá solicitarse; te lo confirmaremos antes de reservar.",
   },
   {
-    pregunta: "¿Qué métodos de pago se aceptan?",
+    pregunta: "¿Cómo se paga y cuál es la política de cancelación?",
     respuesta:
-      "Aceptamos los métodos de pago habituales de cada plataforma de reserva (tarjeta de crédito/débito). Para reservas directas, contáctanos para más detalles.",
-  },
-  {
-    pregunta: "¿Cuántas personas caben en cada apartamento?",
-    respuesta:
-      "Cada apartamento tiene capacidad para 4 personas, con un dormitorio independiente y salón con sofá cama.",
-  },
-  {
-    pregunta: "¿Está incluida la ropa de cama y las toallas?",
-    respuesta:
-      "Sí, la ropa de cama y las toallas están incluidas y se renuevan en cada estancia.",
+      "En reserva directa te indicaremos la forma de pago y las condiciones de cancelación antes de confirmar. Si reservas por una plataforma (Booking, Airbnb…), se aplican sus métodos de pago y la política de cancelación que figure en tu reserva.",
   },
 ];
 
@@ -432,7 +465,7 @@ function Index() {
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Tres apartamentos independientes de 40 m², reformados y listos para tu estancia.
+            Tres apartamentos independientes de 35 a 43 m², reformados y listos para tu estancia.
           </h2>
           <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
@@ -579,7 +612,7 @@ function Index() {
             <dl className="mt-8 grid grid-cols-2 gap-4">
               {[
                 ["3", "Apartamentos"],
-                ["40 m²", "Superficie"],
+                ["35–43 m²", "Superficie"],
                 ["4", "Huéspedes"],
                 ["1", "Dormitorio independiente"],
               ].map(([n, l]) => (
@@ -716,16 +749,26 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-18">
+      <section className="mx-auto max-w-5xl px-6 py-18">
         <h2 className="text-center font-display text-4xl">Preguntas frecuentes</h2>
-        <Accordion type="single" collapsible className="mt-12">
-          {faqs.map((f) => (
-            <AccordionItem key={f.pregunta} value={f.pregunta}>
-              <AccordionTrigger>{f.pregunta}</AccordionTrigger>
-              <AccordionContent>{f.respuesta}</AccordionContent>
-            </AccordionItem>
+        <div className="mt-12 grid items-start gap-x-14 gap-y-10 md:grid-cols-2">
+          {[
+            { titulo: "El alojamiento", lista: faqsAlojamiento },
+            { titulo: "Llegada y reserva", lista: faqsLlegada },
+          ].map((col) => (
+            <div key={col.titulo}>
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-primary">{col.titulo}</h3>
+              <Accordion type="single" collapsible className="mt-2">
+                {col.lista.map((f) => (
+                  <AccordionItem key={f.pregunta} value={f.pregunta}>
+                    <AccordionTrigger className="text-left">{f.pregunta}</AccordionTrigger>
+                    <AccordionContent>{f.respuesta}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           ))}
-        </Accordion>
+        </div>
       </section>
 
       <section id="contacto" className="mx-auto max-w-3xl px-6 py-18 text-center">

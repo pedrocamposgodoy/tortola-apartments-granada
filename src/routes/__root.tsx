@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Tres apartamentos turísticos reformados de 40 m² con dormitorio, junto a la estación de tren de Granada.",
+          "Tres apartamentos turísticos reformados de 35 a 43 m² con dormitorio, junto a la estación de tren de Granada.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
