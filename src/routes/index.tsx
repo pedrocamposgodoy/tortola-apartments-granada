@@ -27,7 +27,6 @@ import {
   Wifi,
   BedDouble,
   Tv,
-  ArrowRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -831,10 +830,16 @@ function Index() {
           </p>
           <Link
             to="/estancias-medias"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
+            className="mx-auto mt-8 block max-w-2xl transition-transform hover:scale-[1.02]"
           >
-            Cuéntanos tu caso
-            <ArrowRight className="h-4 w-4" />
+            <img
+              src="/images/banner-estancias.webp"
+              alt="Estancias de más de un mes, para teletrabajo y estudio: cuéntanos tu caso"
+              width={1400}
+              height={485}
+              loading="lazy"
+              className="h-auto w-full"
+            />
           </Link>
         </div>
       </section>
