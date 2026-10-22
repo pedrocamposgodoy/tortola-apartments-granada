@@ -11,8 +11,7 @@ const IDIOMAS = [
   { code: "ja", label: "日本語", bandera: "jp" },
 ];
 
-const urlBandera = (cc: string) =>
-  `https://flagcdn.com/${cc}.svg`;
+const urlBandera = (cc: string) => `https://flagcdn.com/${cc}.svg`;
 
 const INCLUDED = IDIOMAS.map((i) => i.code).join(",");
 
@@ -22,7 +21,6 @@ declare global {
     googleTranslateElementInit?: () => void;
   }
 }
-
 
 const dominios = () => {
   const host = window.location.hostname;
@@ -56,7 +54,7 @@ function borrarCookieIdioma() {
   }
 }
 
-export function LanguageSelector() {
+export function LanguageSelector({ grande = false }: { grande?: boolean | undefined }) {
   const [abierto, setAbierto] = useState(false);
   const [activo, setActivo] = useState("es");
   const ref = useRef<HTMLDivElement>(null);
@@ -126,20 +124,33 @@ export function LanguageSelector() {
         aria-label="Seleccionar idioma"
         aria-haspopup="menu"
         aria-expanded={abierto}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground transition-colors hover:bg-muted"
+        className={
+          grande
+            ? "group flex flex-col items-center gap-1.5 text-foreground"
+            : "flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground transition-colors hover:bg-muted"
+        }
       >
         <img
           src={urlBandera(IDIOMAS.find((i) => i.code === activo)?.bandera ?? "es")}
           alt=""
           aria-hidden="true"
-          className="h-5 w-5 rounded-full object-cover"
+          className={
+            grande
+              ? "h-14 w-14 rounded-full border-2 border-primary/40 bg-card object-cover p-1 shadow-lg transition-transform group-hover:scale-105"
+              : "h-5 w-5 rounded-full object-cover"
+          }
         />
+        {grande && (
+          <span className="rounded-full bg-card/90 px-3 py-0.5 text-xs font-semibold text-primary shadow-sm">
+            Idioma
+          </span>
+        )}
       </button>
 
       {abierto && (
         <ul
           role="menu"
-          className="absolute right-0 top-11 z-50 max-h-[70vh] w-44 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg"
+          className={`absolute z-50 max-h-[70vh] w-44 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg ${grande ? "left-1/2 top-full mt-2 -translate-x-1/2" : "right-0 top-11"}`}
         >
           {IDIOMAS.map((i) => (
             <li key={i.code}>

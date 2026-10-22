@@ -455,14 +455,14 @@ function Index() {
               className="h-24 w-auto rounded-full bg-background/90 shadow-md ring-4 ring-white/60 sm:h-36"
             />
           </Link>
-          <div className="flex items-center gap-1.5 sm:gap-3">
-            <LanguageSelector />
+          <div className="absolute left-1/2 top-3 -translate-x-1/2 sm:top-4">
+            <LanguageSelector grande />
           </div>
         </nav>
       </header>
 
       <section
-        className="relative flex min-h-[86vh] items-center justify-center overflow-hidden pb-72 pt-32 sm:min-h-0 sm:pb-24 sm:pt-20"
+        className="relative flex min-h-[86vh] items-center justify-center overflow-hidden pb-72 pt-32 sm:min-h-0 sm:pb-24 sm:pt-28"
         style={{ background: "var(--gradient-hero)" }}
       >
         <TravelMap />
