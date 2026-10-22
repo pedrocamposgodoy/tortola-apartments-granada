@@ -28,7 +28,6 @@ import {
   BedDouble,
   Tv,
   ArrowRight,
-  Luggage,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -465,13 +464,15 @@ function Index() {
             </Link>
             <Link
               to="/estancias-medias"
-              className="hidden items-center gap-2 whitespace-nowrap bg-primary py-2 pl-7 pr-5 text-sm font-semibold text-primary-foreground transition-transform [clip-path:polygon(12px_0,100%_0,100%_100%,12px_100%,0_50%)] hover:scale-105 md:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap rounded-full border border-primary/30 bg-card/90 py-1 pl-1.5 pr-5 text-sm font-semibold text-primary shadow-sm transition-transform hover:scale-105 md:inline-flex"
             >
-              <span
-                aria-hidden="true"
-                className="absolute ml-[-1.1rem] h-2 w-2 rounded-full bg-background/90"
+              <img
+                src="/images/estancias-largas.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 shrink-0"
               />
-              <Luggage className="h-4 w-4 shrink-0" />
               <span className="lg:hidden">Más de un mes</span>
               <span className="hidden lg:inline">Estancias de varias semanas o meses</span>
             </Link>
@@ -525,19 +526,17 @@ function Index() {
           </div>
           <Link
             to="/estancias-medias"
-            className="relative mt-9 inline-flex flex-col items-center gap-2 rounded-2xl border border-primary/30 bg-warm px-8 pb-4 pt-7 text-warm-foreground shadow-lg transition-transform hover:scale-105"
+            aria-label="Estancias de más de un mes: cuéntanos tu caso"
+            className="group mt-9 inline-flex flex-col items-center gap-3 transition-transform hover:scale-105"
           >
-            <span
-              aria-hidden="true"
-              className="absolute -top-2.5 left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-2 border-primary/60 bg-background"
+            <img
+              src="/images/estancias-largas.png"
+              alt="Calendario y maleta: estancias de más de un mes"
+              width={144}
+              height={144}
+              className="h-28 w-28 rounded-full bg-card/90 p-2 shadow-lg ring-1 ring-primary/20 sm:h-36 sm:w-36"
             />
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <Luggage className="h-6 w-6" />
-            </span>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-warm-foreground/70">
-              Para quedarte más tiempo
-            </span>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 rounded-full bg-card/90 px-5 py-2 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/20 group-hover:bg-secondary">
               ¿Vienes por más de un mes? Estancias largas
               <ArrowRight className="h-4 w-4" />
             </span>
