@@ -455,7 +455,7 @@ function Index() {
               className="h-24 w-auto rounded-full bg-background/90 shadow-md ring-4 ring-white/60 sm:h-36"
             />
           </Link>
-          <div className="absolute left-1/2 top-3 -translate-x-1/2 sm:top-4">
+          <div className="absolute left-[45%] top-3 -translate-x-1/2 sm:left-[40%] sm:top-4">
             <LanguageSelector grande />
           </div>
         </nav>
