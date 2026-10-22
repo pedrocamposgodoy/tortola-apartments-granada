@@ -462,39 +462,31 @@ function Index() {
       </header>
 
       <section
-        className="relative flex min-h-[86vh] items-center justify-center overflow-hidden pb-72 pt-32 sm:pb-40 sm:pt-36"
+        className="relative flex min-h-[86vh] items-center justify-center overflow-hidden pb-72 pt-32 sm:min-h-0 sm:pb-24 sm:pt-20"
         style={{ background: "var(--gradient-hero)" }}
       >
         <TravelMap />
         <div aria-hidden="true" className="hero-halo absolute inset-0" />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">
               <Sparkles className="h-4 w-4 text-accent" />
               Grand Opening · Apertura Noviembre 2026
             </span>
           </div>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-tight text-foreground [text-shadow:0_-1px_0_rgb(0_0_0/0.12),0_2px_0_rgb(255_255_255/0.9),0_8px_18px_rgb(255_255_255/0.85)] sm:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-tight sm:mt-5 text-foreground [text-shadow:0_-1px_0_rgb(0_0_0/0.12),0_2px_0_rgb(255_255_255/0.9),0_8px_18px_rgb(255_255_255/0.85)] sm:text-5xl">
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
-          <h2 className="mx-auto mt-6 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">
+          <h2 className="mx-auto mt-4 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">
             Tres apartamentos independientes de 35 a 43 m², reformados y listos para tu estancia.
           </h2>
-          <p className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
+          <p className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
             <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="#contacto"
-              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
-            >
-              Ver disponibilidad y reservar directo
-            </a>
-          </div>
           <nav
             aria-label="Accesos principales"
-            className="mt-9 flex items-start justify-center gap-4 sm:gap-8"
+            className="mt-7 flex items-start justify-center gap-4 sm:gap-8"
           >
             {[
               {
@@ -514,7 +506,7 @@ function Index() {
               },
             ].map((b) => {
               const clase =
-                "group flex w-24 flex-col items-center gap-2 transition-transform hover:scale-105 sm:w-36";
+                "group flex w-24 flex-col items-center gap-2 transition-transform hover:scale-105 sm:w-44";
               const contenido = (
                 <>
                   <img
