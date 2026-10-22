@@ -465,8 +465,12 @@ function Index() {
             </Link>
             <Link
               to="/estancias-medias"
-              className="hidden items-center gap-1.5 whitespace-nowrap rounded-full border border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-105 md:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap bg-primary py-2 pl-7 pr-5 text-sm font-semibold text-primary-foreground transition-transform [clip-path:polygon(12px_0,100%_0,100%_100%,12px_100%,0_50%)] hover:scale-105 md:inline-flex"
             >
+              <span
+                aria-hidden="true"
+                className="absolute ml-[-1.1rem] h-2 w-2 rounded-full bg-background/90"
+              />
               <Luggage className="h-4 w-4 shrink-0" />
               <span className="lg:hidden">Más de un mes</span>
               <span className="hidden lg:inline">Estancias de varias semanas o meses</span>
@@ -519,21 +523,25 @@ function Index() {
               Ver apartamentos y calidades
             </a>
           </div>
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-card text-primary shadow-sm ring-1 ring-primary/30">
-              <Luggage className="h-5 w-5" />
+          <Link
+            to="/estancias-medias"
+            className="relative mt-9 inline-flex flex-col items-center gap-2 rounded-2xl border border-primary/30 bg-warm px-8 pb-4 pt-7 text-warm-foreground shadow-lg transition-transform hover:scale-105"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute -top-2.5 left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-2 border-primary/60 bg-background"
+            />
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <Luggage className="h-6 w-6" />
             </span>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/70 [text-shadow:0_0_10px_var(--background)]">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-warm-foreground/70">
               Para quedarte más tiempo
-            </p>
-            <Link
-              to="/estancias-medias"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/90 px-5 py-2 text-sm font-medium text-primary shadow-sm transition-colors hover:bg-secondary"
-            >
+            </span>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold">
               ¿Vienes por más de un mes? Estancias largas
               <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+            </span>
+          </Link>
         </div>
         {/* Silueta de Sierra Nevada */}
         <svg
