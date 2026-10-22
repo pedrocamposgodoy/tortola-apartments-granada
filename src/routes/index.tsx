@@ -28,6 +28,7 @@ import {
   BedDouble,
   Tv,
   ArrowRight,
+  CalendarRange,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -108,6 +109,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://www.apartamentostortola.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -463,9 +465,11 @@ function Index() {
             </Link>
             <Link
               to="/estancias-medias"
-              className="hidden rounded-full border border-border bg-background/60 px-5 py-2 text-sm text-foreground transition-colors hover:bg-muted md:inline-block"
+              className="hidden items-center gap-1.5 whitespace-nowrap rounded-full border border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-105 md:inline-flex"
             >
-              Estancias de varias semanas o meses
+              <CalendarRange className="h-4 w-4 shrink-0" />
+              <span className="lg:hidden">Más de un mes</span>
+              <span className="hidden lg:inline">Estancias de varias semanas o meses</span>
             </Link>
             <a
               href="#contacto"
@@ -515,6 +519,14 @@ function Index() {
               Ver apartamentos y calidades
             </a>
           </div>
+          <Link
+            to="/estancias-medias"
+            className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/90 px-5 py-2 text-sm font-medium text-primary shadow-sm transition-colors hover:bg-secondary"
+          >
+            <CalendarRange className="h-4 w-4" />
+            ¿Vienes por más de un mes? Estancias largas
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
         {/* Silueta de Sierra Nevada */}
         <svg

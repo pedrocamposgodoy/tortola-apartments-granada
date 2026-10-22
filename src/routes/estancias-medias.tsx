@@ -15,12 +15,44 @@ import {
   UtensilsCrossed,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ConsultaEstanciaForm } from "@/components/ConsultaEstanciaForm";
 
-const TITULO = "Estancias de varias semanas o meses en Granada | Apartamentos Tórtola 10";
+const URL_PAGINA = "https://www.apartamentostortola.com/estancias-medias";
+const TITULO = "Estancia media y larga en Granada | Apartamentos Tórtola 10";
 const DESCRIPCION =
-  "Apartamentos con cocina propia junto a la estación de Granada para quien viene a trabajar, estudiar o investigar y necesita quedarse más de un mes. Cuéntanos tu caso.";
+  "Apartamentos equipados en Granada para estancias de más de un mes: profesores visitantes, máster, prácticas en hospitales y proyectos. Cuéntanos tu caso.";
+
+// ---- Preguntas frecuentes (se usan en la página y en los datos estructurados para Google) ----
+// Sin precios, duraciones ni tipo de contrato. No usar "temporada".
+const preguntas = [
+  {
+    q: "¿Qué es una estancia media o de larga duración?",
+    a: "Es la de quien se queda más de un mes en Granada por trabajo, estudios, investigación o formación, en lugar de unos pocos días de turismo. Estudiamos cada caso de forma individual.",
+  },
+  {
+    q: "¿Tenéis apartamentos para estudiantes de máster o posgrado?",
+    a: "Sí. Son apartamentos con dormitorio independiente y cocina equipada, con los hospitales y el campus universitario a unos 5 minutos. Escríbenos con tus fechas y te confirmamos disponibilidad y condiciones por correo.",
+  },
+  {
+    q: "¿Sirve para profesores o investigadores visitantes y para residentes MIR?",
+    a: "Sí. Atendemos a profesores e investigadores visitantes, a profesionales en rotaciones o prácticas en los hospitales cercanos y a quienes se desplazan a Granada por un proyecto u obra.",
+  },
+  {
+    q: "¿Cuánto cuesta una estancia de más de un mes?",
+    a: "Depende del apartamento, de las fechas y del motivo de la estancia. No se aplica la tarifa de una escapada turística: te indicamos por correo las condiciones que corresponden a tu caso.",
+  },
+  {
+    q: "¿Los apartamentos están amueblados y equipados?",
+    a: "Sí. Tienen cocina equipada con vitrocerámica, horno, microondas, nevera y menaje completo, dormitorio independiente, ropa de cama y toallas, y climatización por aerotermia.",
+  },
+];
 
 export const Route = createFileRoute("/estancias-medias")({
   head: () => ({
@@ -30,7 +62,23 @@ export const Route = createFileRoute("/estancias-medias")({
       { property: "og:title", content: TITULO },
       { property: "og:description", content: DESCRIPCION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: URL_PAGINA },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: URL_PAGINA }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: preguntas.map((p) => ({
+            "@type": "Question",
+            name: p.q,
+            acceptedAnswer: { "@type": "Answer", text: p.a },
+          })),
+        }),
+      },
     ],
   }),
   component: EstanciasMedias,
@@ -151,7 +199,7 @@ function EstanciasMedias() {
         <div aria-hidden="true" className="absolute inset-0 bg-lattice opacity-70" />
         <div className="relative mx-auto max-w-3xl px-6 pb-12 pt-36 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">
-            Más de un mes en Granada
+            Estancia media y larga en Granada
           </p>
           <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl">
             Estancias de varias semanas o meses en{" "}
@@ -187,7 +235,7 @@ function EstanciasMedias() {
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">¿Para quién?</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-            Para quien viene a Granada con un motivo concreto
+            Alojamiento en Granada para máster, investigación, prácticas en hospitales y proyectos
           </h2>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -220,7 +268,7 @@ function EstanciasMedias() {
               Por qué un apartamento
             </p>
             <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-              Más que una habitación, un lugar donde vivir
+              Apartamentos equipados para estancias de más de un mes
             </h2>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -295,6 +343,25 @@ function EstanciasMedias() {
             <ConsultaEstanciaForm />
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-16">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Preguntas frecuentes
+          </p>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+            Dudas sobre las estancias de más de un mes
+          </h2>
+        </div>
+        <Accordion type="single" collapsible className="mt-8">
+          {preguntas.map((p) => (
+            <AccordionItem key={p.q} value={p.q}>
+              <AccordionTrigger className="text-left">{p.q}</AccordionTrigger>
+              <AccordionContent>{p.a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
 
       <section className="py-16">
