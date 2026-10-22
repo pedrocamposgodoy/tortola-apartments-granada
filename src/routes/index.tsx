@@ -899,20 +899,9 @@ function Index() {
             +34 630 991 021
           </a>
         </div>
-      </section>
-
-      <section className="bg-primary bg-lattice-light py-14 text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="font-display text-3xl leading-snug sm:text-4xl">
-            ¿Viajas tarde o vienes en tren? Garantiza tu plaza de parking y tu llegada autónoma sin horarios al reservar directo.
-          </p>
-          <a
-            href="#contacto"
-            className="mt-8 inline-block rounded-full bg-warm px-8 py-3 text-sm font-semibold text-warm-foreground transition-transform hover:scale-105"
-          >
-            Comprobar Disponibilidad
-          </a>
-        </div>
+        <p className="mx-auto mt-6 max-w-xl text-xs text-muted-foreground">
+          Llegada autónoma 24 horas. Garaje privado según disponibilidad y con coste adicional.
+        </p>
       </section>
 
       <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
