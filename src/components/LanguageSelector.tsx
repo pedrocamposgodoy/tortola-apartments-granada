@@ -150,7 +150,7 @@ export function LanguageSelector({ grande = false }: { grande?: boolean | undefi
       {abierto && (
         <ul
           role="menu"
-          className={`absolute z-50 max-h-[70vh] w-44 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg ${grande ? "left-1/2 top-full mt-2 -translate-x-1/2" : "right-0 top-11"}`}
+          className={`absolute z-50 max-h-[70vh] w-44 overflow-auto rounded-xl border border-border bg-card py-1 font-sans text-sm shadow-lg ${grande ? "right-0 top-full mt-2" : "right-0 top-11"}`}
         >
           {IDIOMAS.map((i) => (
             <li key={i.code}>
