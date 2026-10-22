@@ -456,32 +456,6 @@ function Index() {
             />
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <Link
-              to="/experiencias"
-              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
-            >
-              Experiencias
-            </Link>
-            <Link
-              to="/estancias-medias"
-              className="hidden items-center gap-2 whitespace-nowrap rounded-full border border-primary/30 bg-card/90 py-1 pl-1.5 pr-5 text-sm font-semibold text-primary shadow-sm transition-transform hover:scale-105 md:inline-flex"
-            >
-              <img
-                src="/images/estancias-largas.webp"
-                alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0"
-              />
-              <span className="lg:hidden">Más de un mes</span>
-              <span className="hidden lg:inline">Estancias de varias semanas o meses</span>
-            </Link>
-            <a
-              href="#contacto"
-              className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
-            >
-              Reservar
-            </a>
             <LanguageSelector />
           </div>
         </nav>
@@ -516,12 +490,6 @@ function Index() {
               className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
             >
               Ver disponibilidad y reservar directo
-            </a>
-            <a
-              href="#apartamentos"
-              className="rounded-full border border-primary/50 bg-background/90 px-7 py-3 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-secondary"
-            >
-              Ver apartamentos y calidades
             </a>
           </div>
           <nav
