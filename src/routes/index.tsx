@@ -27,6 +27,7 @@ import {
   Wifi,
   BedDouble,
   Tv,
+  ArrowRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -296,6 +297,22 @@ const faqsLlegada = [
       "Sí. Además del turismo, atendemos estancias de media y larga duración: opositores, estudiantes de MIR y acompañantes de pacientes de los hospitales cercanos. Escríbenos y te preparamos una propuesta.",
   },
   {
+    pregunta: "¿Vas a quedarte más de un mes?",
+    respuesta: (
+      <>
+        Si vienes a Granada a trabajar, estudiar, investigar o formarte y tu estancia será de más de
+        un mes, cuéntanos tu caso en la página de{" "}
+        <Link
+          to="/estancias-medias"
+          className="font-medium text-primary underline-offset-2 hover:underline"
+        >
+          estancias de varias semanas o meses
+        </Link>
+        . Te responderemos por correo con las condiciones que se te apliquen.
+      </>
+    ),
+  },
+  {
     pregunta: "¿Hay fianza?",
     respuesta:
       "En estancias cortas, como un fin de semana o unos pocos días, no pedimos fianza. En estancias largas, por ejemplo de un mes, podrá solicitarse; te lo confirmaremos antes de reservar.",
@@ -443,6 +460,12 @@ function Index() {
               className="rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-muted sm:px-5 sm:py-2 sm:text-sm"
             >
               Experiencias
+            </Link>
+            <Link
+              to="/estancias-medias"
+              className="hidden rounded-full border border-border bg-background/60 px-5 py-2 text-sm text-foreground transition-colors hover:bg-muted md:inline-block"
+            >
+              Estancias de varias semanas o meses
             </Link>
             <a
               href="#contacto"
@@ -707,6 +730,16 @@ function Index() {
               </article>
             ))}
           </div>
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            ¿Necesitas quedarte más de un mes?{" "}
+            <Link
+              to="/estancias-medias"
+              className="font-medium text-primary underline-offset-2 hover:underline"
+            >
+              Cuéntanos tu caso
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -760,6 +793,28 @@ function Index() {
       </section>
 
       <TrackDivider />
+
+      <section className="relative overflow-hidden bg-pastel py-16">
+        <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Estancias más largas
+          </p>
+          <h2 className="mt-3 font-display text-4xl">¿Vienes a Granada por más de un mes?</h2>
+          <p className="mt-4 text-muted-foreground">
+            Aceptamos estancias de varias semanas o meses para quien viene a trabajar, estudiar o
+            investigar: profesores visitantes, alumnos de máster, profesionales en prácticas en
+            hospitales o en un proyecto. Cuéntanos tu caso y te respondemos por correo.
+          </p>
+          <Link
+            to="/estancias-medias"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
+          >
+            Cuéntanos tu caso
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
 
       <section className="bg-secondary/50 bg-lattice py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
@@ -848,6 +903,9 @@ function Index() {
         <div className="mb-3 flex flex-wrap justify-center gap-4">
           <Link to="/" className="hover:text-primary">Inicio</Link>
           <Link to="/experiencias" className="hover:text-primary">Experiencias</Link>
+          <Link to="/estancias-medias" className="hover:text-primary">
+            Estancias de varias semanas o meses
+          </Link>
           <a href="#contacto" className="hover:text-primary">Reservar</a>
         </div>
         <p className="mb-2 text-sm text-foreground">

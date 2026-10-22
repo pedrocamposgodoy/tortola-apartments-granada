@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EstanciasMediasRouteImport } from './routes/estancias-medias'
 import { Route as ExperienciasRouteImport } from './routes/experiencias'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstanciasMediasRoute = EstanciasMediasRouteImport.update({
+  id: '/estancias-medias',
+  path: '/estancias-medias',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienciasRoute = ExperienciasRouteImport.update({
@@ -31,30 +37,34 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/estancias-medias': typeof EstanciasMediasRoute
   '/experiencias': typeof ExperienciasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/estancias-medias': typeof EstanciasMediasRoute
   '/experiencias': typeof ExperienciasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/estancias-medias': typeof EstanciasMediasRoute
   '/experiencias': typeof ExperienciasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/experiencias' | '/sitemap.xml'
+  fullPaths: '/' | '/estancias-medias' | '/experiencias' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/experiencias' | '/sitemap.xml'
-  id: '__root__' | '/' | '/experiencias' | '/sitemap.xml'
+  to: '/' | '/estancias-medias' | '/experiencias' | '/sitemap.xml'
+  id: '__root__' | '/' | '/estancias-medias' | '/experiencias' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EstanciasMediasRoute: typeof EstanciasMediasRoute
   ExperienciasRoute: typeof ExperienciasRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estancias-medias': {
+      id: '/estancias-medias'
+      path: '/estancias-medias'
+      fullPath: '/estancias-medias'
+      preLoaderRoute: typeof EstanciasMediasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experiencias': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EstanciasMediasRoute: EstanciasMediasRoute,
   ExperienciasRoute: ExperienciasRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
