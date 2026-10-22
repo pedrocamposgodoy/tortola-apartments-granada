@@ -467,7 +467,7 @@ function Index() {
               className="hidden items-center gap-2 whitespace-nowrap rounded-full border border-primary/30 bg-card/90 py-1 pl-1.5 pr-5 text-sm font-semibold text-primary shadow-sm transition-transform hover:scale-105 md:inline-flex"
             >
               <img
-                src="/images/estancias-largas.png"
+                src="/images/estancias-largas.webp"
                 alt=""
                 width={36}
                 height={36}
@@ -524,23 +524,60 @@ function Index() {
               Ver apartamentos y calidades
             </a>
           </div>
-          <Link
-            to="/estancias-medias"
-            aria-label="Estancias de más de un mes: cuéntanos tu caso"
-            className="group mt-9 inline-flex flex-col items-center gap-3 transition-transform hover:scale-105"
+          <nav
+            aria-label="Accesos principales"
+            className="mt-9 flex items-start justify-center gap-4 sm:gap-8"
           >
-            <img
-              src="/images/estancias-largas.png"
-              alt="Calendario y maleta: estancias de más de un mes"
-              width={144}
-              height={144}
-              className="h-28 w-28 rounded-full bg-card/90 p-2 shadow-lg ring-1 ring-primary/20 sm:h-36 sm:w-36"
-            />
-            <span className="inline-flex items-center gap-2 rounded-full bg-card/90 px-5 py-2 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/20 group-hover:bg-secondary">
-              ¿Vienes por más de un mes? Estancias largas
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
+            {[
+              {
+                img: "/images/btn-reservar.webp",
+                label: "Reservar",
+                alt: "Reservar: móvil, calendario y llaves",
+              },
+              {
+                img: "/images/btn-experiencias.webp",
+                label: "Experiencias",
+                alt: "Experiencias en Granada",
+              },
+              {
+                img: "/images/estancias-largas.webp",
+                label: "Estancias largas",
+                alt: "Estancias de más de un mes: calendario y maleta",
+              },
+            ].map((b) => {
+              const clase =
+                "group flex w-24 flex-col items-center gap-2 transition-transform hover:scale-105 sm:w-36";
+              const contenido = (
+                <>
+                  <img
+                    src={b.img}
+                    alt={b.alt}
+                    width={144}
+                    height={144}
+                    className="h-24 w-24 rounded-full bg-card shadow-lg sm:h-36 sm:w-36"
+                  />
+                  <span className="rounded-full bg-card/90 px-3 py-1 text-xs font-semibold text-primary shadow-sm sm:text-sm">
+                    {b.label}
+                  </span>
+                </>
+              );
+              if (b.label === "Reservar")
+                return (
+                  <a key={b.label} href="#contacto" className={clase}>
+                    {contenido}
+                  </a>
+                );
+              return (
+                <Link
+                  key={b.label}
+                  to={b.label === "Experiencias" ? "/experiencias" : "/estancias-medias"}
+                  className={clase}
+                >
+                  {contenido}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
         {/* Silueta de Sierra Nevada */}
         <svg
