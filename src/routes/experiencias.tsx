@@ -45,8 +45,10 @@ export const Route = createFileRoute("/experiencias")({
           "Itinerarios de 2 días, visitas con guía oficial y servicios para tu estancia en Granada.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.apartamentostortola.com/experiencias" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://www.apartamentostortola.com/experiencias" }],
   }),
   component: Experiencias,
 });

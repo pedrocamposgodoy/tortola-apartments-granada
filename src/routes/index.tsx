@@ -43,7 +43,7 @@ import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
 import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
-const fachada = "/images/fachada.jpg";
+const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
 function RouteStrip() {
@@ -109,6 +109,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Apartamentos Tórtola 10 Granada | Check-in 24h y Parking Privado junto al AVE" },
       { property: "og:description", content: SEO_DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.apartamentostortola.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.apartamentostortola.com/" }],
@@ -128,11 +129,28 @@ export const Route = createFileRoute("/")({
             addressLocality: "Granada",
             addressCountry: "ES",
           },
+          legalName: "MAFERASUR, S.L.",
+          image: "https://www.apartamentostortola.com/images/og-tortola.jpg",
+          description: SEO_DESC,
+          numberOfRooms: 3,
+          inLanguage: "es",
           geo: { "@type": "GeoCoordinates", latitude: 37.185439, longitude: -3.609873 },
           amenityFeature: ["Check-in autónomo 24/7", "Garaje privado con punto de carga eléctrica (sujeto a disponibilidad)"].map((n) => ({
             "@type": "LocationFeatureSpecification",
             name: n,
             value: true,
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [...faqsAlojamiento, ...faqsLlegada].map((f) => ({
+            "@type": "Question",
+            name: f.pregunta,
+            acceptedAnswer: { "@type": "Answer", text: f.respuesta },
           })),
         }),
       },

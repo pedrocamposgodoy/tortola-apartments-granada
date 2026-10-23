@@ -11,7 +11,7 @@ const IDIOMAS = [
   { code: "ja", label: "日本語", bandera: "jp" },
 ];
 
-const urlBandera = (cc: string) => `https://flagcdn.com/${cc}.svg`;
+const urlBandera = (cc: string) => `/flags/${cc}.svg`;
 
 const INCLUDED = IDIOMAS.map((i) => i.code).join(",");
 
