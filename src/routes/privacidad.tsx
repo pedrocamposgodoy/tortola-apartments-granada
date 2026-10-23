@@ -52,7 +52,7 @@ function Privacidad() {
       </p>
       <h2>Destinatarios</h2>
       <p>
-        No cedemos tus datos salvo obligación legal (por ejemplo, a las Fuerzas y Cuerpos de Seguridad para el registro de viajeros y a las administraciones tributarias). Trabajan para nosotros, como encargados del tratamiento, proveedores de correo, alojamiento web y gestión de reservas y pagos. Google (Analytics, Maps y Translate) puede implicar transferencias internacionales amparadas en el Marco de Privacidad de Datos UE-EEUU u otras garantías adecuadas.
+        No cedemos tus datos salvo obligación legal (por ejemplo, al Ministerio del Interior a través de la plataforma SES.Hospedajes para el registro de viajeros, y a las administraciones tributarias). Trabajan para nosotros, como encargados del tratamiento, proveedores de correo, alojamiento web y el software de gestión de reservas (Avirato) y pagos. Google (Analytics, Maps y Translate) puede implicar transferencias internacionales amparadas en el Marco de Privacidad de Datos UE-EEUU u otras garantías adecuadas.
       </p>
       <h2>Tus derechos</h2>
       <p>
