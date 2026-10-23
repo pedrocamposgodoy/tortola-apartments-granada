@@ -27,6 +27,8 @@ import {
   Wifi,
   BedDouble,
   Tv,
+  Mail,
+  Phone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -865,38 +867,66 @@ function Index() {
         </div>
       </section>
 
-      <section id="contacto" className="mx-auto max-w-3xl px-6 py-18 text-center">
-        <h2 className="font-display text-4xl">Reserva directa</h2>
-        <p className="mt-4 text-muted-foreground">
-          Escríbenos para consultar disponibilidad y precios. Respondemos en menos de 24
-          horas.
-        </p>
-        <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium">
-          <MapPin className="h-4 w-4 text-primary" />
-          <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
-        </p>
-        {extraNombre && (
-          <p className="mt-5 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
-            Experiencia seleccionada: {extraNombre}
-          </p>
-        )}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a
-            href={`mailto:reservas@apartamentostortola.com${extraNombre ? `?subject=${encodeURIComponent("Consulta: " + extraNombre)}` : ""}`}
-            className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
-          >
-            reservas@apartamentostortola.com
-          </a>
-          <a
-            href="tel:+34630991021"
-            className="rounded-full border border-border px-7 py-3 text-sm font-medium transition-colors hover:bg-muted"
-          >
-            +34 630 991 021
-          </a>
+      <section id="contacto" className="relative overflow-hidden bg-pastel py-20">
+        <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
+        <div className="relative mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+          <div className="min-w-0">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Sin intermediarios</p>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl">Reserva directa</h2>
+            <p className="mt-4 text-muted-foreground">
+              Habla directamente con nosotros: te decimos qué apartamento está libre en tus fechas y cuánto cuesta.
+            </p>
+            <ol className="mt-8 space-y-5">
+              {[
+                ["Escríbenos o llámanos", "Indícanos las fechas, cuántos sois y qué apartamento te interesa."],
+                ["Te respondemos en menos de 24 horas", "Con disponibilidad, precio y condiciones."],
+                ["Confirmas y llegas cuando quieras", "Recibes el código de acceso: check-in autónomo, las 24 horas."],
+              ].map(([t, d], i) => (
+                <li key={t} className="flex gap-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-medium">{t}</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="min-w-0 rounded-3xl border border-border bg-card/95 p-6 text-center sm:p-10" style={{ boxShadow: "var(--shadow-soft)" }}>
+            <h3 className="font-display text-3xl">Consulta tu estancia</h3>
+            {extraNombre && (
+              <p className="mt-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
+                Experiencia seleccionada: {extraNombre}
+              </p>
+            )}
+            <div className="mt-6 flex flex-col gap-3">
+              <a
+                href={`mailto:reservas@apartamentostortola.com${extraNombre ? `?subject=${encodeURIComponent("Consulta: " + extraNombre)}` : ""}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:scale-[1.02] sm:gap-3 sm:px-6 sm:text-sm"
+              >
+                <Mail className="h-5 w-5 shrink-0" />
+                reservas@apartamentostortola.com
+              </a>
+              <a
+                href="tel:+34630991021"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-primary/40 bg-background px-6 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                +34 630 991 021
+              </a>
+            </div>
+            <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
+            </p>
+            <p className="mx-auto mt-3 max-w-sm text-xs text-muted-foreground">
+              Garaje privado según disponibilidad y con coste adicional.
+            </p>
+          </div>
         </div>
-        <p className="mx-auto mt-6 max-w-xl text-xs text-muted-foreground">
-          Llegada autónoma 24 horas. Garaje privado según disponibilidad y con coste adicional.
-        </p>
       </section>
 
       <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
