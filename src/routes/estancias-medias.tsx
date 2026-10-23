@@ -422,12 +422,9 @@ function EstanciasMedias() {
         <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
-          Apartamentos Tórtola 10
+          MAFERASUR, S.L.
         </span>{" "}
-        · Apartamentos turísticos ·{" "}
-        <span translate="no" className="notranslate">
-          Granada
-        </span>
+        · <span translate="no" className="notranslate">Apartamentos Tórtola 10</span> · Granada
       </footer>
     </div>
   );
