@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { LegalLinks } from "@/components/LegalLinks";
 import { ConsultaEstanciaForm } from "@/components/ConsultaEstanciaForm";
 
 const URL_PAGINA = "https://www.apartamentostortola.com/estancias-medias";
@@ -418,6 +419,7 @@ function EstanciasMedias() {
             Reservar
           </Link>
         </div>
+        <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10

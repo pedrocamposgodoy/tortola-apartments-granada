@@ -61,6 +61,8 @@ export function LanguageSelector({ grande = false }: { grande?: boolean | undefi
 
   useEffect(() => {
     if (document.getElementById("google-translate-script")) return;
+    // Google Translate solo se carga si la persona ya eligió un idioma (cookie googtrans) o lo elige ahora.
+    if (!leerCookieIdioma()) return;
 
     window.googleTranslateElementInit = () => {
       if (!window.google?.translate?.TranslateElement) return;

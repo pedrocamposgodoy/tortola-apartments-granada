@@ -37,6 +37,8 @@ const SEO_DESC =
 import { useSearch } from "@tanstack/react-router";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { TravelMap } from "@/components/TravelMap";
+import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
+import { LegalLinks } from "@/components/LegalLinks";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -599,16 +601,7 @@ function Index() {
             className="mt-10 overflow-hidden rounded-3xl border border-border"
             style={{ boxShadow: "var(--shadow-soft)" }}
           >
-            <iframe
-              title="Ubicación de Calle Tórtola nº 10, Granada"
-              src="https://maps.google.com/maps?q=37.185439,-3.609873&z=17&hl=es&output=embed"
-              width="100%"
-              height="400"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="block h-[400px] w-full border-0"
-            />
+            <GoogleMapEmbed />
           </div>
           <div className="mt-6 flex justify-center">
             <a
@@ -948,6 +941,7 @@ function Index() {
         <p className="mb-2 text-sm text-foreground">
           <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
         </p>
+        <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10

@@ -19,6 +19,7 @@ import {
   Languages,
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { LegalLinks } from "@/components/LegalLinks";
 import { Granada48h } from "@/components/Granada48h";
 
 export const Route = createFileRoute("/experiencias")({
@@ -332,6 +333,7 @@ function Experiencias() {
           height={640}
           className="mx-auto mb-4 h-44 w-auto sm:h-52"
         />
+        <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
           Apartamentos Tórtola 10

@@ -433,7 +433,11 @@ export function ConsultaEstanciaForm() {
             htmlFor="estancia-privacidad"
             className="cursor-pointer text-sm font-normal leading-snug"
           >
-            Acepto que se usen estos datos para responder a mi consulta. Esta página no los guarda:
+            He leído la{" "}
+            <a href="/privacidad" target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-2">
+              política de privacidad
+            </a>{" "}
+            y acepto que se usen estos datos para responder a mi consulta. Esta página no los guarda:
             se incluyen en el correo que tú envías. *
           </Label>
         </div>
