@@ -752,16 +752,6 @@ function Index() {
               </article>
             ))}
           </div>
-          <p className="mt-10 text-center text-sm text-muted-foreground">
-            ¿Necesitas quedarte más de un mes?{" "}
-            <Link
-              to="/estancias-medias"
-              className="font-medium text-primary underline-offset-2 hover:underline"
-            >
-              Cuéntanos tu caso
-            </Link>
-            .
-          </p>
         </div>
       </section>
 
