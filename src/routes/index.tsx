@@ -181,7 +181,7 @@ const apartamentos = [
     borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
-    detalles: ["37 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
+    detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: [{ src: salon, alt: "Salón del Apartamento Perla" }],
   },
   {
@@ -192,7 +192,7 @@ const apartamentos = [
     borde: "border-t-emerald-500",
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
-    detalles: ["35 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
+    detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: [{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital" }],
   },
   {
@@ -203,7 +203,7 @@ const apartamentos = [
     borde: "border-t-rose-400",
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
-    detalles: ["43 m²", "4 plazas", "1 dormitorio independiente", "salón con sofá cama", "1 baño", "techos de 3 m"],
+    detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: [
       { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
       { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
@@ -492,8 +492,8 @@ function Index() {
         <div aria-hidden="true" className="hero-halo absolute inset-0" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <div className="flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">
-              <Sparkles className="h-4 w-4 text-accent" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--terracota)]/40 bg-card px-4 py-1.5 text-sm font-semibold text-[var(--terracota)]">
+              <Sparkles className="h-4 w-4" />
               Grand Opening · Apertura Noviembre 2026
             </span>
           </div>
@@ -640,6 +640,11 @@ function Index() {
                     height={1072}
                     className="h-72 w-full object-cover transition-transform group-hover:scale-105"
                   />
+                  {a.accesible && (
+                    <span className="absolute bottom-3 right-3 rounded-full bg-[var(--terracota)] px-3 py-1 text-xs font-semibold text-white shadow-md">
+                      El más amplio
+                    </span>
+                  )}
                   {a.accesible && (
                     <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
                       <Accessibility className="h-3.5 w-3.5" />

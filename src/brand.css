@@ -29,6 +29,7 @@
   --primary-foreground: oklch(0.985 0.004 200);
   --secondary: oklch(0.95 0.014 160);         /* salvia muy claro */
   --secondary-foreground: oklch(0.32 0.03 190);
+  --terracota: oklch(0.56 0.11 45);           /* acento cálido, uso mínimo */
   --accent: oklch(0.7 0.04 150);              /* jade/salvia */
   --accent-foreground: oklch(0.985 0.004 200);
   --brand-sky: oklch(0.81 0.03 225);          /* azul brisa */
