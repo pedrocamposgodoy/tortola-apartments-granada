@@ -9,6 +9,7 @@ import { useState } from "react";
 import {
   Sparkles,
   Train,
+  Heart,
   MapPin,
   Car,
   UtensilsCrossed,
@@ -39,6 +40,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { TravelMap } from "@/components/TravelMap";
 import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { LegalLinks } from "@/components/LegalLinks";
+import { StickyCta } from "@/components/StickyCta";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -511,38 +513,52 @@ function Index() {
           >
             {[
               {
-                img: "/images/btn-reservar.webp",
-                label: "Reservar",
-                alt: "Reservar: móvil, calendario y llaves",
-              },
-              {
                 img: "/images/btn-experiencias.webp",
                 label: "Experiencias",
                 alt: "Experiencias en Granada",
+                principal: false,
+              },
+              {
+                img: "/images/btn-reservar.webp",
+                label: "Consultar disponibilidad",
+                alt: "Consultar disponibilidad: móvil, calendario y llaves",
+                principal: true,
               },
               {
                 img: "/images/estancias-largas.webp",
                 label: "Estancias largas",
                 alt: "Estancias de más de un mes: calendario y maleta",
+                principal: false,
               },
             ].map((b) => {
-              const clase =
-                "group flex w-24 flex-col items-center gap-2 transition-transform hover:scale-105 sm:w-44";
+              const clase = b.principal
+                ? "group flex w-36 flex-col items-center gap-3 transition-transform hover:scale-105 sm:w-60"
+                : "group flex w-20 flex-col items-center gap-2 pt-6 opacity-95 transition-transform hover:scale-105 sm:w-36 sm:pt-10";
               const contenido = (
                 <>
                   <img
                     src={b.img}
                     alt={b.alt}
-                    width={144}
-                    height={144}
-                    className="h-24 w-24 rounded-full bg-card shadow-lg sm:h-36 sm:w-36"
+                    width={b.principal ? 192 : 112}
+                    height={b.principal ? 192 : 112}
+                    className={
+                      b.principal
+                        ? "h-32 w-32 rounded-full bg-card shadow-2xl ring-4 ring-primary/70 sm:h-48 sm:w-48"
+                        : "h-16 w-16 rounded-full bg-card shadow-md sm:h-28 sm:w-28"
+                    }
                   />
-                  <span className="rounded-full bg-card/90 px-3 py-1 text-xs font-semibold text-primary shadow-sm sm:text-sm">
+                  <span
+                    className={
+                      b.principal
+                        ? "rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-lg sm:px-6 sm:text-base"
+                        : "rounded-full bg-card/85 px-2.5 py-1 text-[11px] font-semibold text-primary shadow-sm sm:px-3 sm:text-xs"
+                    }
+                  >
                     {b.label}
                   </span>
                 </>
               );
-              if (b.label === "Reservar")
+              if (b.principal)
                 return (
                   <a key={b.label} href="#contacto" className={clase}>
                     {contenido}
@@ -573,6 +589,100 @@ function Index() {
           />
         </svg>
       </section>
+
+      <section aria-label="Ventajas principales" className="bg-primary text-primary-foreground">
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-6 py-8 text-center lg:grid-cols-4">
+          {[
+            { icon: Train, t: "2 min a pie", d: "de la estación AVE y el Metro" },
+            { icon: Clock, t: "Check-in 24 h", d: "autónomo, sin recoger llaves" },
+            { icon: BedDouble, t: "35–43 m²", d: "con dormitorio independiente" },
+            { icon: Heart, t: "+20 años", d: "alquilando en Granada, en familia" },
+          ].map(({ icon: Icon, t, d }) => (
+            <li key={t} className="flex flex-col items-center gap-1">
+              <Icon className="h-6 w-6 opacity-90" aria-hidden="true" />
+              <span className="font-display text-2xl font-semibold sm:text-3xl">{t}</span>
+              <span className="text-xs opacity-85 sm:text-sm">{d}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="apartamentos" className="bg-background py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Tres apartamentos, tres personalidades
+          </p>
+          <h2 className="mt-3 text-center font-display text-5xl sm:text-6xl">Los apartamentos</h2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+            Misma distribución y mismo equipamiento. Elige por luz, espacio o accesibilidad.
+          </p>
+          <div className="mt-12 grid gap-8 md:grid-cols-3 lg:gap-10">
+            {apartamentos.map((a) => (
+              <article
+                key={a.nombre}
+                className={`group cursor-pointer overflow-hidden rounded-2xl border-t-4 ${a.borde} ${a.colorFondo} transition-transform hover:scale-[1.02]`}
+                style={{ boxShadow: "var(--shadow-soft)" }}
+                onClick={() =>
+                  setGaleria({
+                    id: a.id,
+                    nombre: a.nombre,
+                    fotos: a.fotos,
+                    index: 0,
+                  })
+                }
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={a.img}
+                    alt={a.nombre}
+                    loading="lazy"
+                    width={1600}
+                    height={1072}
+                    className="h-72 w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                  {a.accesible && (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
+                      <Accessibility className="h-3.5 w-3.5" />
+                      Adaptado para personas con movilidad reducida
+                    </span>
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
+                    <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black opacity-0 transition-opacity group-hover:opacity-100">
+                      Ver fotos
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 translate="no" className="notranslate font-display text-3xl">
+                    {a.nombre}
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {a.detalles.map((d) => (
+                      <li
+                        key={d}
+                        className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground"
+                      >
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`mailto:reservas@apartamentostortola.com?subject=${encodeURIComponent("Consulta " + a.nombre)}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Consultar este apartamento
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <TrackDivider />
 
       <section id="ubicacion" className="relative overflow-hidden bg-pastel py-16">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
@@ -707,66 +817,6 @@ function Index() {
 
       <TrackDivider />
 
-      <section id="apartamentos" className="bg-secondary/50 bg-lattice py-14">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-center font-display text-4xl">Los apartamentos</h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {apartamentos.map((a) => (
-              <article
-                key={a.nombre}
-                className={`group cursor-pointer overflow-hidden rounded-2xl border-t-4 ${a.borde} ${a.colorFondo} transition-transform hover:scale-[1.02]`}
-                style={{ boxShadow: "var(--shadow-soft)" }}
-                onClick={() =>
-                  setGaleria({
-                    id: a.id,
-                    nombre: a.nombre,
-                    fotos: a.fotos,
-                    index: 0,
-                  })
-                }
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={a.img}
-                    alt={a.nombre}
-                    loading="lazy"
-                    width={1600}
-                    height={1072}
-                    className="h-56 w-full object-cover transition-transform group-hover:scale-105"
-                  />
-                  {a.accesible && (
-                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
-                      <Accessibility className="h-3.5 w-3.5" />
-                      Adaptado para personas con movilidad reducida
-                    </span>
-                  )}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
-                    <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black opacity-0 transition-opacity group-hover:opacity-100">
-                      Ver fotos
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 translate="no" className="notranslate font-display text-2xl">
-                    {a.nombre}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {a.detalles.map((d) => (
-                      <li
-                        key={d}
-                        className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground"
-                      >
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="hidden mx-auto max-w-6xl px-6 py-14">
         <h2 className="text-center font-display text-4xl">Lo que dicen nuestros huéspedes</h2>
@@ -819,13 +869,13 @@ function Index() {
 
       <TrackDivider />
 
-      <section className="relative overflow-hidden bg-pastel py-16">
+      <section className="relative overflow-hidden bg-pastel py-12">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             Estancias más largas
           </p>
-          <h2 className="mt-3 font-display text-4xl">¿Vienes a Granada por más de un mes?</h2>
+          <h2 className="mt-3 font-display text-3xl">¿Vienes a Granada por más de un mes?</h2>
           <p className="mt-4 text-muted-foreground">
             Aceptamos estancias de varias semanas o meses para quien viene a trabajar, estudiar o
             investigar: profesores visitantes, alumnos de máster, profesionales en prácticas en
@@ -833,7 +883,7 @@ function Index() {
           </p>
           <Link
             to="/estancias-medias"
-            className="mx-auto mt-8 block max-w-2xl transition-transform hover:scale-[1.02]"
+            className="mx-auto mt-6 block max-w-md transition-transform hover:scale-[1.02]"
           >
             <img
               src="/images/banner-estancias.webp"
@@ -939,6 +989,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <StickyCta />
 
       <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
         <img
