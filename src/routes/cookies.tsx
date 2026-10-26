@@ -39,7 +39,7 @@ function Cookies() {
       </table>
       <h2>Servicios de terceros</h2>
       <ul>
-        <li>Google Maps: solo se carga cuando pulsas «Mostrar mapa» y Google puede instalar sus propias cookies.</li>
+        <li>Mapa: lo ofrece OpenStreetMap y no usa cookies. El enlace «Cómo llegar» abre Google Maps en otra pestaña solo si lo pulsas.</li>
         <li>Google Translate: solo se carga si eliges un idioma distinto del español.</li>
         <li>Vercel Analytics: medición agregada sin cookies.</li>
       </ul>

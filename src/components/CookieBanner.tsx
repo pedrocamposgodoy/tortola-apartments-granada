@@ -28,7 +28,7 @@ export function CookieBanner() {
     >
       <p className="text-sm text-foreground">
         Usamos cookies de análisis (Google Analytics) para saber cómo se usa la web y mejorarla. Solo
-        se activan si las aceptas. Además, el mapa y el traductor son servicios de Google.{" "}
+        se activan si las aceptas.{" "}
         <Link to="/cookies" className="font-medium text-primary underline underline-offset-2">
           Más información
         </Link>
