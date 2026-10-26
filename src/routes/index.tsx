@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Sparkles,
   Train,
@@ -42,8 +42,7 @@ import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
-import { ApartamentosGaleria, type Variante } from "@/components/ApartamentosGaleria";
-import cocinaFoto from "@/assets/cocina.jpg";
+import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -461,31 +460,6 @@ function Index() {
     index: number;
   } | null>(null);
 
-  // PRUEBA (rama prueba-galerias): selector temporal de variantes de galería
-  const [variante, setVariante] = useState<"actual" | Variante>("actual");
-  useEffect(() => {
-    const v = new URLSearchParams(window.location.search).get("galeria");
-    if (v === "miniaturas" || v === "carrusel" || v === "mosaico" || v === "actual") setVariante(v);
-  }, []);
-  const cambiarVariante = (v: "actual" | Variante) => {
-    setVariante(v);
-    const u = new URL(window.location.href);
-    u.searchParams.set("galeria", v);
-    window.history.replaceState(null, "", u.toString());
-  };
-  // Fotos provisionales para probar (solo la de Jade es real)
-  const pool = [
-    { src: salon, alt: "Salón (foto provisional)" },
-    { src: dormitorio, alt: "Dormitorio (foto provisional)" },
-    { src: cocinaFoto, alt: "Cocina (foto provisional)" },
-    { src: albaicinCocina, alt: "Cocina (foto provisional)" },
-    { src: jadeCocina, alt: "Cocina de Jade y entrada con cerradura digital" },
-  ];
-  const aptosPrueba = apartamentos.map((a) => ({
-    ...a,
-    fotos: [...a.fotos, ...pool.filter((f) => !a.fotos.some((x) => x.src === f.src))].slice(0, 5),
-  }));
-
   const search = useSearch({ strict: false }) as { extra?: string };
   const extraNombre = search?.extra ? extrasMap[search.extra] : undefined;
 
@@ -644,94 +618,10 @@ function Index() {
           <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
             Misma distribución y mismo equipamiento. Elige por luz, espacio o accesibilidad.
           </p>
-          <div className="mx-auto mt-8 flex w-fit flex-wrap justify-center gap-1 rounded-full border border-border bg-card p-1 text-xs font-semibold">
-            {([["actual", "Actual"], ["miniaturas", "Opción 1 · Miniaturas"], ["carrusel", "Opción 2 · Carrusel"], ["mosaico", "Opción 3 · Mosaico"]] as const).map(([v, l]) => (
-              <button
-                key={v}
-                type="button"
-                onClick={() => cambiarVariante(v)}
-                className={`rounded-full px-4 py-2 ${variante === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
-          {variante !== "actual" ? (
-            <ApartamentosGaleria
-              apartamentos={aptosPrueba}
-              variante={variante}
-              abrir={(a, index) => setGaleria({ id: a.id, nombre: a.nombre, fotos: a.fotos, index })}
-            />
-          ) : (
-          <div className="mt-12 grid gap-8 md:grid-cols-3 lg:gap-10">
-            {apartamentos.map((a) => (
-              <article
-                key={a.nombre}
-                className={`group cursor-pointer overflow-hidden rounded-2xl border-t-4 ${a.borde} ${a.colorFondo} transition-transform hover:scale-[1.02]`}
-                style={{ boxShadow: "var(--shadow-soft)" }}
-                onClick={() =>
-                  setGaleria({
-                    id: a.id,
-                    nombre: a.nombre,
-                    fotos: a.fotos,
-                    index: 0,
-                  })
-                }
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={a.img}
-                    alt={a.nombre}
-                    loading="lazy"
-                    width={1600}
-                    height={1072}
-                    className="h-72 w-full object-cover transition-transform group-hover:scale-105"
-                  />
-                  {a.accesible && (
-                    <span className="absolute bottom-3 right-3 rounded-full bg-[var(--terracota)] px-3 py-1 text-xs font-semibold text-white shadow-md">
-                      El más amplio
-                    </span>
-                  )}
-                  {a.accesible && (
-                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
-                      <Accessibility className="h-3.5 w-3.5" />
-                      Adaptado para personas con movilidad reducida
-                    </span>
-                  )}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
-                    <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black opacity-0 transition-opacity group-hover:opacity-100">
-                      Ver fotos
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 translate="no" className="notranslate font-display text-3xl">
-                    {a.nombre}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{a.desc}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {a.detalles.map((d) => (
-                      <li
-                        key={d}
-                        className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground"
-                      >
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={`mailto:reservas@apartamentostortola.com?subject=${encodeURIComponent("Consulta " + a.nombre)}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
-                  >
-                    <Mail className="h-4 w-4" />
-                    Consultar este apartamento
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-          )}
+          <ApartamentosGaleria
+            apartamentos={apartamentos}
+            abrir={(a, index) => setGaleria({ id: a.id, nombre: a.nombre, fotos: a.fotos, index })}
+          />
         </div>
       </section>
 
