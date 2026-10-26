@@ -47,7 +47,6 @@ import cocinaFoto from "@/assets/cocina.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
-import albaicinCocinaAsset from "@/assets/albaicin-cocina.jpg.asset.json";
 const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
@@ -104,7 +103,6 @@ function TrackDivider() {
   );
 }
 
-const albaicinCocina = albaicinCocinaAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -183,7 +181,6 @@ const fotosProvisionales = () => [
   { src: salon, alt: "Salón (foto provisional)" },
   { src: dormitorio, alt: "Dormitorio (foto provisional)" },
   { src: cocinaFoto, alt: "Cocina (foto provisional)" },
-  { src: albaicinCocina, alt: "Cocina (foto provisional)" },
   { src: jadeCocina, alt: "Cocina y entrada (foto provisional)" },
 ];
 const conProvisionales = (propias: { src: string; alt: string }[]) => [
@@ -225,7 +222,7 @@ const apartamentos = [
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: conProvisionales([
       { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
-      { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
+      { src: cocinaFoto, alt: "Cocina del Apartamento Coral" },
     ]),
   },
 ];
