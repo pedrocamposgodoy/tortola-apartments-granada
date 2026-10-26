@@ -39,7 +39,7 @@ function Cookies() {
       </table>
       <h2>Servicios de terceros</h2>
       <ul>
-        <li>Mapa: lo ofrece OpenStreetMap y no usa cookies. El enlace «Cómo llegar» abre Google Maps en otra pestaña solo si lo pulsas.</li>
+        <li>Google Maps: el mapa de la página de inicio lo sirve Google, que puede instalar sus propias cookies y recibir tu dirección IP al cargarlo.</li>
         <li>Google Translate: solo se carga si eliges un idioma distinto del español.</li>
         <li>Vercel Analytics: medición agregada sin cookies.</li>
       </ul>
