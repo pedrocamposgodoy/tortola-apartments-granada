@@ -41,6 +41,7 @@ import { TravelMap } from "@/components/TravelMap";
 import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
+import { ConsultaFechas } from "@/components/ConsultaFechas";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -959,38 +960,28 @@ function Index() {
                 </li>
               ))}
             </ol>
+            <div className="mt-8 border-t border-border pt-6">
+              <p className="text-sm font-medium">¿Prefieres escribirnos o llamarnos?</p>
+              <div className="mt-3 flex flex-col gap-2 text-sm sm:text-base">
+                <a href="mailto:reservas@apartamentostortola.com" className="inline-flex min-w-0 items-center gap-3 font-semibold text-primary hover:underline">
+                  <Mail className="h-5 w-5 shrink-0" />
+                  <span className="min-w-0 break-all">reservas@apartamentostortola.com</span>
+                </a>
+                <a href="tel:+34630991021" className="inline-flex items-center gap-3 font-semibold text-primary hover:underline">
+                  <Phone className="h-5 w-5 shrink-0" />
+                  +34 630 991 021
+                </a>
+                <p className="inline-flex items-center gap-3 text-muted-foreground">
+                  <MapPin className="h-5 w-5 shrink-0 text-primary" />
+                  <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
+                </p>
+              </div>
+              <p className="mt-3 text-xs text-muted-foreground">Garaje privado según disponibilidad y con coste adicional.</p>
+            </div>
           </div>
 
-          <div className="min-w-0 rounded-3xl border border-border bg-card/95 p-6 text-center sm:p-10" style={{ boxShadow: "var(--shadow-soft)" }}>
-            <h3 className="font-display text-3xl">Consulta tu estancia</h3>
-            {extraNombre && (
-              <p className="mt-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary">
-                Experiencia seleccionada: {extraNombre}
-              </p>
-            )}
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href={`mailto:reservas@apartamentostortola.com${extraNombre ? `?subject=${encodeURIComponent("Consulta: " + extraNombre)}` : ""}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3.5 text-[13px] font-semibold text-primary-foreground transition-transform hover:scale-[1.02] sm:gap-3 sm:px-6 sm:text-sm"
-              >
-                <Mail className="h-5 w-5 shrink-0" />
-                reservas@apartamentostortola.com
-              </a>
-              <a
-                href="tel:+34630991021"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-primary/40 bg-background px-6 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
-              >
-                <Phone className="h-5 w-5 shrink-0" />
-                +34 630 991 021
-              </a>
-            </div>
-            <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
-              <MapPin className="h-4 w-4 text-primary" />
-              <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
-            </p>
-            <p className="mx-auto mt-3 max-w-sm text-xs text-muted-foreground">
-              Garaje privado según disponibilidad y con coste adicional.
-            </p>
+          <div className="min-w-0 rounded-3xl border border-border bg-card/95 p-5 sm:p-8" style={{ boxShadow: "var(--shadow-soft)" }}>
+            <ConsultaFechas extraNombre={extraNombre} />
           </div>
         </div>
       </section>
