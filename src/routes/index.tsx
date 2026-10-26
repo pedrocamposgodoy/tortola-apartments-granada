@@ -43,6 +43,7 @@ import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
+import cocinaFoto from "@/assets/cocina.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -174,6 +175,22 @@ const bloquesDestacados = [
   },
 ];
 
+/**
+ * FOTOS PROVISIONALES: hasta tener las del fotógrafo, cada apartamento completa su tira de
+ * miniaturas con imágenes de ejemplo. Para quitarlas, borrar `conProvisionales` y dejar solo `fotos`.
+ */
+const fotosProvisionales = () => [
+  { src: salon, alt: "Salón (foto provisional)" },
+  { src: dormitorio, alt: "Dormitorio (foto provisional)" },
+  { src: cocinaFoto, alt: "Cocina (foto provisional)" },
+  { src: albaicinCocina, alt: "Cocina (foto provisional)" },
+  { src: jadeCocina, alt: "Cocina y entrada (foto provisional)" },
+];
+const conProvisionales = (propias: { src: string; alt: string }[]) => [
+  ...propias,
+  ...fotosProvisionales().filter((f) => !propias.some((x) => x.src === f.src)),
+].slice(0, 5);
+
 const apartamentos = [
   {
     id: "perla",
@@ -184,7 +201,7 @@ const apartamentos = [
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [{ src: salon, alt: "Salón del Apartamento Perla" }],
+    fotos: conProvisionales([{ src: salon, alt: "Salón del Apartamento Perla" }]),
   },
   {
     id: "jade",
@@ -195,7 +212,7 @@ const apartamentos = [
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital" }],
+    fotos: conProvisionales([{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital" }]),
   },
   {
     id: "coral",
@@ -206,10 +223,10 @@ const apartamentos = [
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [
+    fotos: conProvisionales([
       { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
       { src: albaicinCocina, alt: "Cocina del Apartamento Coral" },
-    ],
+    ]),
   },
 ];
 
