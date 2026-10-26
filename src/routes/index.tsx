@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sparkles,
   Train,
@@ -42,6 +42,8 @@ import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
+import { ApartamentosGaleria, type Variante } from "@/components/ApartamentosGaleria";
+import cocinaFoto from "@/assets/cocina.jpg";
 import salon from "@/assets/salon.jpg";
 import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
@@ -459,6 +461,31 @@ function Index() {
     index: number;
   } | null>(null);
 
+  // PRUEBA (rama prueba-galerias): selector temporal de variantes de galería
+  const [variante, setVariante] = useState<"actual" | Variante>("actual");
+  useEffect(() => {
+    const v = new URLSearchParams(window.location.search).get("galeria");
+    if (v === "miniaturas" || v === "carrusel" || v === "mosaico" || v === "actual") setVariante(v);
+  }, []);
+  const cambiarVariante = (v: "actual" | Variante) => {
+    setVariante(v);
+    const u = new URL(window.location.href);
+    u.searchParams.set("galeria", v);
+    window.history.replaceState(null, "", u.toString());
+  };
+  // Fotos provisionales para probar (solo la de Jade es real)
+  const pool = [
+    { src: salon, alt: "Salón (foto provisional)" },
+    { src: dormitorio, alt: "Dormitorio (foto provisional)" },
+    { src: cocinaFoto, alt: "Cocina (foto provisional)" },
+    { src: albaicinCocina, alt: "Cocina (foto provisional)" },
+    { src: jadeCocina, alt: "Cocina de Jade y entrada con cerradura digital" },
+  ];
+  const aptosPrueba = apartamentos.map((a) => ({
+    ...a,
+    fotos: [...a.fotos, ...pool.filter((f) => !a.fotos.some((x) => x.src === f.src))].slice(0, 5),
+  }));
+
   const search = useSearch({ strict: false }) as { extra?: string };
   const extraNombre = search?.extra ? extrasMap[search.extra] : undefined;
 
@@ -617,6 +644,25 @@ function Index() {
           <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
             Misma distribución y mismo equipamiento. Elige por luz, espacio o accesibilidad.
           </p>
+          <div className="mx-auto mt-8 flex w-fit flex-wrap justify-center gap-1 rounded-full border border-border bg-card p-1 text-xs font-semibold">
+            {([["actual", "Actual"], ["miniaturas", "Opción 1 · Miniaturas"], ["carrusel", "Opción 2 · Carrusel"], ["mosaico", "Opción 3 · Mosaico"]] as const).map(([v, l]) => (
+              <button
+                key={v}
+                type="button"
+                onClick={() => cambiarVariante(v)}
+                className={`rounded-full px-4 py-2 ${variante === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          {variante !== "actual" ? (
+            <ApartamentosGaleria
+              apartamentos={aptosPrueba}
+              variante={variante}
+              abrir={(a, index) => setGaleria({ id: a.id, nombre: a.nombre, fotos: a.fotos, index })}
+            />
+          ) : (
           <div className="mt-12 grid gap-8 md:grid-cols-3 lg:gap-10">
             {apartamentos.map((a) => (
               <article
@@ -685,6 +731,7 @@ function Index() {
               </article>
             ))}
           </div>
+          )}
         </div>
       </section>
 
