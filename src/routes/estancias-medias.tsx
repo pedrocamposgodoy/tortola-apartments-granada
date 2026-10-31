@@ -374,7 +374,7 @@ function EstanciasMedias() {
               </span>
             </span>
           </div>
-          <h2 className="mt-6 font-display text-3xl">¿Prefieres escribirnos o llamarnos?</h2>
+          <h2 className="mt-6 font-display text-3xl">¿Prefieres escribirnos?</h2>
           <p className="mt-4 text-muted-foreground">
             Cuéntanos tu caso con tus palabras y te respondemos por correo.
           </p>
