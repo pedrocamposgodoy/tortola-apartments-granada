@@ -44,12 +44,10 @@ import { ConsultaFechas } from "@/components/ConsultaFechas";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
 import jadeCocina from "@/assets/jade-cocina.jpg";
 import provSalonHojas from "@/assets/provisional-salon-hojas.webp";
-import provSalonNicho from "@/assets/provisional-salon-nicho.webp";
 import provCocina1 from "@/assets/provisional-cocina-1.webp";
 import provCocina2 from "@/assets/provisional-cocina-2.webp";
 import provDormAzul from "@/assets/provisional-dormitorio-azul.webp";
 import provDormCuadros from "@/assets/provisional-dormitorio-cuadros.webp";
-import provBano from "@/assets/provisional-bano.webp";
 const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
@@ -185,8 +183,6 @@ const fotosProvisionales = () => [
   { src: provSalonHojas, alt: "Salón con papel pintado y zona de TV (foto provisional)" },
   { src: provCocina1, alt: "Cocina equipada con encimera y horno (foto provisional)" },
   { src: provDormAzul, alt: "Dormitorio con cabecero de madera y lámparas de lectura (foto provisional)" },
-  { src: provBano, alt: "Baño con lavabo sobre encimera de madera (foto provisional)" },
-  { src: provSalonNicho, alt: "Salón con hornacina iluminada y puerta de cristal (foto provisional)" },
   { src: provCocina2, alt: "Cocina y salón desde la entrada (foto provisional)" },
   { src: provDormCuadros, alt: "Dormitorio con cabecero de madera y cama de matrimonio (foto provisional)" },
   { src: jadeCocina, alt: "Cocina y entrada con cerradura digital (foto provisional)" },
