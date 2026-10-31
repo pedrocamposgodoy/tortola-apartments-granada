@@ -41,6 +41,7 @@ import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
+import jadeCocina from "@/assets/jade-cocina.jpg";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
 const fachada = "/images/fachada.webp";
 
@@ -698,6 +699,20 @@ function Index() {
                 </div>
               ))}
             </div>
+            <figure className="mx-auto mt-10 max-w-4xl">
+              <img
+                src={jadeCocina}
+                alt="Entrada de un apartamento con puerta de cerradura digital y cocina equipada"
+                loading="lazy"
+                width={1600}
+                height={747}
+                className="w-full rounded-2xl border-4 border-white object-cover"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              />
+              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                Así es la entrada: puerta con cerradura digital, a pie de calle y sin escaleras.
+              </figcaption>
+            </figure>
           </div>
         </section>
       ))}
