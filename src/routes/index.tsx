@@ -42,10 +42,14 @@ import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
-import cocinaFoto from "@/assets/cocina.jpg";
-import salon from "@/assets/salon.jpg";
-import dormitorio from "@/assets/dormitorio.jpg";
 import jadeCocina from "@/assets/jade-cocina.jpg";
+import provSalonHojas from "@/assets/provisional-salon-hojas.webp";
+import provSalonNicho from "@/assets/provisional-salon-nicho.webp";
+import provCocina1 from "@/assets/provisional-cocina-1.webp";
+import provCocina2 from "@/assets/provisional-cocina-2.webp";
+import provDormAzul from "@/assets/provisional-dormitorio-azul.webp";
+import provDormCuadros from "@/assets/provisional-dormitorio-cuadros.webp";
+import provBano from "@/assets/provisional-bano.webp";
 const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
@@ -172,31 +176,37 @@ const bloquesDestacados = [
 ];
 
 /**
- * FOTOS PROVISIONALES: hasta tener las del fotógrafo, cada apartamento completa su tira de
- * miniaturas con imágenes de ejemplo. Para quitarlas, borrar `conProvisionales` y dejar solo `fotos`.
+ * FOTOS PROVISIONALES: fotos REALES de los apartamentos hechas durante el final de obra (todavía
+ * sin decorar ni limpiar). Se muestran con la etiqueta "Fotografía provisional" hasta tener las del
+ * fotógrafo. Cada apartamento completa su tira de miniaturas con estas fotos; para quitarlas,
+ * borrar `conProvisionales` y dejar solo `fotos`.
  */
 const fotosProvisionales = () => [
-  { src: salon, alt: "Salón (foto provisional)" },
-  { src: dormitorio, alt: "Dormitorio (foto provisional)" },
-  { src: cocinaFoto, alt: "Cocina (foto provisional)" },
-  { src: jadeCocina, alt: "Cocina y entrada (foto provisional)" },
+  { src: provSalonHojas, alt: "Salón con papel pintado y zona de TV (foto provisional)" },
+  { src: provCocina1, alt: "Cocina equipada con encimera y horno (foto provisional)" },
+  { src: provDormAzul, alt: "Dormitorio con cabecero de madera y lámparas de lectura (foto provisional)" },
+  { src: provBano, alt: "Baño con lavabo sobre encimera de madera (foto provisional)" },
+  { src: provSalonNicho, alt: "Salón con hornacina iluminada y puerta de cristal (foto provisional)" },
+  { src: provCocina2, alt: "Cocina y salón desde la entrada (foto provisional)" },
+  { src: provDormCuadros, alt: "Dormitorio con cabecero de madera y cama de matrimonio (foto provisional)" },
+  { src: jadeCocina, alt: "Cocina y entrada con cerradura digital (foto provisional)" },
 ];
 const conProvisionales = (propias: { src: string; alt: string }[]) => [
   ...propias,
   ...fotosProvisionales().filter((f) => !propias.some((x) => x.src === f.src)),
-].slice(0, 5);
+].slice(0, 8);
 
 const apartamentos = [
   {
     id: "perla",
     nombre: "Apartamento Perla",
-    img: salon,
+    img: provSalonHojas,
     colorFondo: "bg-slate-50",
     borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: salon, alt: "Salón del Apartamento Perla" }]),
+    fotos: conProvisionales([{ src: provSalonHojas, alt: "Salón del Apartamento Perla (foto provisional)" }]),
   },
   {
     id: "jade",
@@ -207,20 +217,19 @@ const apartamentos = [
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital" }]),
+    fotos: conProvisionales([{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital (foto provisional)" }]),
   },
   {
     id: "coral",
     nombre: "Apartamento Coral",
-    img: dormitorio,
+    img: provDormAzul,
     colorFondo: "bg-rose-50",
     borde: "border-t-rose-400",
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: conProvisionales([
-      { src: dormitorio, alt: "Dormitorio del Apartamento Coral" },
-      { src: cocinaFoto, alt: "Cocina del Apartamento Coral" },
+      { src: provDormAzul, alt: "Dormitorio del Apartamento Coral (foto provisional)" },
     ]),
   },
 ];

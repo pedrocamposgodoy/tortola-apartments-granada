@@ -50,6 +50,9 @@ function Etiquetas({ a }: { a: Apto }) {
           Adaptado para personas con movilidad reducida
         </span>
       )}
+      <span className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white">
+        Fotografía provisional
+      </span>
       {a.accesible && (
         <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-[var(--terracota)] px-3 py-1 text-xs font-semibold text-white shadow-md">
           El más amplio
