@@ -50,9 +50,6 @@ function Etiquetas({ a }: { a: Apto }) {
           Adaptado para personas con movilidad reducida
         </span>
       )}
-      <span className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white">
-        Fotografía provisional
-      </span>
       {a.accesible && (
         <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-[var(--terracota)] px-3 py-1 text-xs font-semibold text-white shadow-md">
           El más amplio
@@ -68,9 +65,16 @@ function Miniaturas({ a, abrir }: { a: Apto; abrir: Props["abrir"] }) {
   return (
     <article className={`flex flex-col overflow-hidden rounded-2xl border-t-4 ${a.borde} ${a.colorFondo}`} style={{ boxShadow: "var(--shadow-soft)" }}>
       <div className="relative">
-        <button type="button" onClick={() => abrir(a, i)} className="block w-full" aria-label={`Ampliar foto de ${a.nombre}`}>
-          <img src={a.fotos[i]!.src} alt={a.fotos[i]!.alt} loading="lazy" className="h-72 w-full object-cover" />
-        </button>
+        {a.fotos.length > 0 ? (
+          <button type="button" onClick={() => abrir(a, i)} className="block w-full" aria-label={`Ampliar foto de ${a.nombre}`}>
+            <img src={a.fotos[i]!.src} alt={a.fotos[i]!.alt} loading="lazy" className="h-72 w-full object-cover" />
+          </button>
+        ) : (
+          <div className="flex h-72 w-full flex-col items-center justify-center gap-1 bg-pastel px-6 text-center">
+            <span className="font-display text-3xl text-foreground">Próxima apertura</span>
+            <span className="text-sm text-muted-foreground">Fotografías próximamente</span>
+          </div>
+        )}
         <Etiquetas a={a} />
       </div>
       {a.fotos.length > 1 && (

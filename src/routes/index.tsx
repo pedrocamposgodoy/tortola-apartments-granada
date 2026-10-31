@@ -42,13 +42,6 @@ import { LegalLinks } from "@/components/LegalLinks";
 import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
-import jadeCocina from "@/assets/jade-cocina.jpg";
-import provSalonHojas from "@/assets/provisional-salon-hojas.webp";
-import provCocinaPerla from "@/assets/provisional-cocina-perla.webp";
-import provCocinaJade from "@/assets/provisional-cocina-jade.webp";
-import provCocinaCoral from "@/assets/provisional-cocina-coral.webp";
-import provDormAzul from "@/assets/provisional-dormitorio-azul.webp";
-import provDormCuadros from "@/assets/provisional-dormitorio-cuadros.webp";
 const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
@@ -174,54 +167,38 @@ const bloquesDestacados = [
   },
 ];
 
-/**
- * FOTOS PROVISIONALES: fotos REALES de final de obra (sin decorar). Cada apartamento muestra solo
- * su habitación con papel pintado y su cocina, con la etiqueta "Fotografía provisional".
- * Sustituir por las definitivas cuando estén.
- */
+/* Sin fotos hasta la apertura: las tarjetas muestran el aviso «Próxima apertura». Para añadirlas, rellenar `fotos`. */
 
 const apartamentos = [
   {
     id: "perla",
     nombre: "Apartamento Perla",
-    img: provDormCuadros,
     colorFondo: "bg-slate-50",
     borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [
-      { src: provDormCuadros, alt: "Dormitorio del Apartamento Perla (foto provisional)" },
-      { src: provCocinaPerla, alt: "Cocina del Apartamento Perla (foto provisional)" },
-    ],
+    fotos: [],
   },
   {
     id: "jade",
     nombre: "Apartamento Jade",
-    img: provDormAzul,
     colorFondo: "bg-emerald-50",
     borde: "border-t-emerald-500",
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [
-      { src: provDormAzul, alt: "Dormitorio del Apartamento Jade (foto provisional)" },
-      { src: provCocinaJade, alt: "Cocina del Apartamento Jade (foto provisional)" },
-    ],
+    fotos: [],
   },
   {
     id: "coral",
     nombre: "Apartamento Coral",
-    img: provSalonHojas,
     colorFondo: "bg-rose-50",
     borde: "border-t-rose-400",
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [
-      { src: provSalonHojas, alt: "Salón del Apartamento Coral (foto provisional)" },
-      { src: provCocinaCoral, alt: "Cocina del Apartamento Coral (foto provisional)" },
-    ],
+    fotos: [],
   },
 ];
 
@@ -721,20 +698,6 @@ function Index() {
                 </div>
               ))}
             </div>
-            <figure className="mx-auto mt-10 max-w-4xl">
-              <img
-                src={jadeCocina}
-                alt="Entrada de un apartamento con puerta de cerradura digital y cocina equipada"
-                loading="lazy"
-                width={1600}
-                height={747}
-                className="w-full rounded-2xl border-4 border-white object-cover"
-                style={{ boxShadow: "var(--shadow-soft)" }}
-              />
-              <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-                Así es la entrada: puerta con cerradura digital, a pie de calle y sin escaleras.
-              </figcaption>
-            </figure>
           </div>
         </section>
       ))}
