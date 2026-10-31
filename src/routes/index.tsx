@@ -180,11 +180,8 @@ const bloquesDestacados = [
  * borrar `conProvisionales` y dejar solo `fotos`.
  */
 const fotosProvisionales = () => [
-  { src: provSalonHojas, alt: "Salón con papel pintado y zona de TV (foto provisional)" },
   { src: provCocina1, alt: "Cocina equipada con encimera y horno (foto provisional)" },
-  { src: provDormAzul, alt: "Dormitorio con cabecero de madera y lámparas de lectura (foto provisional)" },
   { src: provCocina2, alt: "Cocina y salón desde la entrada (foto provisional)" },
-  { src: provDormCuadros, alt: "Dormitorio con cabecero de madera y cama de matrimonio (foto provisional)" },
   { src: jadeCocina, alt: "Cocina y entrada con cerradura digital (foto provisional)" },
 ];
 const conProvisionales = (propias: { src: string; alt: string }[]) => [
@@ -196,36 +193,36 @@ const apartamentos = [
   {
     id: "perla",
     nombre: "Apartamento Perla",
-    img: provSalonHojas,
+    img: provDormCuadros,
     colorFondo: "bg-slate-50",
     borde: "border-t-stone-300",
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: provSalonHojas, alt: "Salón del Apartamento Perla (foto provisional)" }]),
+    fotos: conProvisionales([{ src: provDormCuadros, alt: "Dormitorio del Apartamento Perla (foto provisional)" }]),
   },
   {
     id: "jade",
     nombre: "Apartamento Jade",
-    img: jadeCocina,
+    img: provDormAzul,
     colorFondo: "bg-emerald-50",
     borde: "border-t-emerald-500",
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: jadeCocina, alt: "Cocina del Apartamento Jade y entrada con cerradura digital (foto provisional)" }]),
+    fotos: conProvisionales([{ src: provDormAzul, alt: "Dormitorio del Apartamento Jade (foto provisional)" }]),
   },
   {
     id: "coral",
     nombre: "Apartamento Coral",
-    img: provDormAzul,
+    img: provSalonHojas,
     colorFondo: "bg-rose-50",
     borde: "border-t-rose-400",
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: conProvisionales([
-      { src: provDormAzul, alt: "Dormitorio del Apartamento Coral (foto provisional)" },
+      { src: provSalonHojas, alt: "Salón del Apartamento Coral (foto provisional)" },
     ]),
   },
 ];
