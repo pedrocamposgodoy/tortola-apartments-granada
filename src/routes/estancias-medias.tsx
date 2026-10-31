@@ -7,7 +7,6 @@ import {
   GraduationCap,
   HardHat,
   MapPin,
-  Phone,
   Smartphone,
   Stethoscope,
   Tag,
@@ -385,13 +384,6 @@ function EstanciasMedias() {
               className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
               reservas@apartamentostortola.com
-            </a>
-            <a
-              href="tel:+34630991021"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-medium transition-colors hover:bg-muted"
-            >
-              <Phone className="h-4 w-4" />
-              +34 630 991 021
             </a>
           </div>
         </div>

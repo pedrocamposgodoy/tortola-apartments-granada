@@ -27,7 +27,6 @@ function AvisoLegal() {
         <li>Domicilio social: {EMPRESA.domicilio}</li>
         <li>Inscripción: {EMPRESA.registro}</li>
         <li>Correo electrónico: <a href={`mailto:${EMPRESA.email}`}>{EMPRESA.email}</a></li>
-        <li>Teléfono: {EMPRESA.telefono}</li>
         <li>Sitio web: {EMPRESA.web}</li>
       </ul>
       <h2>Establecimiento turístico</h2>

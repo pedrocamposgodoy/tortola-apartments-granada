@@ -29,7 +29,6 @@ import {
   BedDouble,
   Tv,
   Mail,
-  Phone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -124,7 +123,6 @@ export const Route = createFileRoute("/")({
           "@type": "LodgingBusiness",
           name: "Apartamentos Tórtola 10",
           url: "https://www.apartamentostortola.com/",
-          telephone: "+34630991021",
           address: {
             "@type": "PostalAddress",
             streetAddress: "C. Tórtola, 10",
@@ -912,15 +910,11 @@ function Index() {
               ))}
             </ol>
             <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm font-medium">¿Prefieres escribirnos o llamarnos?</p>
+              <p className="text-sm font-medium">¿Prefieres escribirnos?</p>
               <div className="mt-3 flex flex-col gap-2 text-sm sm:text-base">
                 <a href="mailto:reservas@apartamentostortola.com" className="inline-flex min-w-0 items-center gap-3 font-semibold text-primary hover:underline">
                   <Mail className="h-5 w-5 shrink-0" />
                   <span className="min-w-0 break-all">reservas@apartamentostortola.com</span>
-                </a>
-                <a href="tel:+34630991021" className="inline-flex items-center gap-3 font-semibold text-primary hover:underline">
-                  <Phone className="h-5 w-5 shrink-0" />
-                  +34 630 991 021
                 </a>
                 <p className="inline-flex items-center gap-3 text-muted-foreground">
                   <MapPin className="h-5 w-5 shrink-0 text-primary" />

@@ -5,7 +5,6 @@ export const EMPRESA = {
   domicilio: "Avenida de Andaluces, nº 5, 18014 Granada",
   registro: "Registro Mercantil de Granada, tomo 1185, folio 81, hoja GR-28695, inscripción 1ª",
   email: "reservas@apartamentostortola.com",
-  telefono: "+34 630 991 021",
   establecimiento: "Calle Tórtola, 10, Granada",
   web: "https://apartamentostortola.com",
   /** Pendiente: número del Registro de Turismo de Andalucía (VUT/AT-GR-xxxxx). */
