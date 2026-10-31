@@ -508,15 +508,22 @@ function Index() {
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--terracota)]/40 bg-card px-4 py-1.5 text-sm font-semibold text-[var(--terracota)]">
               <Sparkles className="h-4 w-4" />
-              Grand Opening · Apertura Noviembre 2026
+              Grand Opening · Apertura prevista en diciembre 2026
             </span>
           </div>
           <h1 className="mt-4 font-display text-4xl font-semibold leading-tight sm:mt-5 text-foreground [text-shadow:0_-1px_0_rgb(0_0_0/0.12),0_2px_0_rgb(255_255_255/0.9),0_8px_18px_rgb(255_255_255/0.85)] sm:text-5xl">
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-4 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">
-            Tres apartamentos independientes de 35 a 43 m², reformados y listos para tu estancia.
+            Tres apartamentos independientes de 35 a 43 m², reformados y a punto de abrir.
           </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-foreground/80 [text-shadow:0_0_10px_var(--background)]">
+            Todavía no hemos abierto: esperamos hacerlo en diciembre. Escríbenos a{" "}
+            <a href="mailto:reservas@apartamentostortola.com" className="font-semibold text-primary underline-offset-2 hover:underline">
+              reservas@apartamentostortola.com
+            </a>{" "}
+            y te confirmaremos la disponibilidad cuando abramos.
+          </p>
           <p className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
             <span translate="no" className="notranslate">Calle Tórtola 10, Granada</span>
