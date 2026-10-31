@@ -44,8 +44,9 @@ import { ConsultaFechas } from "@/components/ConsultaFechas";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
 import jadeCocina from "@/assets/jade-cocina.jpg";
 import provSalonHojas from "@/assets/provisional-salon-hojas.webp";
-import provCocina1 from "@/assets/provisional-cocina-1.webp";
-import provCocina2 from "@/assets/provisional-cocina-2.webp";
+import provCocinaPerla from "@/assets/provisional-cocina-perla.webp";
+import provCocinaJade from "@/assets/provisional-cocina-jade.webp";
+import provCocinaCoral from "@/assets/provisional-cocina-coral.webp";
 import provDormAzul from "@/assets/provisional-dormitorio-azul.webp";
 import provDormCuadros from "@/assets/provisional-dormitorio-cuadros.webp";
 const fachada = "/images/fachada.webp";
@@ -174,20 +175,10 @@ const bloquesDestacados = [
 ];
 
 /**
- * FOTOS PROVISIONALES: fotos REALES de los apartamentos hechas durante el final de obra (todavía
- * sin decorar ni limpiar). Se muestran con la etiqueta "Fotografía provisional" hasta tener las del
- * fotógrafo. Cada apartamento completa su tira de miniaturas con estas fotos; para quitarlas,
- * borrar `conProvisionales` y dejar solo `fotos`.
+ * FOTOS PROVISIONALES: fotos REALES de final de obra (sin decorar). Cada apartamento muestra solo
+ * su habitación con papel pintado y su cocina, con la etiqueta "Fotografía provisional".
+ * Sustituir por las definitivas cuando estén.
  */
-const fotosProvisionales = () => [
-  { src: provCocina1, alt: "Cocina equipada con encimera y horno (foto provisional)" },
-  { src: provCocina2, alt: "Cocina y salón desde la entrada (foto provisional)" },
-  { src: jadeCocina, alt: "Cocina y entrada con cerradura digital (foto provisional)" },
-];
-const conProvisionales = (propias: { src: string; alt: string }[]) => [
-  ...propias,
-  ...fotosProvisionales().filter((f) => !propias.some((x) => x.src === f.src)),
-].slice(0, 8);
 
 const apartamentos = [
   {
@@ -199,7 +190,10 @@ const apartamentos = [
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: provDormCuadros, alt: "Dormitorio del Apartamento Perla (foto provisional)" }]),
+    fotos: [
+      { src: provDormCuadros, alt: "Dormitorio del Apartamento Perla (foto provisional)" },
+      { src: provCocinaPerla, alt: "Cocina del Apartamento Perla (foto provisional)" },
+    ],
   },
   {
     id: "jade",
@@ -210,7 +204,10 @@ const apartamentos = [
     accesible: false,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([{ src: provDormAzul, alt: "Dormitorio del Apartamento Jade (foto provisional)" }]),
+    fotos: [
+      { src: provDormAzul, alt: "Dormitorio del Apartamento Jade (foto provisional)" },
+      { src: provCocinaJade, alt: "Cocina del Apartamento Jade (foto provisional)" },
+    ],
   },
   {
     id: "coral",
@@ -221,9 +218,10 @@ const apartamentos = [
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: conProvisionales([
+    fotos: [
       { src: provSalonHojas, alt: "Salón del Apartamento Coral (foto provisional)" },
-    ]),
+      { src: provCocinaCoral, alt: "Cocina del Apartamento Coral (foto provisional)" },
+    ],
   },
 ];
 
