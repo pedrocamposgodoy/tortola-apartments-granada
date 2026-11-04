@@ -59,6 +59,8 @@ type Tarjeta = {
   titulo: string;
   desc: string;
   nota?: string;
+  /** Franja de fotos en la parte superior de la tarjeta (1 o 2 imágenes). */
+  fotos?: { src: string; alt: string }[];
 };
 
 // ---- Edita aquí los textos ----
@@ -71,6 +73,7 @@ const visitasGuia: Tarjeta[] = [
     titulo: "La Alhambra con guía oficial",
     desc: "Recorre los Palacios Nazaríes, el Generalife y la Alcazaba con un guía oficial de la Alhambra que te cuenta la historia que no aparece en las guías.",
     nota: "Visita guiada · Consulta idiomas y horarios",
+    fotos: [{ src: "/images/experiencias/alhambra.webp", alt: "La Alhambra, con los Palacios Nazaríes y la Alcazaba, sobre la ciudad de Granada" }],
   },
   {
     id: "guia-lorca",
@@ -78,6 +81,7 @@ const visitasGuia: Tarjeta[] = [
     titulo: "La casa de García Lorca",
     desc: "Una visita distinta: la casa donde vivió el poeta, no un museo. Su vida, su familia y la Granada que lo inspiró, contadas desde dentro.",
     nota: "Visita guiada · Plazas limitadas",
+    fotos: [{ src: "/images/experiencias/lorca-granada.webp", alt: "Panorámica de Granada con la Alhambra al fondo al atardecer" }],
   },
   {
     id: "guia-albaicin",
@@ -85,6 +89,10 @@ const visitasGuia: Tarjeta[] = [
     titulo: "Albaicín y cuevas del Sacromonte",
     desc: "Callejuelas, miradores, aljibes y las cuevas del Sacromonte, con la mirada de quien conoce cada rincón del barrio.",
     nota: "Ruta a pie · Calzado cómodo",
+    fotos: [
+      { src: "/images/experiencias/albaicin.webp", alt: "Tejados del Albaicín con la torre de San Nicolás entre cipreses" },
+      { src: "/images/experiencias/sacromonte.webp", alt: "Interior de una cueva del Sacromonte" },
+    ],
   },
   {
     id: "guia-medida",
@@ -92,6 +100,7 @@ const visitasGuia: Tarjeta[] = [
     titulo: "Tu ruta a medida",
     desc: "Cuéntanos qué te interesa (historia, Lorca, fotografía, gastronomía, ir con niños…) y Alain diseña una visita privada solo para vosotros.",
     nota: "Visita privada · Precio bajo petición",
+    fotos: [{ src: "/images/experiencias/ruta.webp", alt: "La Alhambra y el Generalife entre cipreses, vistos desde un mirador" }],
   },
 ];
 
@@ -233,7 +242,14 @@ function Experiencias() {
             {visitasGuia.map((v) => {
               const Icon = v.icon;
               return (
-                <article key={v.id} className="flex flex-col rounded-2xl border border-border bg-card/90 p-6" style={{ boxShadow: "var(--shadow-soft)" }}>
+                <article key={v.id} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card/90 p-6" style={{ boxShadow: "var(--shadow-soft)" }}>
+                  {v.fotos && (
+                    <div className="-mx-6 -mt-6 mb-5 flex h-44 gap-0.5 overflow-hidden">
+                      {v.fotos.map((f) => (
+                        <img key={f.src} src={f.src} alt={f.alt} loading="lazy" decoding="async" className="h-full min-w-0 flex-1 object-cover" />
+                      ))}
+                    </div>
+                  )}
                   <div className="flex items-center gap-4">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <Icon className="h-6 w-6" />
