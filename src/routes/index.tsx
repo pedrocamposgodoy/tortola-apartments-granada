@@ -133,7 +133,7 @@ export const Route = createFileRoute("/")({
           numberOfRooms: 3,
           inLanguage: "es",
           geo: { "@type": "GeoCoordinates", latitude: 37.185439, longitude: -3.609873 },
-          amenityFeature: ["Check-in autónomo 24/7", "Garaje privado con punto de carga eléctrica (sujeto a disponibilidad)"].map((n) => ({
+          amenityFeature: ["Check-in autónomo 24/7", "Garaje privado con punto de carga eléctrica (sujeto a disponibilidad)", "Apartamento Coral adaptado para personas con movilidad reducida", "Apartamento Jade que admite mascotas (perros y gatos)"].map((n) => ({
             "@type": "LocationFeatureSpecification",
             name: n,
             value: true,
@@ -187,7 +187,8 @@ const apartamentos = [
     colorFondo: "bg-emerald-50",
     borde: "border-t-emerald-500",
     accesible: false,
-    desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra.",
+    mascotas: true,
+    desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra. Es el apartamento que admite mascotas (perros y gatos).",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
     fotos: [],
   },
@@ -277,7 +278,7 @@ const faqsAlojamiento = [
   {
     pregunta: "¿Hay un apartamento adaptado para movilidad reducida?",
     respuesta:
-      "Sí, el Apartamento Coral está adaptado. Además, el acceso a los tres apartamentos es a pie de calle, sin escaleras. Si tienes necesidades concretas, cuéntanoslas antes de reservar y lo preparamos contigo.",
+      "Sí, el Apartamento Coral es un apartamento accesible, adaptado para personas con movilidad reducida: su entrada y su baño están diseñados con ese fin. Además, el acceso a los tres apartamentos es a pie de calle, sin escaleras. Los perros de asistencia son bienvenidos en todos los apartamentos. Si tienes necesidades concretas, cuéntanoslas antes de reservar y lo preparamos contigo.",
   },
   {
     pregunta: "¿Tenéis cuna para bebés?",
@@ -303,9 +304,9 @@ const faqsLlegada = [
       "El garaje es privado, tiene un coste adicional y está sujeto a disponibilidad. Dispone de punto de carga normal (no rápida) para coches eléctricos. Te recomendamos reservarlo con antelación. El aparcamiento público en el centro de Granada cuesta 15–17 €/noche.",
   },
   {
-    pregunta: "¿Se admiten mascotas?",
+    pregunta: "¿Se admiten mascotas? ¿Puedo viajar con mi perro o mi gato?",
     respuesta:
-      "Sí, se admiten mascotas con un suplemento adicional. Contáctanos antes de reservar para confirmar condiciones.",
+      "Sí. El Apartamento Jade es pet friendly y admite mascotas (perros y gatos), para que disfrutes de Granada con tu compañero de cuatro patas. Está a pie de calle, sin escaleras, y a 2 minutos a pie de la estación de tren y el metro. Pregúntanos por el suplemento y las condiciones, que dependen de la mascota (sobre todo del tamaño del perro): escríbenos antes de reservar y te lo confirmamos. Los perros de asistencia son bienvenidos en todos los apartamentos, sin suplemento.",
   },
   {
     pregunta: "¿Se puede alquilar por estancias largas?",
@@ -613,7 +614,7 @@ function Index() {
           </p>
           <h2 className="mt-3 text-center font-display text-5xl sm:text-6xl">Los apartamentos</h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-            Misma distribución y mismo equipamiento. Elige por luz, espacio o accesibilidad.
+            Misma distribución y mismo equipamiento. Elige por luz, espacio, accesibilidad o si viajas con tu mascota.
           </p>
           <ApartamentosGaleria
             apartamentos={apartamentos}

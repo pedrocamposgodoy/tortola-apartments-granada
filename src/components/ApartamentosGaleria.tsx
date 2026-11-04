@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accessibility, Mail } from "lucide-react";
+import { Accessibility, Mail, PawPrint } from "lucide-react";
 
 export type Foto = { src: string; alt: string };
 export type Apto = {
@@ -8,6 +8,7 @@ export type Apto = {
   colorFondo: string;
   borde: string;
   accesible: boolean;
+  mascotas?: boolean;
   desc: string;
   detalles: string[];
   fotos: Foto[];
@@ -44,11 +45,21 @@ function Cuerpo({ a, className = "" }: { a: Apto; className?: string }) {
 function Etiquetas({ a }: { a: Apto }) {
   return (
     <>
-      {a.accesible && (
-        <span className="pointer-events-none absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
-          <Accessibility className="h-3.5 w-3.5" />
-          Adaptado para personas con movilidad reducida
-        </span>
+      {(a.accesible || a.mascotas) && (
+        <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-col items-start gap-1.5">
+          {a.accesible && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
+              <Accessibility className="h-3.5 w-3.5" />
+              Adaptado para personas con movilidad reducida
+            </span>
+          )}
+          {a.mascotas && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-foreground">
+              <PawPrint className="h-3.5 w-3.5" />
+              Admite mascotas (perros y gatos)
+            </span>
+          )}
+        </div>
       )}
       {a.accesible && (
         <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-[var(--terracota)] px-3 py-1 text-xs font-semibold text-white shadow-md">
