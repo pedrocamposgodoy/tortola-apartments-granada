@@ -226,7 +226,7 @@ function Experiencias() {
             </p>
             <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-card/80 px-4 py-1.5 text-sm text-muted-foreground">
               <Languages className="h-4 w-4 text-primary" />
-              Visitas en español e inglés
+              Visitas en español, inglés, francés e italiano
             </p>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
