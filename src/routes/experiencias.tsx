@@ -81,7 +81,7 @@ const visitasGuia: Tarjeta[] = [
     titulo: "La casa de García Lorca",
     desc: "Una visita distinta: la casa donde vivió el poeta, no un museo. Su vida, su familia y la Granada que lo inspiró, contadas desde dentro.",
     nota: "Visita guiada · Plazas limitadas",
-    fotos: [{ src: "/images/experiencias/lorca-granada.webp", alt: "Panorámica de Granada con la Alhambra al fondo al atardecer" }],
+    fotos: [{ src: "/images/experiencias/casa-lorca.webp", alt: "Fachada blanca con balcones y contraventanas verdes de la casa de García Lorca en la Huerta de San Vicente, Granada" }],
   },
   {
     id: "guia-albaicin",
@@ -100,7 +100,7 @@ const visitasGuia: Tarjeta[] = [
     titulo: "Tu ruta a medida",
     desc: "Cuéntanos qué te interesa (historia, Lorca, fotografía, gastronomía, ir con niños…) y Alain diseña una visita privada solo para vosotros.",
     nota: "Visita privada · Precio bajo petición",
-    fotos: [{ src: "/images/experiencias/ruta.webp", alt: "La Alhambra y el Generalife entre cipreses, vistos desde un mirador" }],
+    fotos: [{ src: "/images/experiencias/ruta-granada.webp", alt: "Panorámica de Granada con la Alhambra al fondo al atardecer" }],
   },
 ];
 
