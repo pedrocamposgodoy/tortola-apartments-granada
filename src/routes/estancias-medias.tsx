@@ -7,6 +7,7 @@ import {
   GraduationCap,
   HardHat,
   MapPin,
+  Phone,
   Smartphone,
   Stethoscope,
   Tag,
@@ -20,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { EMPRESA } from "@/lib/empresa";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { LegalLinks } from "@/components/LegalLinks";
 import { ConsultaEstanciaForm } from "@/components/ConsultaEstanciaForm";
@@ -376,7 +378,7 @@ function EstanciasMedias() {
           </div>
           <h2 className="mt-6 font-display text-3xl">¿Prefieres escribirnos?</h2>
           <p className="mt-4 text-muted-foreground">
-            Cuéntanos tu caso con tus palabras y te respondemos por correo.
+            Cuéntanos tu caso con tus palabras y te respondemos por correo o por teléfono.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -384,6 +386,13 @@ function EstanciasMedias() {
               className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
             >
               reservas@apartamentostortola.com
+            </a>
+            <a
+              href={`tel:${EMPRESA.telefonoLink}`}
+              className="inline-flex items-center gap-2 rounded-full border border-primary px-7 py-3 text-sm font-medium text-primary transition-transform hover:scale-105"
+            >
+              <Phone className="h-4 w-4" />
+              {EMPRESA.telefono}
             </a>
           </div>
         </div>

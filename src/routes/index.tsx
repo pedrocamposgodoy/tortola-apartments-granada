@@ -29,12 +29,14 @@ import {
   BedDouble,
   Tv,
   Mail,
+  Phone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const SEO_DESC =
   "Alquila tu apartamento turístico en C. Tórtola 10, Granada. A 2 min del AVE y Metro con garaje privado (según disponibilidad) y check-in digital autónomo 24/7.";
 import { useSearch } from "@tanstack/react-router";
+import { EMPRESA } from "@/lib/empresa";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { TravelMap } from "@/components/TravelMap";
 import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
@@ -501,6 +503,10 @@ function Index() {
             <a href="mailto:reservas@apartamentostortola.com" className="font-semibold text-primary underline-offset-2 hover:underline">
               reservas@apartamentostortola.com
             </a>{" "}
+            o llámanos al{" "}
+            <a href={`tel:${EMPRESA.telefonoLink}`} className="font-semibold text-primary underline-offset-2 hover:underline">
+              {EMPRESA.telefono}
+            </a>{" "}
             y te confirmaremos la disponibilidad cuando abramos.
           </p>
           <p className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
@@ -901,6 +907,10 @@ function Index() {
                 <a href="mailto:reservas@apartamentostortola.com" className="inline-flex min-w-0 items-center gap-3 font-semibold text-primary hover:underline">
                   <Mail className="h-5 w-5 shrink-0" />
                   <span className="min-w-0 break-all">reservas@apartamentostortola.com</span>
+                </a>
+                <a href={`tel:${EMPRESA.telefonoLink}`} className="inline-flex min-w-0 items-center gap-3 font-semibold text-primary hover:underline">
+                  <Phone className="h-5 w-5 shrink-0" />
+                  <span>{EMPRESA.telefono}</span>
                 </a>
                 <p className="inline-flex items-center gap-3 text-muted-foreground">
                   <MapPin className="h-5 w-5 shrink-0 text-primary" />
