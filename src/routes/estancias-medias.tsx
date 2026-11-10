@@ -420,6 +420,11 @@ function EstanciasMedias() {
             Reservar
           </Link>
         </div>
+        <p className="mb-2 text-sm text-foreground">
+          <a href={`tel:${EMPRESA.telefonoLink}`} className="hover:text-primary">{EMPRESA.telefono}</a>
+          {" · "}
+          <a href={`mailto:${EMPRESA.email}`} className="hover:text-primary">{EMPRESA.email}</a>
+        </p>
         <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">

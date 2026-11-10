@@ -18,6 +18,7 @@ import {
   Ticket,
   Languages,
 } from "lucide-react";
+import { EMPRESA } from "@/lib/empresa";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { LegalLinks } from "@/components/LegalLinks";
 import { Granada48h } from "@/components/Granada48h";
@@ -366,6 +367,11 @@ function Experiencias() {
           height={640}
           className="mx-auto mb-4 h-44 w-auto sm:h-52"
         />
+        <p className="mb-2 text-sm text-foreground">
+          <a href={`tel:${EMPRESA.telefonoLink}`} className="hover:text-primary">{EMPRESA.telefono}</a>
+          {" · "}
+          <a href={`mailto:${EMPRESA.email}`} className="hover:text-primary">{EMPRESA.email}</a>
+        </p>
         <LegalLinks />
         © {new Date().getFullYear()}{" "}
         <span translate="no" className="notranslate">
