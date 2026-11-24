@@ -203,9 +203,29 @@ export function MapaDistancias() {
         >
           Sierra Nevada
         </text>
+        {/* Costas */}
+        {[
+          { t: "Costa del Sol", x: px(-4.42) + 2, y: py(36.72) + 16.5, a: "end" },
+          { t: "Costa Tropical", x: px(-3.55), y: py(36.47), a: "start" },
+        ].map((c) => (
+          <text
+            key={c.t}
+            x={c.x}
+            y={c.y}
+            textAnchor={c.a as "start" | "end"}
+            className="notranslate"
+            fill="currentColor"
+            stroke="none"
+            fontSize="4.6"
+            style={CURSIVA}
+            opacity="0.8"
+          >
+            {c.t}
+          </text>
+        ))}
         <text
-          x={px(-1.6)}
-          y={py(36.2)}
+          x={px(-1.3)}
+          y={py(36.0)}
           textAnchor="middle"
           className="notranslate"
           fill="currentColor"
@@ -239,7 +259,7 @@ export function MapaDistancias() {
           const izq = d.lado === "izq" || d.lado === "abajo-izq";
           const arriba = d.lado === "arriba";
           const tx = arriba ? 0 : izq ? -5 : 5;
-          const ty = arriba ? -12.5 : d.lado === "abajo-izq" ? 3.5 : -1;
+          const ty = arriba ? -12.5 : d.lado === "abajo-izq" ? 1.5 : -1;
           return (
             <g key={d.nombre} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)})`}>
               <circle r="2.4" fill="var(--background)" strokeWidth="1" />
