@@ -895,7 +895,7 @@ function Index() {
               {[
                 ["Escríbenos o llámanos", "Indícanos las fechas, cuántos sois y qué apartamento te interesa."],
                 ["Te respondemos en menos de 24 horas", "Con disponibilidad, precio y condiciones."],
-                ["Confirmas y llegas cuando quieras", "Recibes el código de acceso: check-in autónomo, las 24 horas."],
+                ["Confirmas y llegas cuando quieras", "Recibes el código de acceso: entra directamente, sin esperar a nadie."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">
