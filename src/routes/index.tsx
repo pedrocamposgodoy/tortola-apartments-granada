@@ -757,6 +757,12 @@ function Index() {
                   <dd className="mt-1 text-sm text-muted-foreground">{l}</dd>
                 </div>
               ))}
+              <div className="col-span-2 rounded-xl border border-border bg-card/90 p-5">
+                <dt className="font-display text-2xl text-primary">Excelente ubicación geográfica</dt>
+                <dd className="mt-1 text-sm text-muted-foreground">
+                  A unos 115 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera: una buena base para recorrer Andalucía.
+                </dd>
+              </div>
             </dl>
           </div>
         </div>
