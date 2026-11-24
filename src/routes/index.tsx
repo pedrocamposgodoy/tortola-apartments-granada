@@ -170,7 +170,7 @@ const bloquesDestacados = [
   },
 ];
 
-/* Sin fotos hasta la apertura: las tarjetas muestran el aviso «Próxima apertura». Para añadirlas, rellenar `fotos`. */
+/* Cada ficha muestra la foto real de la puerta con su nombre. Sin fotos, la tarjeta muestra «Próxima apertura»: para quitarla, vaciar `fotos`. */
 
 const apartamentos = [
   {
@@ -181,7 +181,7 @@ const apartamentos = [
     accesible: false,
     desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
     detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [],
+    fotos: [{ src: "/images/puerta-perla.webp", alt: "Puerta del Apartamento Perla con su nombre en letras metálicas" }],
   },
   {
     id: "jade",
@@ -192,7 +192,7 @@ const apartamentos = [
     mascotas: true,
     desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra. Es el apartamento que admite mascotas (perros y gatos).",
     detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [],
+    fotos: [{ src: "/images/puerta-jade.webp", alt: "Puerta del Apartamento Jade con su nombre en letras metálicas" }],
   },
   {
     id: "coral",
@@ -202,7 +202,7 @@ const apartamentos = [
     accesible: true,
     desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
     detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
-    fotos: [],
+    fotos: [{ src: "/images/puerta-coral.webp", alt: "Puerta del Apartamento Coral con su nombre en letras metálicas" }],
   },
 ];
 
