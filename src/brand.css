@@ -97,16 +97,17 @@
     color-mix(in oklab, var(--warm) 45%, var(--background));
 }
 
-/* Titular con relieve (letra grabada / letterpress): tinta oscura de la paleta, filo de luz justo debajo
-   de cada trazo, una sombra muy corta que le da volumen y un halo claro que lo despega del mapa. */
+/* Titular con relieve: filo de luz arriba-izquierda y un volumen de 3 px en tono petróleo claro detrás de
+   cada letra (como si estuviera en resalte), más una sombra suave y un halo claro que lo despega del mapa. */
 .title-relief {
   color: color-mix(in oklab, var(--foreground) 82%, black);
   text-shadow:
-    0 1px 0 rgb(255 255 255 / 0.95),
-    0 2px 0 rgb(255 255 255 / 0.55),
-    0 3px 5px color-mix(in oklab, var(--foreground) 22%, transparent),
-    0 0 26px color-mix(in oklab, var(--background) 96%, transparent),
-    0 0 8px color-mix(in oklab, var(--background) 90%, transparent);
+    -1px -1px 0 rgb(255 255 255 / 0.95),
+    1px 1px 0 color-mix(in oklab, var(--primary) 55%, white),
+    2px 2px 0 color-mix(in oklab, var(--primary) 45%, white),
+    3px 3px 0 color-mix(in oklab, var(--primary) 35%, white),
+    4px 5px 8px color-mix(in oklab, var(--foreground) 28%, transparent),
+    0 0 26px color-mix(in oklab, var(--background) 96%, transparent);
 }
 
 /* Halo suave detrás del texto del hero: mantiene legible el titular sobre el mapa */
