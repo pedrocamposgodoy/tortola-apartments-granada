@@ -489,17 +489,17 @@ function Index() {
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--terracota)]/40 bg-card px-4 py-1.5 text-sm font-semibold text-[var(--terracota)]">
               <Sparkles className="h-4 w-4" />
-              Grand Opening · Apertura prevista en diciembre 2026
+              Grand Opening · Apertura prevista en enero 2027
             </span>
           </div>
           <h1 className="title-relief mt-4 font-display text-[2.4rem] font-bold leading-[1.08] tracking-tight sm:mt-5 sm:text-6xl">
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-4 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">
-            Tres apartamentos independientes de 35 a 43 m², reformados y a punto de abrir.
+            Tres apartamentos independientes de 35 a 43 m², reformados.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-foreground/80 [text-shadow:0_0_10px_var(--background)]">
-            Todavía no hemos abierto: esperamos hacerlo en diciembre. Escríbenos a{" "}
+            Todavía no hemos abierto: esperamos hacerlo en enero. Escríbenos a{" "}
             <a href="mailto:reservas@apartamentostortola.com" className="font-semibold text-primary underline-offset-2 hover:underline">
               reservas@apartamentostortola.com
             </a>{" "}
