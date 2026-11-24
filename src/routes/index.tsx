@@ -499,7 +499,7 @@ function Index() {
             Tres apartamentos independientes de 35 a 43 m², totalmente nuevos y con todas las comodidades.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-foreground/80 [text-shadow:0_0_10px_var(--background)]">
-            Todavía no hemos abierto: esperamos hacerlo en enero. Escríbenos a{" "}
+            Escríbenos a{" "}
             <a href="mailto:reservas@apartamentostortola.com" className="font-semibold text-primary underline-offset-2 hover:underline">
               reservas@apartamentostortola.com
             </a>{" "}
@@ -507,7 +507,7 @@ function Index() {
             <a href={`tel:${EMPRESA.telefonoLink}`} className="font-semibold text-primary underline-offset-2 hover:underline">
               {EMPRESA.telefono}
             </a>{" "}
-            y te confirmaremos la disponibilidad cuando abramos.
+            y te confirmaremos la disponibilidad.
           </p>
           <p className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold text-foreground [text-shadow:0_0_10px_var(--background)] sm:text-base">
             <MapPin className="h-4 w-4 shrink-0 text-primary" />
