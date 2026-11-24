@@ -45,6 +45,7 @@ import { StickyCta } from "@/components/StickyCta";
 import { ConsultaFechas } from "@/components/ConsultaFechas";
 import jadeCocina from "@/assets/jade-cocina.jpg";
 import { ApartamentosGaleria } from "@/components/ApartamentosGaleria";
+import { MapaDistancias } from "@/components/MapaDistancias";
 const fachada = "/images/fachada.webp";
 
 /** Ruta visual: aeropuerto -> estación/metro/bus -> Tórtola 10 */
@@ -759,8 +760,12 @@ function Index() {
               ))}
               <div className="col-span-2 rounded-xl border border-border bg-card/90 p-5">
                 <dt className="font-display text-2xl text-primary">Excelente ubicación geográfica</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">
-                  A unos 115 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera: una buena base para recorrer Andalucía.
+                <dd className="mt-3">
+                  <MapaDistancias />
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    A unos 125 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera: una buena base para recorrer Andalucía.
+                    Muchos viajeros llegan por el aeropuerto de Málaga, a unos 145 km (cerca de 1 h 30 min en coche).
+                  </p>
                 </dd>
               </div>
             </dl>
