@@ -215,7 +215,7 @@ const servicios: { icon: LucideIcon; t: string; d: string; clase?: string }[] = 
   { icon: Wifi, t: "Wi-Fi de fibra", d: "Conexión rápida y estable, ideal para teletrabajo o streaming sin interrupciones.", clase: "lg:col-span-2" },
   { icon: UtensilsCrossed, t: "Cocina totalmente equipada", d: "Vitrocerámica, horno, microondas, nevera, menaje completo y todo lo necesario para cocinar.", clase: "lg:col-span-2" },
   { icon: BedDouble, t: "Ropa de cama y toallas", d: "Juego completo incluido, renovado en cada estancia.", clase: "lg:col-span-3" },
-  { icon: Tv, t: "Smart TV", d: "Televisión inteligente en el salón, con acceso a tus plataformas favoritas.", clase: "sm:col-span-2 lg:col-span-3" },
+  { icon: Tv, t: "Smart TV", d: "Con conexión a Internet: entra en Netflix y tus demás plataformas con tu propia cuenta.", clase: "sm:col-span-2 lg:col-span-3" },
 ];
 
 type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
