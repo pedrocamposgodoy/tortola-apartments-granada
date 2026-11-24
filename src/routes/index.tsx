@@ -543,7 +543,7 @@ function Index() {
               },
             ].map((b) => {
               const clase = b.principal
-                ? "group flex w-24 flex-col items-center gap-3 transition-transform hover:scale-105 sm:w-36"
+                ? "group flex w-24 flex-col items-center gap-3 pt-6 transition-transform hover:scale-105 sm:w-36 sm:pt-10"
                 : "group flex w-20 flex-col items-center gap-2 pt-6 opacity-95 transition-transform hover:scale-105 sm:w-36 sm:pt-10";
               const contenido = (
                 <>
