@@ -60,7 +60,7 @@ function RouteStrip() {
   ];
   const tramos = ["20 min en bus", "2 min a pie"];
   return (
-    <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center md:flex-row md:items-start md:justify-between md:pb-16">
+    <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center md:flex-row md:items-start md:justify-between md:pb-8">
       {nodos.map((n, i) => (
         <div key={n.t} className="contents">
           <div className="relative z-10 flex w-48 flex-col items-center text-center md:w-16 md:overflow-visible">
@@ -617,13 +617,13 @@ function Index() {
         </ul>
       </section>
 
-      <section id="apartamentos" className="bg-background py-20 sm:py-24">
+      <section id="apartamentos" className="bg-background py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
             Tres apartamentos, tres personalidades
           </p>
-          <h2 className="mt-3 text-center font-display text-5xl sm:text-6xl">Los apartamentos</h2>
-          <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+          <h2 className="mt-2 text-center font-display text-5xl sm:text-6xl">Los apartamentos</h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
             Los tres tienen la misma distribución, dormitorio independiente, techos de 3&nbsp;m y capacidad para 4 personas. Elige por luz, espacio, accesibilidad o si viajas con tu mascota.
           </p>
           <ApartamentosGaleria
@@ -635,7 +635,7 @@ function Index() {
 
       <TrackDivider />
 
-      <section id="ubicacion" className="relative overflow-hidden bg-pastel py-16">
+      <section id="ubicacion" className="relative overflow-hidden bg-pastel py-12">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6">
@@ -646,7 +646,7 @@ function Index() {
 
           <RouteStrip />
 
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div className="mt-2 grid gap-6 md:grid-cols-3">
             {hubConexiones.map(({ icon: Icon, t, d }) => (
               <div
                 key={t}
@@ -677,7 +677,7 @@ function Index() {
           </div>
 
           <div
-            className="mt-10 overflow-hidden rounded-3xl border border-border"
+            className="mt-8 overflow-hidden rounded-3xl border border-border"
             style={{ boxShadow: "var(--shadow-soft)" }}
           >
             <GoogleMapEmbed />
@@ -696,10 +696,10 @@ function Index() {
       </section>
 
       {bloquesDestacados.map((b, i) => (
-        <section key={b.titulo} className={i === 1 ? "bg-secondary/50 py-14" : "py-14"}>
+        <section key={b.titulo} className={i === 1 ? "bg-secondary/50 py-10" : "py-10"}>
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="text-center font-display text-4xl">{b.titulo}</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
               {b.tarjetas.map(({ icon: Icon, t, d }) => (
                 <div key={t} className="rounded-2xl border border-border bg-card p-6" style={{ boxShadow: "var(--shadow-soft)" }}>
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
@@ -710,7 +710,7 @@ function Index() {
                 </div>
               ))}
             </div>
-            <figure className="mx-auto mt-10 max-w-4xl">
+            <figure className="mx-auto mt-8 max-w-4xl">
               <img
                 src={jadeCocina}
                 alt="Entrada de un apartamento con puerta de cerradura digital y cocina equipada"
@@ -728,7 +728,7 @@ function Index() {
         </section>
       ))}
 
-      <section className="relative overflow-hidden bg-pastel py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-pastel py-12 sm:py-14">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
         <div className="relative mx-auto max-w-6xl px-6">
           <h2 className="text-center font-display text-4xl">
@@ -800,7 +800,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-14">
+      <section className="mx-auto max-w-6xl px-6 py-10">
         <h2 className="text-center font-display text-4xl">Todo incluido</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
           {servicios.map(({ icon: Icon, t, d, clase }) => (
@@ -823,21 +823,21 @@ function Index() {
 
       <TrackDivider />
 
-      <section className="relative overflow-hidden bg-pastel py-12">
+      <section className="relative overflow-hidden bg-pastel py-10">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             Estancias más largas
           </p>
           <h2 className="mt-3 font-display text-3xl">¿Vienes a Granada por más de un mes?</h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-3 text-muted-foreground">
             Aceptamos estancias de varias semanas o meses para quien viene a trabajar, estudiar o
             investigar: profesores visitantes, alumnos de máster, profesionales en prácticas en
             hospitales o en un proyecto. Cuéntanos tu caso y te respondemos por correo.
           </p>
           <Link
             to="/estancias-medias"
-            className="mx-auto mt-6 block max-w-md transition-transform hover:scale-[1.02]"
+            className="mx-auto mt-5 block max-w-md transition-transform hover:scale-[1.02]"
           >
             <img
               src="/images/banner-estancias.webp"
@@ -851,7 +851,9 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 bg-lattice py-16">
+      <TrackDivider />
+
+      <section className="bg-secondary/50 bg-lattice py-10">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-4xl">Quiénes somos</h2>
           <p className="mt-5 text-muted-foreground">
@@ -860,7 +862,9 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-18">
+      <TrackDivider />
+
+      <section className="mx-auto max-w-5xl px-6 py-12">
         <h2 className="text-center font-display text-4xl">Preguntas frecuentes</h2>
         <div className="mt-12 grid items-start gap-x-14 gap-y-10 md:grid-cols-2">
           {[
@@ -882,7 +886,7 @@ function Index() {
         </div>
       </section>
 
-      <section id="contacto" className="relative overflow-hidden bg-pastel py-20">
+      <section id="contacto" className="relative overflow-hidden bg-pastel py-14">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
         <div className="relative mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
           <div className="min-w-0">
@@ -936,7 +940,7 @@ function Index() {
 
       <StickyCta />
 
-      <footer className="border-t border-border py-10 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
         <img
           src="/images/logo-tortola.png"
           alt="Apartamentos Tórtola 10 · Granada"
