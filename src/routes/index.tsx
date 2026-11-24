@@ -180,8 +180,8 @@ const apartamentos = [
     colorFondo: "bg-slate-50",
     borde: "border-t-stone-300",
     accesible: false,
-    desc: "Salón-comedor luminoso con sofá cama, dormitorio independiente y cocina totalmente equipada.",
-    detalles: ["37 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
+    desc: "Salón-comedor luminoso con sofá cama y mucha luz natural.",
+    detalles: ["37 m²"],
     fotos: [{ src: "/images/puerta-perla.webp", alt: "Puerta del Apartamento Perla con su nombre en letras metálicas" }],
   },
   {
@@ -191,8 +191,8 @@ const apartamentos = [
     borde: "border-t-emerald-500",
     accesible: false,
     mascotas: true,
-    desc: "Compacto y acogedor, con salón-cocina de 21 m², dormitorio independiente y baño con ducha de obra. Es el apartamento que admite mascotas (perros y gatos).",
-    detalles: ["35 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
+    desc: "Compacto y acogedor, con salón-cocina de 21 m² y baño con ducha de obra. Es el apartamento que admite mascotas (perros y gatos).",
+    detalles: ["35 m²"],
     fotos: [{ src: "/images/puerta-jade.webp", alt: "Puerta del Apartamento Jade con su nombre en letras metálicas" }],
   },
   {
@@ -201,8 +201,8 @@ const apartamentos = [
     colorFondo: "bg-rose-50",
     borde: "border-t-rose-400",
     accesible: true,
-    desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio, baño espacioso y Smart TV. Adaptado para personas con movilidad reducida.",
-    detalles: ["43 m²", "4 plazas", "dormitorio independiente", "techos de 3 m"],
+    desc: "El más amplio y luminoso: dormitorio de casi 14 m² con cama de matrimonio y baño espacioso. Adaptado para personas con movilidad reducida.",
+    detalles: ["43 m²"],
     fotos: [{ src: "/images/puerta-coral.webp", alt: "Puerta del Apartamento Coral con su nombre en letras metálicas" }],
   },
 ];
@@ -220,19 +220,10 @@ type BloqueConexion = { icon: LucideIcon; t: string; d: Trayecto[] };
 
 const hubConexiones: BloqueConexion[] = [
   {
-    icon: Train,
-    t: "Llegada sin estrés",
-    d: [
-      { icon: Train, tiempo: "2 min", l: "Estación de Renfe (AVE) a pie" },
-      { icon: MapPin, tiempo: "2 min", l: "Parada de Metro a pie" },
-      { icon: CarTaxiFront, tiempo: "2 min", l: "Parada de taxis 24 h" },
-      { icon: Plane, tiempo: "20 min", l: "Aeropuerto en bus directo" },
-    ],
-  },
-  {
     icon: Landmark,
     t: "Granada a tu alcance",
     d: [
+      { icon: CarTaxiFront, tiempo: "2 min", l: "Parada de taxis 24 h a pie" },
       { icon: Building2, tiempo: "5 min", l: "Centro histórico en taxi" },
       { icon: Landmark, tiempo: "10 min", l: "Alhambra y Generalife en taxi" },
       { icon: GraduationCap, tiempo: "5 min", l: "Hospitales y campus universitario" },
@@ -598,11 +589,10 @@ function Index() {
       </section>
 
       <section aria-label="Ventajas principales" className="bg-primary text-primary-foreground">
-        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-6 py-8 text-center lg:grid-cols-4">
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-5 px-6 py-8 text-center lg:grid-cols-3 [&>li:last-child]:col-span-2 lg:[&>li:last-child]:col-span-1">
           {[
             { icon: Train, t: "2 min a pie", d: "de la estación AVE y el Metro" },
             { icon: Clock, t: "Check-in 24 h", d: "autónomo, sin recoger llaves" },
-            { icon: BedDouble, t: "35–43 m²", d: "con dormitorio independiente" },
             { icon: Heart, t: "+20 años", d: "alquilando en Granada, en familia" },
           ].map(({ icon: Icon, t, d }) => (
             <li key={t} className="flex flex-col items-center gap-1">
@@ -621,7 +611,7 @@ function Index() {
           </p>
           <h2 className="mt-3 text-center font-display text-5xl sm:text-6xl">Los apartamentos</h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-            Misma distribución y mismo equipamiento. Elige por luz, espacio, accesibilidad o si viajas con tu mascota.
+            Los tres tienen la misma distribución, dormitorio independiente, techos de 3&nbsp;m y capacidad para 4 personas. Elige por luz, espacio, accesibilidad o si viajas con tu mascota.
           </p>
           <ApartamentosGaleria
             apartamentos={apartamentos}
@@ -643,7 +633,7 @@ function Index() {
 
           <RouteStrip />
 
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div className="mx-auto mt-6 grid max-w-4xl gap-6 md:grid-cols-2">
             {hubConexiones.map(({ icon: Icon, t, d }) => (
               <div
                 key={t}
@@ -718,57 +708,50 @@ function Index() {
                 style={{ boxShadow: "var(--shadow-soft)" }}
               />
               <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-                Así es la entrada: puerta con cerradura digital, a pie de calle y sin escaleras.
+                Puerta con cerradura digital: abres con el código que te enviamos al móvil.
               </figcaption>
             </figure>
           </div>
         </section>
       ))}
 
-      <section className="relative overflow-hidden bg-pastel py-20">
+      <section className="relative overflow-hidden bg-pastel py-16 sm:py-20">
         <div aria-hidden="true" className="absolute inset-0 bg-lattice" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
-          <figure>
-            <img
-              src={fachada}
-              alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada"
-              className="w-full rounded-2xl border-8 border-white object-cover shadow-xl lg:-rotate-2"
-            />
-            <figcaption className="mt-4 text-center text-sm text-muted-foreground">
-              La entrada real: a pie de calle, sin escaleras.
-            </figcaption>
-          </figure>
-          <div>
-            <h2 className="font-display text-4xl">
-              <span translate="no" className="notranslate">Calle Tórtola 10</span>
-              , <span translate="no" className="notranslate">Granada</span>
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Un edificio reformado y tranquilo, con tres apartamentos independientes pensados para parejas, viajeros de negocios y estancias médicas.
-            </p>
-            <dl className="mt-8 grid grid-cols-2 gap-4">
-              {[
-                ["3", "Apartamentos"],
-                ["35–43 m²", "Superficie"],
-                ["4", "Huéspedes"],
-                ["1", "Dormitorio independiente"],
-              ].map(([n, l]) => (
-                <div key={l} className="rounded-xl border border-border bg-card/90 p-5">
-                  <dt className="font-display text-3xl text-primary">{n}</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">{l}</dd>
-                </div>
-              ))}
-              <div className="col-span-2 rounded-xl border border-border bg-card/90 p-5">
-                <dt className="font-display text-2xl text-primary">Excelente ubicación geográfica</dt>
-                <dd className="mt-3">
-                  <MapaDistancias />
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    A unos 125 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera: una buena base para recorrer Andalucía.
-                    Muchos viajeros llegan por el aeropuerto de Málaga, a unos 130 km, casi lo mismo que a la ciudad (cerca de 1 h 30 min en coche).
-                  </p>
-                </dd>
+        <div className="relative mx-auto max-w-6xl px-6">
+          <h2 className="text-center font-display text-4xl">
+            <span translate="no" className="notranslate">Calle Tórtola 10</span>
+            , <span translate="no" className="notranslate">Granada</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Fácil de reconocer, fácil de llegar y una buena base para recorrer Andalucía.
+          </p>
+
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <figure>
+              <img
+                src={fachada}
+                alt="Fachada real del edificio de apartamentos Tórtola 10 en Granada: ladrillo rojo y puerta oscura en el centro"
+                loading="lazy"
+                width={1600}
+                height={605}
+                className="aspect-[3/2] w-full rounded-2xl border-8 border-white object-cover object-center shadow-xl lg:-rotate-2"
+              />
+              <figcaption className="mt-5 text-center text-base text-foreground/80">
+                <strong className="font-semibold text-foreground">Así es la entrada:</strong> se entra directamente desde la calle,
+                sin escaleras. Fachada de ladrillo rojo con la puerta oscura en el centro.
+              </figcaption>
+            </figure>
+
+            <div className="rounded-2xl border border-border bg-card/90 p-5 sm:p-6" style={{ boxShadow: "var(--shadow-soft)" }}>
+              <h3 className="font-display text-2xl text-primary">Excelente ubicación geográfica</h3>
+              <div className="mt-4">
+                <MapaDistancias />
               </div>
-            </dl>
+              <p className="mt-4 text-sm text-muted-foreground">
+                A unos 125 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera.
+                Muchos viajeros llegan por el aeropuerto de Málaga, a unos 130 km, casi lo mismo que a la ciudad (cerca de 1 h 30 min en coche).
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -859,7 +842,7 @@ function Index() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-4xl">Quiénes somos</h2>
           <p className="mt-5 text-muted-foreground">
-            Somos una empresa familiar especializada en el alquiler de apartamentos en <span translate="no" className="notranslate">Granada</span> desde hace más de 20 años. Con Apartamentos Tórtola, seguimos ofreciendo la misma cercanía y atención de siempre, ahora también para estancias de corta y larga duración: turismo, opositores, estudiantes de MIR y acompañantes de pacientes en los hospitales cercanos.
+            Somos una empresa familiar especializada en el alquiler de apartamentos en <span translate="no" className="notranslate">Granada</span> desde hace más de 20 años. Con Apartamentos Tórtola mantenemos la misma cercanía y atención de siempre, para estancias cortas y largas.
           </p>
         </div>
       </section>
