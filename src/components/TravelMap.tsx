@@ -32,6 +32,60 @@ function Land({ k }: { k: string }) {
   );
 }
 
+
+/*
+ * Proyección del dibujo (calibrada con puntos reales de la silueta: Granada cae justo en el pin).
+ * Sirve para colocar ciudades por latitud y longitud sin tener que medir a ojo.
+ */
+const px = (lon: number) => 18.451 * lon + 427.43;
+const py = (lat: number) => 1426.69 - 1181.77 * Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+
+/* Ciudades de referencia para situar Granada. `lado` dice a qué lado de la marca va el nombre. */
+const CIUDADES: { nombre: string; lat: number; lon: number; lado: "izq" | "der" | "abajo"; dy?: number; soloEscritorio?: boolean }[] = [
+  { nombre: "Bilbao", lat: 43.26, lon: -2.93, lado: "der" },
+  { nombre: "Madrid", lat: 40.42, lon: -3.7, lado: "der" },
+  { nombre: "Barcelona", lat: 41.39, lon: 2.17, lado: "izq" },
+  { nombre: "Sevilla", lat: 37.39, lon: -5.98, lado: "izq" },
+  { nombre: "Málaga", lat: 36.72, lon: -4.42, lado: "izq" },
+  { nombre: "París", lat: 48.86, lon: 2.35, lado: "der", soloEscritorio: true },
+  { nombre: "Londres", lat: 51.51, lon: -0.13, lado: "izq", soloEscritorio: true },
+];
+
+/* En móvil los botones redondos tapan el norte de Europa: allí solo se dibujan las ciudades de España */
+function Ciudades({ movil }: { movil: boolean }) {
+  return (
+    <g opacity="0.8">
+      {CIUDADES.filter((c) => !(movil && c.soloEscritorio)).map((c) => {
+        const x = px(c.lon);
+        const y = py(c.lat);
+        const izq = c.lado === "izq";
+        const abajo = c.lado === "abajo";
+        return (
+          <g key={c.nombre} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)})`}>
+            <circle r="4.5" fill="var(--background)" strokeWidth="1.8" />
+            <circle r="1.8" fill="currentColor" stroke="none" />
+            <text
+              x={abajo ? 0 : izq ? -10 : 10}
+              y={abajo ? (c.dy ?? 26) : 5}
+              textAnchor={abajo ? "middle" : izq ? "end" : "start"}
+              className="notranslate"
+              fill="currentColor"
+              stroke="var(--background)"
+              strokeWidth="3.5"
+              strokeOpacity="0.75"
+              paintOrder="stroke"
+              fontSize="17"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+            >
+              {c.nombre}
+            </text>
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
 function Drawing({ k }: { k: string }) {
   return (
     <>
@@ -85,14 +139,17 @@ function Drawing({ k }: { k: string }) {
         <path d="M0 -16 q3 0 3 5 v8 l14 8 v4 l-14 -4 v8 l5 4 v3 l-8 -2 l-8 2 v-3 l5 -4 v-8 l-14 4 v-4 l14 -8 v-8 q0 -5 3 -5 z" />
       </g>
 
+      {/* Ciudades de referencia (se dibujan antes que el pin de Granada para que éste quede encima) */}
+      <Ciudades movil={k === "m"} />
+
       {/* Pin de destino: Granada */}
       <g transform="translate(360 600)" opacity="0.95">
         <path d="M0 0 C-14 -18 -22 -26 -22 -38 A22 22 0 1 1 22 -38 C22 -26 14 -18 0 0 Z" fill="var(--brand-sky)" strokeWidth="2.2" />
         <circle cx="0" cy="-38" r="8" fill="var(--background)" strokeWidth="2" />
         <text
-          x="0"
+          x="-4"
           y="28"
-          textAnchor="middle"
+          textAnchor="start"
           className="notranslate"
           fill="currentColor"
           stroke="none"
