@@ -74,17 +74,18 @@ function montes(): Monte[] {
   const out: Monte[] = [];
   for (const s of SIERRAS) {
     const pts = s.cresta.map(([lon, lat]) => [px(lon), py(lat)] as const);
-    const tramos = pts.slice(1).map(([x1, y1], i) => Math.hypot(x1 - pts[i][0], y1 - pts[i][1]));
+    const tramos = pts.slice(1).map(([x1, y1], i) => Math.hypot(x1 - pts[i]![0], y1 - pts[i]![1]));
     const total = tramos.reduce((a, b) => a + b, 0);
     const n = Math.max(1, Math.round(total / s.paso));
     for (let k = 0; k <= n; k++) {
       /* Punto a la distancia k/n a lo largo de la cresta */
       let d = (k / n) * total;
       let i = 0;
-      while (i < tramos.length - 1 && d > tramos[i]) d -= tramos[i++];
-      const t = tramos[i] ? d / tramos[i] : 0;
-      const [x0, y0] = pts[i];
-      const [x1, y1] = pts[i + 1];
+      while (i < tramos.length - 1 && d > tramos[i]!) d -= tramos[i++]!;
+      const largo = tramos[i] ?? 0;
+      const t = largo ? d / largo : 0;
+      const [x0, y0] = pts[i]!;
+      const [x1, y1] = pts[i + 1]!;
       const perfil = s.campana ? 0.55 + 0.6 * Math.sin((Math.PI * (k + 0.5)) / (n + 1)) : 1;
       const f = (0.8 + azar() * 0.4) * perfil;
       out.push({
