@@ -543,18 +543,18 @@ function Index() {
               },
             ].map((b) => {
               const clase = b.principal
-                ? "group flex w-36 flex-col items-center gap-3 transition-transform hover:scale-105 sm:w-60"
+                ? "group flex w-24 flex-col items-center gap-3 transition-transform hover:scale-105 sm:w-36"
                 : "group flex w-20 flex-col items-center gap-2 pt-6 opacity-95 transition-transform hover:scale-105 sm:w-36 sm:pt-10";
               const contenido = (
                 <>
                   <img
                     src={b.img}
                     alt={b.alt}
-                    width={b.principal ? 192 : 112}
-                    height={b.principal ? 192 : 112}
+                    width={112}
+                    height={112}
                     className={
                       b.principal
-                        ? "h-32 w-32 rounded-full bg-card shadow-2xl ring-4 ring-primary/70 sm:h-48 sm:w-48"
+                        ? "h-16 w-16 rounded-full bg-card shadow-2xl ring-4 ring-primary/70 sm:h-28 sm:w-28"
                         : "h-16 w-16 rounded-full bg-card shadow-md sm:h-28 sm:w-28"
                     }
                   />
