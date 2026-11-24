@@ -166,6 +166,7 @@ font[style],
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/cormorant-garamond-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Karla"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/karla-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Karla"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/karla-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Karla"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/karla-latin-600-normal.woff2") format("woff2"); }

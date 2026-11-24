@@ -492,7 +492,7 @@ function Index() {
               Grand Opening · Apertura prevista en diciembre 2026
             </span>
           </div>
-          <h1 className="title-relief mt-4 font-display text-4xl font-bold leading-tight sm:mt-5 text-foreground sm:text-5xl">
+          <h1 className="title-relief mt-4 font-display text-[2.4rem] font-bold leading-[1.08] tracking-tight sm:mt-5 sm:text-6xl">
             Apartamentos confortables en el mejor sitio para disfrutar de <span translate="no" className="notranslate">Granada</span>
           </h1>
           <h2 className="mx-auto mt-4 max-w-xl text-base font-medium text-foreground/85 [text-shadow:0_0_14px_var(--background),0_0_6px_var(--background)] sm:text-lg">

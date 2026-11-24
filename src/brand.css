@@ -97,14 +97,16 @@
     color-mix(in oklab, var(--warm) 45%, var(--background));
 }
 
-/* Titular con relieve (efecto grabado): luz arriba-izquierda, borde de sombra abajo-derecha y halo suave para despegarlo del mapa */
+/* Titular con relieve (letra grabada / letterpress): tinta oscura de la paleta, filo de luz justo debajo
+   de cada trazo, una sombra muy corta que le da volumen y un halo claro que lo despega del mapa. */
 .title-relief {
+  color: color-mix(in oklab, var(--foreground) 82%, black);
   text-shadow:
-    -1px -1px 0 rgb(255 255 255 / 0.95),
-    1px 1px 0 color-mix(in oklab, var(--foreground) 35%, transparent),
-    2px 2px 0 color-mix(in oklab, var(--foreground) 14%, transparent),
-    0 6px 10px color-mix(in oklab, var(--foreground) 18%, transparent),
-    0 0 24px color-mix(in oklab, var(--background) 95%, transparent);
+    0 1px 0 rgb(255 255 255 / 0.95),
+    0 2px 0 rgb(255 255 255 / 0.55),
+    0 3px 5px color-mix(in oklab, var(--foreground) 22%, transparent),
+    0 0 26px color-mix(in oklab, var(--background) 96%, transparent),
+    0 0 8px color-mix(in oklab, var(--background) 90%, transparent);
 }
 
 /* Halo suave detrás del texto del hero: mantiene legible el titular sobre el mapa */

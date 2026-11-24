@@ -103,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/karla-latin-400-normal.woff2", crossOrigin: "anonymous" },
       { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/cormorant-garamond-latin-600-normal.woff2", crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/cormorant-garamond-latin-700-normal.woff2", crossOrigin: "anonymous" },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
