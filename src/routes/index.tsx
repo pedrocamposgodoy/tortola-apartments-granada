@@ -764,7 +764,7 @@ function Index() {
                   <MapaDistancias />
                   <p className="mt-3 text-sm text-muted-foreground">
                     A unos 125 km de Málaga, 165 km de Córdoba y 250 km de Sevilla por carretera: una buena base para recorrer Andalucía.
-                    Muchos viajeros llegan por el aeropuerto de Málaga, a unos 145 km (cerca de 1 h 30 min en coche).
+                    Muchos viajeros llegan por el aeropuerto de Málaga, a unos 130 km, casi lo mismo que a la ciudad (cerca de 1 h 30 min en coche).
                   </p>
                 </dd>
               </div>

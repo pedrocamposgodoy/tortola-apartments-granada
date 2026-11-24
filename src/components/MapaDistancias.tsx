@@ -205,8 +205,8 @@ export function MapaDistancias() {
         </text>
         {/* Costas */}
         {[
-          { t: "Costa del Sol", x: px(-4.42) + 2, y: py(36.72) + 16.5, a: "end" },
-          { t: "Costa Tropical", x: px(-3.55), y: py(36.47), a: "start" },
+          { t: "Costa del Sol", x: px(-4.42) + 2, y: py(36.72) + 18, a: "end" },
+          { t: "Costa Tropical", x: px(-3.35), y: py(36.45) + 3.5, a: "start" },
         ].map((c) => (
           <text
             key={c.t}
@@ -237,6 +237,27 @@ export function MapaDistancias() {
         >
           Mar Mediterráneo
         </text>
+
+        {/* Almuñécar: pueblo de la Costa Tropical, en pequeño */}
+        <g transform={`translate(${px(-3.69).toFixed(1)} ${py(36.73).toFixed(1)})`}>
+          <circle r="1.5" fill="var(--background)" strokeWidth="0.8" />
+          <circle r="0.55" fill="currentColor" stroke="none" />
+          <text
+            x="0"
+            y="6"
+            textAnchor="middle"
+            className="notranslate"
+            fill="currentColor"
+            stroke="var(--background)"
+            strokeWidth="1.6"
+            strokeOpacity="0.8"
+            paintOrder="stroke"
+            fontSize="4.8"
+            style={FUENTE}
+          >
+            Almuñécar
+          </text>
+        </g>
 
         {/* Rutas desde Granada */}
         {DESTINOS.map((d) => (
