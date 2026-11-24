@@ -30,6 +30,9 @@ import {
   Tv,
   Mail,
   Phone,
+  Baby,
+  ShoppingCart,
+  Pill,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -219,6 +222,16 @@ type Trayecto = { icon: LucideIcon; tiempo?: string; l: string };
 type BloqueConexion = { icon: LucideIcon; t: string; d: Trayecto[] };
 
 const hubConexiones: BloqueConexion[] = [
+  {
+    icon: UtensilsCrossed,
+    t: "Un barrio con vida",
+    d: [
+      { icon: UtensilsCrossed, l: "Bares, restaurantes y pizzerías cerca" },
+      { icon: Baby, l: "Zona de ocio y parque de bolas para niños" },
+      { icon: ShoppingCart, l: "Supermercado cerca" },
+      { icon: Pill, l: "Farmacia cerca" },
+    ],
+  },
   {
     icon: Landmark,
     t: "Granada a tu alcance",
@@ -633,7 +646,7 @@ function Index() {
 
           <RouteStrip />
 
-          <div className="mx-auto mt-6 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
             {hubConexiones.map(({ icon: Icon, t, d }) => (
               <div
                 key={t}
